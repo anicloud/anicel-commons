@@ -5,16 +5,16 @@ import java.io.Serializable;
 /**
  * Created by zhaoyu on 15-12-9.
  */
-public abstract class Message implements Serializable {
+public abstract class OctopusMessage implements Serializable {
     private static final long serialVersionUID = 8363025765626817366L;
 
     private ResultCode resultCode;
     private String msg;
 
-    public Message() {
+    public OctopusMessage() {
     }
 
-    public Message(ResultCode resultCode, String msg) {
+    public OctopusMessage(ResultCode resultCode, String msg) {
         if (resultCode == null) {
             throw new IllegalArgumentException("resultCode cannot be null");
         }
@@ -60,7 +60,7 @@ public abstract class Message implements Serializable {
             return this.code;
         }
 
-        public static Message.ResultCode getResultCode(final int code) {
+        public static OctopusMessage.ResultCode getResultCode(final int code) {
             if (code >= 1000 && code <= 4000) {
                 switch (code) {
                     case 1000:

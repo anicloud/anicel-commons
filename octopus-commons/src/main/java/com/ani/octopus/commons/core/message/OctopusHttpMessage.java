@@ -3,17 +3,17 @@ package com.ani.octopus.commons.core.message;
 /**
  * Created by zhaoyu on 15-12-9.
  */
-public class HttpMessage<T> extends Message {
+public class OctopusHttpMessage<T> extends OctopusMessage {
     private T returnObj;
 
-    public HttpMessage() {
+    public OctopusHttpMessage() {
     }
 
-    public HttpMessage(T returnObj) {
+    public OctopusHttpMessage(T returnObj) {
         this.returnObj = returnObj;
     }
 
-    public HttpMessage(ResultCode resultCode, String msg, T returnObj) {
+    public OctopusHttpMessage(ResultCode resultCode, String msg, T returnObj) {
         super(resultCode, msg);
         this.returnObj = returnObj;
     }

@@ -1,12 +1,12 @@
 package com.ani.octopus.commons.accout.message;
 
 import com.ani.octopus.commons.accout.dto.AccountDto;
-import com.ani.octopus.commons.core.message.HttpMessage;
+import com.ani.octopus.commons.core.message.OctopusHttpMessage;
 
 /**
  * Created by zhaoyu on 15-12-9.
  */
-public class AccountHttpMessage extends HttpMessage<AccountDto> {
+public class AccountHttpMessage extends OctopusHttpMessage<AccountDto> {
     public AccountHttpMessage() {
     }
 
