@@ -9,7 +9,7 @@
 
     <name>octopus-commons</name>
     <url>http://maven.apache.org</url>
-    <description>anicel-commons project.</description>
+    <description>octopus-commons project.</description>
 
     <parent>
         <groupId>com.ani.octopus</groupId>
