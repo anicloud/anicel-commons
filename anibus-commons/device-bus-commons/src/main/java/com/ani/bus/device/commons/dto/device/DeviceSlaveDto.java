@@ -25,10 +25,14 @@ public class DeviceSlaveDto extends DeviceDto {
     @Override
     public void write(DataOutput out) throws IOException {
         super.write(out);
+        out.writeInt(deviceId);
+        out.writeLong(masterId);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
         super.read(in);
+        deviceId = in.readInt();
+        masterId = in.readLong();
     }
 }
