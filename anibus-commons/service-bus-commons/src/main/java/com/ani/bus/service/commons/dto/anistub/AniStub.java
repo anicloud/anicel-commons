@@ -4,6 +4,7 @@ import com.ani.bus.service.commons.message.SocketMessage;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -101,6 +102,8 @@ public class AniStub implements Serializable {
     public void setResultMsg(SocketMessage resultMsg) {
         this.resultMsg = resultMsg;
     }
+
+
 
     @Override
     public String toString() {

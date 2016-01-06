@@ -1,38 +1,41 @@
 package com.ani.bus.service.commons.dto.anistub;
 
 
+import java.io.Serializable;
+
 /**
  * Created by zhaoyu on 15-10-29.
  */
-public class ArgumentType {
-    public Type type;
+public class ArgumentType implements Serializable {
+    public AniDataType type;
     public ArgumentType componentType;
 
-    public enum Type {
-        BOOLEAN,
-        BYTE,
-        CHAR,
-        SHORT,
-        INTEGER,
-        LONG,
-        FLOAT,
-        DOUBLE,
-        STRING,
-        ARRAY
+    public ArgumentType() {
     }
 
-    public ArgumentType(Type type) {
+    public ArgumentType(AniDataType type) {
         this.type = type;
         this.componentType = null;
     }
 
-    public ArgumentType(Type type, ArgumentType componentType) {
+    public ArgumentType(AniDataType type, ArgumentType componentType) {
         this.type = type;
         this.componentType = componentType;
     }
 
-    public boolean isArray() {
-        return (type == Type.ARRAY);
+    public AniDataType getType() {
+        return type;
     }
 
+    public void setType(AniDataType type) {
+        this.type = type;
+    }
+
+    public ArgumentType getComponentType() {
+        return componentType;
+    }
+
+    public void setComponentType(ArgumentType componentType) {
+        this.componentType = componentType;
+    }
 }
