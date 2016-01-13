@@ -51,7 +51,7 @@ public class AniServiceRegisterDto implements Serializable {
     public AniServiceInfoDto aniServiceInfo;
 
     /**
-     * key is stub group id, value is stub id list
+     * key is objstub group id, value is objstub id list
      */
     public Map<Long, List<Integer>> stubMap;
     public String stubMapStr;
