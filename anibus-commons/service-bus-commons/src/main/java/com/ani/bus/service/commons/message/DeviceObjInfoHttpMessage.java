@@ -1,7 +1,7 @@
 package com.ani.bus.service.commons.message;
 
 import com.ani.bus.service.commons.core.message.HttpMessage;
-import com.ani.bus.service.commons.dto.anidevice.DeviceObjInfoDto;
+import com.ani.bus.service.commons.dto.anidevice.DeviceSlaveObjInfoDto;
 
 import java.util.List;
 
@@ -10,16 +10,16 @@ import java.util.List;
  * @date 16-3-2
  * @since JDK 1.7
  */
-public class DeviceObjInfoHttpMessage extends HttpMessage<List<DeviceObjInfoDto>> {
+public class DeviceObjInfoHttpMessage extends HttpMessage<List<DeviceSlaveObjInfoDto>> {
 
     public DeviceObjInfoHttpMessage() {
     }
 
-    public DeviceObjInfoHttpMessage(List<DeviceObjInfoDto> returnObj) {
+    public DeviceObjInfoHttpMessage(List<DeviceSlaveObjInfoDto> returnObj) {
         super(returnObj);
     }
 
-    public DeviceObjInfoHttpMessage(ResultCode resultCode, String msg, List<DeviceObjInfoDto> returnObj) {
+    public DeviceObjInfoHttpMessage(ResultCode resultCode, String msg, List<DeviceSlaveObjInfoDto> returnObj) {
         super(resultCode, msg, returnObj);
     }
 }
