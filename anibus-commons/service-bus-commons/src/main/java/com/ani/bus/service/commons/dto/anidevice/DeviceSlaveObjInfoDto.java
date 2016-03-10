@@ -1,39 +1,35 @@
 package com.ani.bus.service.commons.dto.anidevice;
 
-import com.ani.bus.service.commons.dto.anidevice.stub.StubMeta;
+import com.ani.octopus.commons.object.dto.object.ObjectSlaveInfoDto;
+import com.ani.octopus.commons.object.enumeration.AniObjectState;
+import com.ani.octopus.commons.object.enumeration.DataState;
+import com.ani.octopus.commons.stub.dto.StubDto;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @autor zhaoyu
  * @date 16-3-2
  * @since JDK 1.7
  */
-public class DeviceSlaveObjInfoDto extends DeviceInfoDto {
+public class DeviceSlaveObjInfoDto extends ObjectSlaveInfoDto {
     private static final long serialVersionUID = 6331836053396621328L;
 
-    public Integer objectSlaveId;
+    public String name;
+    public String description;
 
     public DeviceSlaveObjInfoDto() {
     }
 
-    public DeviceSlaveObjInfoDto(Integer objectSlaveId) {
-        this.objectSlaveId = objectSlaveId;
+    public DeviceSlaveObjInfoDto(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
-    public DeviceSlaveObjInfoDto(String name, String description,
-                                 DeviceObjState objState,
-                                 List<StubMeta> stubMetaList, Integer objectSlaveId) {
-        super(name, description, objState, stubMetaList);
-        this.objectSlaveId = objectSlaveId;
-    }
-
-    @Override
-    public String toString() {
-        return "DeviceSlaveObjInfoDto{" +
-                "objectSlaveId=" + objectSlaveId +
-                "} " + super.toString();
+    public DeviceSlaveObjInfoDto(String name, String description, List<StubDto> stubs,
+                                   DataState dataState, AniObjectState state, Integer objectSlaveId) {
+        super(stubs, dataState, state, objectSlaveId);
+        this.name = name;
+        this.description = description;
     }
 }
