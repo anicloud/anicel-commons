@@ -1,5 +1,7 @@
 package com.ani.octopus.commons.stub.dto;
 
+import com.ani.octopus.commons.stub.enumeration.PrivilegeType;
+import com.ani.octopus.commons.stub.enumeration.StubConnType;
 import com.ani.utils.dto.AniDto;
 
 import java.util.ArrayList;
@@ -15,6 +17,14 @@ public class StubDto extends AniDto{
 
     public Integer stubId;
 
+    public List<StubArgumentDto> inputArguments;
+
+    public List<StubArgumentDto> outputArguments;
+
+    public StubConnType connType;
+
+    public PrivilegeType privilegeType;
+
     public StubDto() {}
 
     public StubDto(Long stubGroupId, Integer stubId) {
@@ -22,7 +32,16 @@ public class StubDto extends AniDto{
         this.stubId = stubId;
     }
 
-//    public StubDto(Stub oneStub){
+    public StubDto(Long stubGroupId, Integer stubId, List<StubArgumentDto> inputArguments, List<StubArgumentDto> outputArguments, StubConnType connType, PrivilegeType privilegeType) {
+        this.stubGroupId = stubGroupId;
+        this.stubId = stubId;
+        this.inputArguments = inputArguments;
+        this.outputArguments = outputArguments;
+        this.connType = connType;
+        this.privilegeType = privilegeType;
+    }
+
+    //    public StubDto(Stub oneStub){
 //        this.stubGroupId = oneStub.group.groupId;
 //        this.stubId = oneStub.stubId;
 //    }
