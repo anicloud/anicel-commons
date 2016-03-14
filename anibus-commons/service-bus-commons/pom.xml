@@ -41,8 +41,8 @@
             <version>1.3.0</version>
         </dependency>-->
         <dependency>
-            <groupId>com.ani.octopus.stub</groupId>
-            <artifactId>stub-meta</artifactId>
+            <groupId>com.ani.octopus</groupId>
+            <artifactId>octopus-commons</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
