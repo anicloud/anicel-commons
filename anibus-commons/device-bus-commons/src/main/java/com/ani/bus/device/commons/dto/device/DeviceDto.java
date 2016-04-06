@@ -20,15 +20,20 @@ public class DeviceDto implements ByteSerializable {
 
     public List<FunctionDto> functions;
 
+    public String avatarUrl;
+    public List<String> tags;
+
     public DeviceDto() {
     }
 
-    public DeviceDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions) {
+    public DeviceDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<String> tags) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
         this.description = description;
         this.functions = functions;
+        this.avatarUrl = avatarUrl;
+        this.tags = tags;
     }
 
     @Override

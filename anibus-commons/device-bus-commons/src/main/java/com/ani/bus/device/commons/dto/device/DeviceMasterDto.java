@@ -21,8 +21,8 @@ public class DeviceMasterDto extends DeviceDto implements ByteSerializable {
     public DeviceMasterDto() {
     }
 
-    public DeviceMasterDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions, Long deviceId, List<DeviceSlaveDto> slaves, Long owner, List<Long> accountGroups) {
-        super(physicalId, physicalAddress, name, description, functions);
+    public DeviceMasterDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<String> tags, Long deviceId, List<DeviceSlaveDto> slaves, Long owner, List<Long> accountGroups) {
+        super(physicalId, physicalAddress, name, description, functions, avatarUrl, tags);
         this.deviceId = deviceId;
         this.slaves = slaves;
         this.owner = owner;

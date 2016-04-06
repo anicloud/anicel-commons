@@ -16,8 +16,8 @@ public class DeviceSlaveDto extends DeviceDto {
 
     }
 
-    public DeviceSlaveDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions, Integer deviceId, Long masterId) {
-        super(physicalId, physicalAddress, name, description, functions);
+    public DeviceSlaveDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<String> tags, Integer deviceId, Long masterId) {
+        super(physicalId, physicalAddress, name, description, functions, avatarUrl, tags);
         this.deviceId = deviceId;
         this.masterId = masterId;
     }
