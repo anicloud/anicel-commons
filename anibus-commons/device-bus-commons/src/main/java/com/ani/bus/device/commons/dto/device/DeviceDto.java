@@ -50,6 +50,15 @@ public class DeviceDto implements ByteSerializable {
                 functionDto.write(out);
             }
         }
+        MessageUtils.writeString(out, avatarUrl);
+        if (tags == null) {
+            out.writeInt(0);
+        } else {
+            out.writeInt(tags.size());
+            for (String tag : tags) {
+                MessageUtils.writeString(out, tag);
+            }
+        }
     }
 
     @Override
@@ -66,6 +75,14 @@ public class DeviceDto implements ByteSerializable {
                 FunctionDto functionDto = new FunctionDto();
                 functionDto.read(in);
                 functions.add(functionDto);
+            }
+        }
+        avatarUrl = MessageUtils.readString(in);
+        size = in.readInt();
+        if (size > 0) {
+            tags = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                tags.add(MessageUtils.readString(in));
             }
         }
     }
