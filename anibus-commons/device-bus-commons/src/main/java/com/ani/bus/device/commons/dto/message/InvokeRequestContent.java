@@ -8,13 +8,14 @@ import java.io.*;
 /**
  * Created by huangbin on 10/27/15.
  */
-public class ContentInvokeRequest extends MessageContent {
+public class InvokeRequestContent extends DeviceMessageContent {
+
     public FunctionInstance instance;
 
-    public ContentInvokeRequest() {
+    public InvokeRequestContent() {
     }
 
-    public ContentInvokeRequest(FunctionInstance instance) {
+    public InvokeRequestContent(FunctionInstance instance) {
         this.instance = instance;
     }
 

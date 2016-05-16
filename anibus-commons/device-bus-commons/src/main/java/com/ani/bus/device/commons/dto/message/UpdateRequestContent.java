@@ -9,13 +9,14 @@ import java.io.IOException;
 /**
  * Created by huangbin on 10/23/15.
  */
-public class ContentUpdateRequest extends MessageContent {
+public class UpdateRequestContent extends DeviceMessageContent {
+
     public DeviceMasterDto dto;
 
-    public ContentUpdateRequest() {
+    public UpdateRequestContent() {
     }
 
-    public ContentUpdateRequest(DeviceMasterDto dto) {
+    public UpdateRequestContent(DeviceMasterDto dto) {
         this.dto = dto;
     }
 

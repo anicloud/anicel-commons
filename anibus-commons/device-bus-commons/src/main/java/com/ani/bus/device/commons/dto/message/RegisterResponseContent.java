@@ -8,18 +8,18 @@ import java.io.IOException;
 /**
  * Created by huangbin on 10/23/15.
  */
-public class ContentRegisterResponse extends MessageContent {
+public class RegisterResponseContent extends DeviceMessageContent {
     public Boolean result;
 
     public Long deviceId;
 
     public byte[] token;
 
-    public ContentRegisterResponse() {
+    public RegisterResponseContent() {
 
     }
 
-    public ContentRegisterResponse(Boolean result, Long deviceId, byte[] token) {
+    public RegisterResponseContent(Boolean result, Long deviceId, byte[] token) {
         this.result = result;
         this.deviceId = deviceId;
         this.token = token;

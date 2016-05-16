@@ -3,7 +3,7 @@ package com.ani.bus.device.commons.dto.message;
 /**
  * Created by huangbin on 10/27/15.
  */
-public enum MessageType {
+public enum DeviceMessageType {
     REGISTER_REQUEST(0),
     REGISTER_RESPONSE(1),
     AUTH_REQUEST(2),
@@ -16,7 +16,7 @@ public enum MessageType {
 
     private Integer value;
 
-    MessageType(Integer value) {
+    DeviceMessageType(Integer value) {
         this.value = value;
     }
 
@@ -24,7 +24,7 @@ public enum MessageType {
         return value;
     }
 
-    public static MessageType getType(Integer value) {
+    public static DeviceMessageType getType(Integer value) {
         switch(value) {
             case 0:
                 return REGISTER_REQUEST;

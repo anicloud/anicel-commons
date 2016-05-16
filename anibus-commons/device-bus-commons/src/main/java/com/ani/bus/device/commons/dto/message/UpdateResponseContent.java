@@ -8,15 +8,16 @@ import java.io.*;
 /**
  * Created by huangbin on 10/23/15.
  */
-public class ContentUpdateResponse extends MessageContent {
+public class UpdateResponseContent extends DeviceMessageContent {
+
     public Boolean result;
 
     public DeviceMasterDto dto;
 
-    public ContentUpdateResponse() {
+    public UpdateResponseContent() {
     }
 
-    public ContentUpdateResponse(boolean result, DeviceMasterDto dto) {
+    public UpdateResponseContent(Boolean result, DeviceMasterDto dto) {
         this.result = result;
         this.dto = dto;
     }
