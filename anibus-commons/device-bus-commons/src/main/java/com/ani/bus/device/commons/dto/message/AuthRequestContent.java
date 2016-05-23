@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Created by huangbin on 10/23/15.
  */
-public class ContentAuthRequest extends MessageContent {
+public class AuthRequestContent extends DeviceMessageContent {
 
     public Long deviceId;
 
@@ -15,11 +15,11 @@ public class ContentAuthRequest extends MessageContent {
 
     public byte[] sign;
 
-    public ContentAuthRequest() {
+    public AuthRequestContent() {
 
     }
 
-    public ContentAuthRequest(Long deviceId, Long timestamp, byte[] sign) {
+    public AuthRequestContent(Long deviceId, Long timestamp, byte[] sign) {
         this.deviceId = deviceId;
         this.timestamp = timestamp;
         this.sign = sign;

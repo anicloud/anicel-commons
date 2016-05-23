@@ -10,14 +10,16 @@ import java.io.*;
 /**
  * Created by huangbin on 10/27/15.
  */
-public class ContentInvokeResponse extends MessageContent {
+public class InvokeResponseContent extends DeviceMessageContent {
+
     public Boolean result;
+
     public FunctionInstance instance;
 
-    public ContentInvokeResponse() {
+    public InvokeResponseContent() {
     }
 
-    public ContentInvokeResponse(Boolean result, FunctionInstance instance) {
+    public InvokeResponseContent(Boolean result, FunctionInstance instance) {
         this.result = result;
         this.instance = instance;
     }

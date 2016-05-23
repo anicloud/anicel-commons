@@ -1,7 +1,5 @@
-package com.ani.bus.device.commons.dto.device;
+package com.ani.bus.device.commons.dto.message;
 
-import com.ani.bus.device.commons.dto.message.ByteSerializable;
-import com.ani.bus.device.commons.dto.message.MessageUtils;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -10,30 +8,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangbin on 12/17/15.
+ * Created by huangbin on 10/23/15.
  */
-public class DeviceDto implements ByteSerializable {
+public class RegisterRequestContent extends DeviceMessageContent {
+
     public String physicalId;
+
     public String physicalAddress;
+
     public String name;
+
     public String description;
 
-    public List<FunctionDto> functions;
-
     public String avatarUrl;
+
     public List<String> tags;
 
-    public DeviceDto() {
+    public Long versionId;
+
+    public RegisterRequestContent() {
     }
 
-    public DeviceDto(String physicalId, String physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<String> tags) {
+    public RegisterRequestContent(String physicalId, String physicalAddress, String name, String description, String avatarUrl, List<String> tags, Long versionId) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
         this.description = description;
-        this.functions = functions;
         this.avatarUrl = avatarUrl;
         this.tags = tags;
+        this.versionId = versionId;
     }
 
     @Override
@@ -42,14 +45,6 @@ public class DeviceDto implements ByteSerializable {
         MessageUtils.writeString(out, physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        if (functions == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(functions.size());
-            for (FunctionDto functionDto : functions) {
-                functionDto.write(out);
-            }
-        }
         MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeInt(0);
@@ -59,6 +54,7 @@ public class DeviceDto implements ByteSerializable {
                 MessageUtils.writeString(out, tag);
             }
         }
+        out.writeLong(versionId);
     }
 
     @Override
@@ -67,23 +63,14 @@ public class DeviceDto implements ByteSerializable {
         physicalAddress = MessageUtils.readString(in);
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-
-        int size = in.readInt();
-        if (size > 0) {
-            functions = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                FunctionDto functionDto = new FunctionDto();
-                functionDto.read(in);
-                functions.add(functionDto);
-            }
-        }
         avatarUrl = MessageUtils.readString(in);
-        size = in.readInt();
+        int size = in.readInt();
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 tags.add(MessageUtils.readString(in));
             }
         }
+        versionId = in.readLong();
     }
 }

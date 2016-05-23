@@ -7,14 +7,14 @@ import java.io.IOException;
 /**
  * Created by huangbin on 10/18/15.
  */
-public class Message implements ByteSerializable {
-    public MessageType type;
-    public MessageContent content;
+public class DeviceMessage implements ByteSerializable {
+    public DeviceMessageType type;
+    public DeviceMessageContent content;
 
-    public Message() {
+    public DeviceMessage() {
     }
 
-    public Message(MessageType type, MessageContent content) {
+    public DeviceMessage(DeviceMessageType type, DeviceMessageContent content) {
         this.type = type;
         this.content = content;
     }
@@ -27,31 +27,31 @@ public class Message implements ByteSerializable {
 
     @Override
     public void read(DataInput in) throws IOException {
-        type = MessageType.getType((int) in.readShort());
+        type = DeviceMessageType.getType((int) in.readShort());
         switch (type) {
             case REGISTER_REQUEST:
-                content = new ContentRegisterRequest();
+                content = new RegisterRequestContent();
                 break;
             case REGISTER_RESPONSE:
-                content = new ContentRegisterResponse();
+                content = new RegisterResponseContent();
                 break;
             case AUTH_REQUEST:
-                content = new ContentAuthRequest();
+                content = new AuthRequestContent();
                 break;
             case AUTH_RESPONSE:
-                content = new ContentAuthResponse();
+                content = new AuthResponseContent();
                 break;
             case UPDATE_REQUEST:
-                content = new ContentUpdateRequest();
+                content = new UpdateRequestContent();
                 break;
             case UPDATE_RESPONSE:
-                content = new ContentUpdateResponse();
+                content = new UpdateResponseContent();
                 break;
             case INVOKE_REQUEST:
-                content = new ContentInvokeRequest();
+                content = new InvokeRequestContent();
                 break;
             case INVOKE_RESPONSE:
-                content = new ContentInvokeResponse();
+                content = new InvokeResponseContent();
                 break;
             default:
                 throw new IOException();
