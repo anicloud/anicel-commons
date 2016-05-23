@@ -6,5 +6,5 @@ package com.ani.octopus.commons.stub.enumeration;
 public enum PrivilegeType {
     READ,
     WRITE,
-    EXECUTE
+    EXECUTE;
 }

@@ -9,4 +9,11 @@ public enum AniObjectState {
     REMOVED;
 
     public static AniObjectState[] values = AniObjectState.values();
+
+    public byte getStateByte(){
+        return (byte)this.ordinal();
+    }
+    public byte[] getStateByteArr(){
+        return new byte[]{getStateByte()};
+    }
 }
