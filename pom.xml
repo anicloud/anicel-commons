@@ -10,7 +10,6 @@
     <modules>
         <module>anibus-commons</module>
         <module>octopus-commons</module>
-        <module>../ani-utils</module>
     </modules>
 
     <url>http://maven.apache.org</url>
