@@ -6,7 +6,7 @@
     <artifactId>bus-commons</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
-    <name>anibus-commons</name>
+    <name>bus-commons</name>
 
     <parent>
         <groupId>com.ani.octopus</groupId>

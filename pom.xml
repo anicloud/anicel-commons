@@ -8,7 +8,7 @@
     <version>1.0</version>
     <name>anicel-commons</name>
     <modules>
-        <module>anibus-commons</module>
+        <module>bus-commons</module>
         <module>octopus-commons</module>
     </modules>
 
