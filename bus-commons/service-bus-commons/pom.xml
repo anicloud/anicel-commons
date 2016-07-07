@@ -27,6 +27,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ani.utils</groupId>
+            <artifactId>ani-utils</artifactId>
+            <version>1.0</version>
+        </dependency>
         <!-- webscoket -->
         <!--<dependency>
             <groupId>javax</groupId>
