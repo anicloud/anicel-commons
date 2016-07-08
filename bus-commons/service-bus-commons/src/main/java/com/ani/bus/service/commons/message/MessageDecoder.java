@@ -2,6 +2,7 @@ package com.ani.bus.service.commons.message;
 
 import com.ani.bus.service.commons.message.callmessage.AniAccountCallMessage;
 import com.ani.bus.service.commons.message.callmessage.AniObjectCallMessage;
+import com.ani.bus.service.commons.message.callmessage.AniObjectMessage;
 import com.ani.bus.service.commons.message.callmessage.AniServiceCallMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,6 +35,9 @@ public class MessageDecoder implements Decoder.Text<SocketMessage> {
             }
             if (s != null && s.contains(MessageType.CALL_ANI_SERVICE.toString())) {
                 message = objectMapper.readValue(s, AniServiceCallMessage.class);
+            }
+            if (s != null && s.contains(MessageType.OBJECT_MESSAGE.toString())) {
+                message = objectMapper.readValue(s, AniObjectMessage.class);
             }
         } catch (IOException e) {
             e.printStackTrace();

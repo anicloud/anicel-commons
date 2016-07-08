@@ -11,6 +11,7 @@ import com.ani.bus.service.commons.message.SocketMessage;
 public class AniObjectCallMessage extends SocketMessage {
 
     private AniStub aniStub;
+
     private AniStubConnType connType;
 
     public AniObjectCallMessage() {
