@@ -9,7 +9,7 @@
     <name>bus-commons</name>
 
     <parent>
-        <groupId>com.ani.octopus</groupId>
+        <groupId>com.ani</groupId>
         <artifactId>anicel-commons</artifactId>
         <version>1.0</version>
     </parent>

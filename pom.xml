@@ -2,14 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ani.octopus</groupId>
+    <groupId>com.ani</groupId>
     <artifactId>anicel-commons</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <name>anicel-commons</name>
     <modules>
+        <module>earth-commons</module>
         <module>bus-commons</module>
         <module>octopus-commons</module>
+        <module>octopus-message</module>
     </modules>
 
     <url>http://maven.apache.org</url>
