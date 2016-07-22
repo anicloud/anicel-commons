@@ -16,22 +16,27 @@ public class AniObjectMessage extends SocketMessage {
 
     private Type objMsgType;
 
+    private Object objectInfo;
+
+
     public AniObjectMessage() {
         super(MessageType.OBJECT_MESSAGE);
     }
 
-    public AniObjectMessage(Long objectId, String description, Type objMsgType) {
+    public AniObjectMessage(Long objectId, String description, Type objMsgType,Object objectInfo) {
         super(MessageType.OBJECT_MESSAGE);
         this.objectId = objectId;
         this.description = description;
         this.objMsgType = objMsgType;
+        this.objectInfo = objectInfo;
     }
 
-    public AniObjectMessage(ResultCode resultCode, String msg, Long objectId, String description, Type objMsgType) {
+    public AniObjectMessage(ResultCode resultCode, String msg, Long objectId, String description, Type objMsgType, Object objectInfo) {
         super(resultCode, msg, MessageType.OBJECT_MESSAGE);
         this.objectId = objectId;
         this.description = description;
         this.objMsgType = objMsgType;
+        this.objectInfo = objectInfo;
     }
 
     public Long getObjectId() {
@@ -58,13 +63,22 @@ public class AniObjectMessage extends SocketMessage {
         this.objMsgType = objMsgType;
     }
 
+
+    public Object getObjectInfo() {
+        return objectInfo;
+    }
+    public void setObjectInfo(Object objectInfo) {
+        this.objectInfo = objectInfo;
+    }
+
     @Override
     public String toString() {
-        return "AniObjectCallMessage{" +
+        return "AniObjectMessage{" +
                 "objectId=" + objectId +
-                ", description=" + description +
+                ", description='" + description + '\'' +
                 ", objMsgType=" + objMsgType +
-                "} " + super.toString();
+                ", objectInfo=" + objectInfo +
+                '}';
     }
 
     public static enum Type {
