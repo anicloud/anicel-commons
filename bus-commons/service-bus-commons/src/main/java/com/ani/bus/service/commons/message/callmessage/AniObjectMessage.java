@@ -1,5 +1,6 @@
 package com.ani.bus.service.commons.message.callmessage;
 
+import com.ani.bus.service.commons.dto.anidevice.DeviceMasterObjInfoDto;
 import com.ani.bus.service.commons.dto.anistub.AniStub;
 import com.ani.bus.service.commons.dto.anistub.AniStubConnType;
 import com.ani.bus.service.commons.message.MessageType;
@@ -16,27 +17,27 @@ public class AniObjectMessage extends SocketMessage {
 
     private Type objMsgType;
 
-    private Object objectInfo;
+    private DeviceMasterObjInfoDto deviceMasterObjInfoDto;
 
 
     public AniObjectMessage() {
         super(MessageType.OBJECT_MESSAGE);
     }
 
-    public AniObjectMessage(Long objectId, String description, Type objMsgType,Object objectInfo) {
+    public AniObjectMessage(Long objectId, String description, Type objMsgType, DeviceMasterObjInfoDto deviceMasterObjInfoDto) {
         super(MessageType.OBJECT_MESSAGE);
         this.objectId = objectId;
         this.description = description;
         this.objMsgType = objMsgType;
-        this.objectInfo = objectInfo;
+        this.deviceMasterObjInfoDto = deviceMasterObjInfoDto;
     }
 
-    public AniObjectMessage(ResultCode resultCode, String msg, Long objectId, String description, Type objMsgType, Object objectInfo) {
+    public AniObjectMessage(ResultCode resultCode, String msg, Long objectId, String description, Type objMsgType, DeviceMasterObjInfoDto deviceMasterObjInfoDto) {
         super(resultCode, msg, MessageType.OBJECT_MESSAGE);
         this.objectId = objectId;
         this.description = description;
         this.objMsgType = objMsgType;
-        this.objectInfo = objectInfo;
+        this.deviceMasterObjInfoDto = deviceMasterObjInfoDto;
     }
 
     public Long getObjectId() {
@@ -64,12 +65,14 @@ public class AniObjectMessage extends SocketMessage {
     }
 
 
-    public Object getObjectInfo() {
-        return objectInfo;
+    public DeviceMasterObjInfoDto getDeviceMasterObjInfoDto() {
+        return deviceMasterObjInfoDto;
     }
-    public void setObjectInfo(Object objectInfo) {
-        this.objectInfo = objectInfo;
+
+    public void setDeviceMasterObjInfoDto(DeviceMasterObjInfoDto deviceMasterObjInfoDto) {
+        this.deviceMasterObjInfoDto = deviceMasterObjInfoDto;
     }
+
 
     @Override
     public String toString() {
@@ -77,7 +80,7 @@ public class AniObjectMessage extends SocketMessage {
                 "objectId=" + objectId +
                 ", description='" + description + '\'' +
                 ", objMsgType=" + objMsgType +
-                ", objectInfo=" + objectInfo +
+                ", deviceMasterObjInfoDto=" + deviceMasterObjInfoDto +
                 '}';
     }
 
