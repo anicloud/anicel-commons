@@ -24,35 +24,27 @@ public class DeviceMasterObjInfoDto implements Serializable {
     public String description;
 
     public List<StubDto> stubs;
-    public DataState dataState;
 
     public Long objectId;
-    public String uniId;
     public AccountDto owner;
     public AniObjectType objectType;
-    public List<ObjectMainPrivilegeDto> privileges;
-    public Map<AniByte, AniObjectState> hostsState;
+    public AniObjectState state;
     public List<DeviceSlaveObjInfoDto> slaves;
 
     public DeviceMasterObjInfoDto() {
     }
 
     public DeviceMasterObjInfoDto(String name, String description, List<StubDto> stubs,
-                                  DataState dataState, Long objectId, String uniId,
-                                  AccountDto owner, AniObjectType objectType,
-                                  List<ObjectMainPrivilegeDto> privileges,
-                                  Map<AniByte, AniObjectState> hostsState,
+                                  Long objectId, AccountDto owner,
+                                  AniObjectType objectType, AniObjectState state,
                                   List<DeviceSlaveObjInfoDto> slaves) {
         this.name = name;
         this.description = description;
         this.stubs = stubs;
-        this.dataState = dataState;
         this.objectId = objectId;
-        this.uniId = uniId;
         this.owner = owner;
         this.objectType = objectType;
-        this.privileges = privileges;
-        this.hostsState = hostsState;
+        this.state = state;
         this.slaves = slaves;
     }
 }
