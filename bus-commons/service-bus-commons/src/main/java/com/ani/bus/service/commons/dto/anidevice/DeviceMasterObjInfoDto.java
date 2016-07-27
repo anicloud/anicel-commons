@@ -1,6 +1,6 @@
 package com.ani.bus.service.commons.dto.anidevice;
 
-import com.ani.octopus.commons.accout.dto.AccountDto;
+import com.ani.earth.commons.dto.AccountDto;
 import com.ani.octopus.commons.object.dto.object.privilege.ObjectMainPrivilegeDto;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.object.enumeration.AniObjectType;
