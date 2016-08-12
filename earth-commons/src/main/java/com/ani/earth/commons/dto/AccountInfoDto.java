@@ -9,7 +9,6 @@ public class AccountInfoDto implements Serializable {
     private static final long serialVersionUID = 8160120708096274327L;
 
     public Long id;
-    public String phoneNumber;
     public String address;
     public String company;
     public String photoPath;
@@ -18,13 +17,12 @@ public class AccountInfoDto implements Serializable {
         super();
     }
 
-    public AccountInfoDto(String phoneNumber, String address, String company, String photoPath) {
-        this(null, phoneNumber, address, company, photoPath);
+    public AccountInfoDto(String address, String company, String photoPath) {
+        this(null, address, company, photoPath);
     }
 
-    public AccountInfoDto(Long id, String phoneNumber, String address, String company, String photoPath) {
+    public AccountInfoDto(Long id, String address, String company, String photoPath) {
         this.id = id;
-        this.phoneNumber = phoneNumber;
         this.address = address;
         this.company = company;
         this.photoPath = photoPath;
@@ -34,10 +32,9 @@ public class AccountInfoDto implements Serializable {
     public String toString() {
         return "AccountInfoDto{" +
                 "id=" + id +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", company='" + company + '\'' +
                 ", photoPath='" + photoPath + '\'' +
-                "} " + super.toString();
+                '}';
     }
 }

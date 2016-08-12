@@ -13,7 +13,7 @@ public class AccountRegisterDto implements Serializable {
     @NotNull
     @Size(min = 1, max = 100)
     public String screenName;
-    @NotNull
+
     @Size(min = 1, max = 100)
     public String email;
     @NotNull
@@ -22,8 +22,8 @@ public class AccountRegisterDto implements Serializable {
     @NotNull
     public AccountType accountType;
 
-    @Size(min = 7, max = 15)
-    public String phoneNumber;
+    @Size(min = 1, max = 100)
+    public AccountPhoneDto accountphoneDto;
     @Size(min = 1, max = 100)
     public String address;
     @Size(min = 1, max = 100)
@@ -35,13 +35,13 @@ public class AccountRegisterDto implements Serializable {
     }
 
     public AccountRegisterDto(String screenName, String email, String password,
-                              AccountType accountType, String phoneNumber,
+                              AccountType accountType, AccountPhoneDto accountPhoneDto,
                               String address, String company, String photoPath) {
         this.screenName = screenName;
         this.email = email;
         this.password = password;
         this.accountType = accountType;
-        this.phoneNumber = phoneNumber;
+        this.accountphoneDto = accountPhoneDto;
         this.address = address;
         this.company = company;
         this.photoPath = photoPath;
@@ -52,7 +52,6 @@ public class AccountRegisterDto implements Serializable {
             return null;
         }
         AccountInfoDto accountInfoDto = new AccountInfoDto(
-                registerDto.phoneNumber,
                 registerDto.address,
                 registerDto.company,
                 registerDto.photoPath
@@ -63,6 +62,7 @@ public class AccountRegisterDto implements Serializable {
                 registerDto.email,
                 registerDto.password,
                 registerDto.accountType,
+                registerDto.accountphoneDto,
                 accountInfoDto
         );
     }

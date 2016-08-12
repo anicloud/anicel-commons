@@ -20,8 +20,7 @@ public class AccountModifyDto implements Serializable {
     @NotNull
     public AccountType accountType;
 
-    @Size(min = 7, max = 15)
-    public String phoneNumber;
+    public AccountPhoneDto phoneNumber;
     @Size(min = 1, max = 100)
     public String address;
     @Size(min = 1, max = 100)
@@ -33,7 +32,7 @@ public class AccountModifyDto implements Serializable {
     }
 
     public AccountModifyDto(Long accountId, String screenName, AccountType accountType,
-                            String phoneNumber, String address, String company, String photoPath) {
+                            AccountPhoneDto phoneNumber, String address, String company, String photoPath) {
         this.accountId = accountId;
         this.screenName = screenName;
         this.accountType = accountType;
@@ -48,7 +47,6 @@ public class AccountModifyDto implements Serializable {
             return null;
         }
         AccountInfoDto accountInfoDto = new AccountInfoDto(
-                modifyDto.phoneNumber,
                 modifyDto.address,
                 modifyDto.company,
                 modifyDto.photoPath
@@ -59,6 +57,7 @@ public class AccountModifyDto implements Serializable {
                 null,
                 null,
                 modifyDto.accountType,
+                modifyDto.phoneNumber,
                 accountInfoDto
         );
     }

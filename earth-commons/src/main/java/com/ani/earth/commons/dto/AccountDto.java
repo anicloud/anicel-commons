@@ -26,6 +26,7 @@ public class AccountDto implements Serializable {
     public boolean credentialsNonExpired;
 
     public AccountInfoDto accountInfo;
+    public AccountPhoneDto accountPhoneDto;
     public Set<AccountGroupDto> groupSet;
 
     public AccountDto() {
@@ -35,12 +36,14 @@ public class AccountDto implements Serializable {
         this.accountId = accountId;
     }
 
-    public AccountDto(Long accountId, String screenName, String email, String password, AccountType accountType, AccountInfoDto accountInfo) {
+    public AccountDto(Long accountId, String screenName, String email, String password,
+                      AccountType accountType,AccountPhoneDto accountPhoneDto,AccountInfoDto accountInfo) {
         this.accountId = accountId;
         this.screenName = screenName;
         this.email = email;
         this.password = password;
         this.accountType = accountType;
+        this.accountPhoneDto = accountPhoneDto;
         this.accountInfo = accountInfo;
     }
 
@@ -48,6 +51,7 @@ public class AccountDto implements Serializable {
                       boolean enabled, Long registerDate, AccountType accountType,
                       boolean accountNonExpired, boolean accountNonLocked,
                       boolean credentialsNonExpired, AccountInfoDto accountInfo,
+                      AccountPhoneDto accountPhoneDto,
                       Set<AccountGroupDto> groupSet) {
         this.accountId = accountId;
         this.screenName = screenName;
@@ -60,6 +64,7 @@ public class AccountDto implements Serializable {
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
         this.accountInfo = accountInfo;
+        this.accountPhoneDto = accountPhoneDto;
         this.groupSet = groupSet;
     }
 
@@ -79,7 +84,7 @@ public class AccountDto implements Serializable {
     @Override
     public String toString() {
         return "AccountDto{" +
-                "accountId='" + accountId + '\'' +
+                "accountId=" + accountId +
                 ", screenName='" + screenName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
@@ -90,9 +95,8 @@ public class AccountDto implements Serializable {
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +
                 ", accountInfo=" + accountInfo +
+                ", accountPhoneDto=" + accountPhoneDto +
                 ", groupSet=" + groupSet +
-                "} " + super.toString();
+                '}';
     }
-
-
 }
