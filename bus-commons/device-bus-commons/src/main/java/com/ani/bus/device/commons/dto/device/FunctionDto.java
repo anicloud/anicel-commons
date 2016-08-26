@@ -10,8 +10,8 @@ import java.io.IOException;
  * Created by huangbin on 12/18/15.
  */
 public class FunctionDto implements ByteSerializable {
-    public Integer functionId;
-    public Long groupId;
+    private Integer functionId;
+    private Long groupId;
 
     public FunctionDto(Integer functionId, Long groupId) {
         this.functionId = functionId;
@@ -32,5 +32,21 @@ public class FunctionDto implements ByteSerializable {
     public void read(DataInput in) throws IOException {
         functionId = in.readInt();
         groupId = in.readLong();
+    }
+
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
+
+    public Integer getFunctionId() {
+        return functionId;
+    }
+
+    public void setFunctionId(Integer functionId) {
+        this.functionId = functionId;
     }
 }

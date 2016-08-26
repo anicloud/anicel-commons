@@ -12,7 +12,9 @@ public enum DeviceMessageType {
     UPDATE_RESPONSE(5),
     INVOKE_REQUEST(6),
     INVOKE_RESPONSE(7),
-    UNKNOWN(8);
+    INVOKE_SERVICE(8),
+    MASSAGE_HANDLE(9),
+    UNKNOWN(10);
 
     private Integer value;
 
@@ -42,6 +44,10 @@ public enum DeviceMessageType {
                 return INVOKE_REQUEST;
             case 7:
                 return INVOKE_RESPONSE;
+            case 8:
+                return INVOKE_SERVICE;
+            case 9:
+                return MASSAGE_HANDLE;
             default:
                 return UNKNOWN;
         }

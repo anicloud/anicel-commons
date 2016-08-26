@@ -53,6 +53,8 @@ public class DeviceMessage implements ByteSerializable {
             case INVOKE_RESPONSE:
                 content = new InvokeResponseContent();
                 break;
+            case MASSAGE_HANDLE:
+                content = new HandleMessageContent();
             default:
                 throw new IOException();
         }
