@@ -15,6 +15,30 @@ public class AccountPhoneDto implements Serializable {
     public AccountPhoneDto() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public NationalcodeEnum getRegion() {
+        return region;
+    }
+
+    public void setRegion(NationalcodeEnum region) {
+        this.region = region;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public AccountPhoneDto(Long id, NationalcodeEnum region, String phoneNumber) {
         this.id = id;
         this.region = region;

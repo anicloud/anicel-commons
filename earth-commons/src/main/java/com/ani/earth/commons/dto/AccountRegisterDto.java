@@ -22,7 +22,6 @@ public class AccountRegisterDto implements Serializable {
     @NotNull
     public AccountType accountType;
 
-    @Size(min = 1, max = 100)
     public AccountPhoneDto accountphoneDto;
     @Size(min = 1, max = 100)
     public String address;
@@ -44,6 +43,74 @@ public class AccountRegisterDto implements Serializable {
         this.accountphoneDto = accountPhoneDto;
         this.address = address;
         this.company = company;
+        this.photoPath = photoPath;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getScreenName() {
+        return screenName;
+    }
+
+    public void setScreenName(String screenName) {
+        this.screenName = screenName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+
+    public AccountPhoneDto getAccountphoneDto() {
+        return accountphoneDto;
+    }
+
+    public void setAccountphoneDto(AccountPhoneDto accountphoneDto) {
+        this.accountphoneDto = accountphoneDto;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
     }
 
