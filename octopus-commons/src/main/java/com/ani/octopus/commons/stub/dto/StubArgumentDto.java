@@ -1,11 +1,12 @@
 package com.ani.octopus.commons.stub.dto;
 
 import com.ani.octopus.commons.stub.type.DataType;
+import com.ani.utils.dto.AniDto;
 
 /**
  * Created by yeh on 3/14/16.
  */
-public class StubArgumentDto {
+public class StubArgumentDto extends AniDto{
 
     public DataType dataType;
 
