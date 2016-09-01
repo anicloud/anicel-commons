@@ -1,16 +1,11 @@
 package com.ani.bus.service.commons.dto.anidevice;
 
+import com.ani.bus.service.commons.dto.anidevice.stub.StubMeta;
 import com.ani.earth.commons.dto.AccountDto;
-import com.ani.octopus.commons.object.dto.object.privilege.ObjectMainPrivilegeDto;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
-import com.ani.octopus.commons.object.enumeration.AniObjectType;
-import com.ani.octopus.commons.object.enumeration.DataState;
-import com.ani.octopus.commons.stub.dto.StubDto;
-import com.ani.utils.core.AniByte;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @autor zhaoyu
@@ -23,27 +18,25 @@ public class DeviceMasterObjInfoDto implements Serializable {
     public String name;
     public String description;
 
-    public List<StubDto> stubs;
+    public List<StubMeta> stubs;
 
     public Long objectId;
     public AccountDto owner;
-    public AniObjectType objectType;
     public AniObjectState state;
     public List<DeviceSlaveObjInfoDto> slaves;
 
     public DeviceMasterObjInfoDto() {
     }
 
-    public DeviceMasterObjInfoDto(String name, String description, List<StubDto> stubs,
+    public DeviceMasterObjInfoDto(String name, String description, List<StubMeta> stubs,
                                   Long objectId, AccountDto owner,
-                                  AniObjectType objectType, AniObjectState state,
+                                  AniObjectState state,
                                   List<DeviceSlaveObjInfoDto> slaves) {
         this.name = name;
         this.description = description;
         this.stubs = stubs;
         this.objectId = objectId;
         this.owner = owner;
-        this.objectType = objectType;
         this.state = state;
         this.slaves = slaves;
     }

@@ -14,13 +14,13 @@ import java.util.Objects;
 public class StubGroup implements Serializable {
     private static final long serialVersionUID = 4026107055349990977L;
 
-    public Integer groupId;
+    public Long groupId;
     public String name;
 
     public StubGroup() {
     }
 
-    public StubGroup(Integer groupId, String name) {
+    public StubGroup(Long groupId, String name) {
         this.groupId = groupId;
         this.name = name;
     }
