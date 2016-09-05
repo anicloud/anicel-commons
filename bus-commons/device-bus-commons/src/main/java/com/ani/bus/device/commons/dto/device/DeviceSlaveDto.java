@@ -48,14 +48,6 @@ public class DeviceSlaveDto implements ByteSerializable {
         MessageUtils.writeString(out, physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        if (functions == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(functions.size());
-            for (FunctionDto functionDto : functions) {
-                functionDto.write(out);
-            }
-        }
         MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeInt(0);
@@ -67,6 +59,14 @@ public class DeviceSlaveDto implements ByteSerializable {
         }
         out.writeInt(deviceId);
         out.writeLong(masterId);
+        if (functions == null) {
+            out.writeInt(0);
+        } else {
+            out.writeInt(functions.size());
+            for (FunctionDto functionDto : functions) {
+                functionDto.write(out);
+            }
+        }
     }
 
     @Override
@@ -75,18 +75,8 @@ public class DeviceSlaveDto implements ByteSerializable {
         physicalAddress = MessageUtils.readString(in);
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-
-        int size = in.readInt();
-        if (size > 0) {
-            functions = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                FunctionDto functionDto = new FunctionDto();
-                functionDto.read(in);
-                functions.add(functionDto);
-            }
-        }
         avatarUrl = MessageUtils.readString(in);
-        size = in.readInt();
+        int size = in.readInt();
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
@@ -95,5 +85,15 @@ public class DeviceSlaveDto implements ByteSerializable {
         }
         deviceId = in.readInt();
         masterId = in.readLong();
+
+        size = in.readInt();
+        if (size > 0) {
+            functions = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                FunctionDto functionDto = new FunctionDto();
+                functionDto.read(in);
+                functions.add(functionDto);
+            }
+        }
     }
 }

@@ -57,14 +57,6 @@ public class DeviceMasterDto implements ByteSerializable {
         MessageUtils.writeString(out, physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        if (functions == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(functions.size());
-            for (FunctionDto functionDto : functions) {
-                functionDto.write(out);
-            }
-        }
         MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeInt(0);
@@ -74,15 +66,8 @@ public class DeviceMasterDto implements ByteSerializable {
                 MessageUtils.writeString(out, tag);
             }
         }
+        out.writeLong(versionId);
         out.writeLong(deviceId);
-        if (slaves == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(slaves.size());
-            for (DeviceSlaveDto slaveDto : slaves) {
-                slaveDto.write(out);
-            }
-        }
         out.writeLong(owner);
         if (accountGroups == null) {
             out.writeInt(0);
@@ -92,9 +77,24 @@ public class DeviceMasterDto implements ByteSerializable {
                 out.writeLong(group);
             }
         }
-        out.writeLong(versionId);
+        if (functions == null) {
+            out.writeInt(0);
+        } else {
+            out.writeInt(functions.size());
+            for (FunctionDto functionDto : functions) {
+                functionDto.write(out);
+            }
+        }
+        if (slaves == null) {
+            out.writeInt(0);
+        } else {
+            out.writeInt(slaves.size());
+            for (DeviceSlaveDto slaveDto : slaves) {
+                slaveDto.write(out);
+            }
+        }
         out.writeLong(lastModifiedTime);
-    }
+   }
 
     @Override
     public void read(DataInput in) throws IOException {
@@ -102,7 +102,25 @@ public class DeviceMasterDto implements ByteSerializable {
         physicalAddress = MessageUtils.readString(in);
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
+        avatarUrl = MessageUtils.readString(in);
         int size = in.readInt();
+        if (size > 0) {
+            tags = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                tags.add(MessageUtils.readString(in));
+            }
+        }
+        versionId = in.readLong();
+        deviceId = in.readLong();
+        owner = in.readLong();
+        size = in.readInt();
+        if (size > 0) {
+            accountGroups = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                accountGroups.add(in.readLong());
+            }
+        }
+        size = in.readInt();
         if (size > 0) {
             functions = new ArrayList<>();
             for (int i = 0; i < size; i++) {
@@ -111,15 +129,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 functions.add(functionDto);
             }
         }
-        avatarUrl = MessageUtils.readString(in);
-        size = in.readInt();
-        if (size > 0) {
-            tags = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                tags.add(MessageUtils.readString(in));
-            }
-        }
-        deviceId = in.readLong();
         size = in.readInt();
         if (size > 0) {
             slaves = new ArrayList<>();
@@ -129,15 +138,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 slaves.add(slave);
             }
         }
-        owner = in.readLong();
-        size = in.readInt();
-        if (size > 0) {
-            accountGroups = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                accountGroups.add(in.readLong());
-            }
-        }
-        versionId = in.readLong();
         lastModifiedTime = in.readLong();
     }
 }
