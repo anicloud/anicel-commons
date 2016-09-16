@@ -39,6 +39,11 @@ public class AccountPhoneDto implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    public AccountPhoneDto(NationalcodeEnum region, String phoneNumber) {
+        this.region = region;
+        this.phoneNumber = phoneNumber;
+    }
+
     public AccountPhoneDto(Long id, NationalcodeEnum region, String phoneNumber) {
         this.id = id;
         this.region = region;
