@@ -15,6 +15,12 @@ public class ObjectSlaveInfoDto extends ObjectInfoDto {
 
     public Integer objectSlaveId;
 
+    private ObjectMainInfoDto slaveMain;
+
+    public ObjectMainInfoDto getSlaveMain() {
+        return this.slaveMain;
+    }
+
     public ObjectSlaveInfoDto() {
     }
 
@@ -22,6 +28,13 @@ public class ObjectSlaveInfoDto extends ObjectInfoDto {
         super(stubs, dataState);
         this.state = state;
         this.objectSlaveId = objectSlaveId;
+    }
+
+    public ObjectSlaveInfoDto(List<StubDto> stubs, DataState dataState, AniObjectState state, Integer objectSlaveId, ObjectMainInfoDto mainInfoDto) {
+        super(stubs, dataState);
+        this.state = state;
+        this.objectSlaveId = objectSlaveId;
+        this.slaveMain = mainInfoDto;
     }
 
 }

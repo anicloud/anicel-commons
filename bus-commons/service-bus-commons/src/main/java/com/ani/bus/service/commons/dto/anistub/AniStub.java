@@ -19,6 +19,7 @@ public class AniStub implements Serializable {
 
     @NotNull
     private Long targetObjectId;
+    private Integer slaveId;
     @NotNull
     private Long accountId;
     @NotNull
@@ -34,9 +35,10 @@ public class AniStub implements Serializable {
     public AniStub() {
     }
 
-    public AniStub(Long targetObjectId, Long accountId, Long groupId,
+    public AniStub(Long targetObjectId, Integer slaveId, Long accountId, Long groupId,
                    Integer stubId, List<Argument> inputValues) {
         this.targetObjectId = targetObjectId;
+        this.slaveId = slaveId;
         this.accountId = accountId;
         this.groupId = groupId;
         this.stubId = stubId;
@@ -93,6 +95,14 @@ public class AniStub implements Serializable {
 
     public void setTargetObjectId(Long targetObjectId) {
         this.targetObjectId = targetObjectId;
+    }
+
+    public Integer getSlaveId() {
+        return slaveId;
+    }
+
+    public void setSlaveId(Integer slaveId) {
+        this.slaveId = slaveId;
     }
 
     public SocketMessage getResultMsg() {
