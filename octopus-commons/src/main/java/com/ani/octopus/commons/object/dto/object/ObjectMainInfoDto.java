@@ -16,6 +16,7 @@ import java.util.Map;
  */
 public class ObjectMainInfoDto extends ObjectInfoDto {
 
+    private static final long serialVersionUID = -4427768507587282409L;
     public Long objectId;
 
     public String uniId;

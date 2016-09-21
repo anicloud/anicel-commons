@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class ObjectSlaveInfoDto extends ObjectInfoDto {
 
+    private static final long serialVersionUID = 5327411969701236213L;
     public AniObjectState state;
 
     public Integer objectSlaveId;
