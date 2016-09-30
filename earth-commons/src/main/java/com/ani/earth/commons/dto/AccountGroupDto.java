@@ -49,9 +49,6 @@ public class AccountGroupDto implements Serializable {
                 ", groupName='" + groupName + '\'' +
                 ", groupType=" + groupType +
                 ", owner=" + owner +
-                ", accounts=" + accounts +
-                "} " + super.toString();
+                '}';
     }
-
-
 }

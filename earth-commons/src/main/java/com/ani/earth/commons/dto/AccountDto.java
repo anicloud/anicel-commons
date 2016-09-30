@@ -96,7 +96,6 @@ public class AccountDto implements Serializable {
                 ", credentialsNonExpired=" + credentialsNonExpired +
                 ", accountInfo=" + accountInfo +
                 ", accountPhoneDto=" + accountPhoneDto +
-                ", groupSet=" + groupSet +
                 '}';
     }
 }
