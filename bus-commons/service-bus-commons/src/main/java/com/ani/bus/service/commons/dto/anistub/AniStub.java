@@ -45,6 +45,15 @@ public class AniStub implements Serializable {
         this.inputValues = inputValues;
     }
 
+    public AniStub(Long targetObjectId, Long accountId, Long groupId,
+                   Integer stubId, List<Argument> inputValues) {
+        this.targetObjectId = targetObjectId;
+        this.accountId = accountId;
+        this.groupId = groupId;
+        this.stubId = stubId;
+        this.inputValues = inputValues;
+    }
+
     public Long getAccountId() {
         return accountId;
     }

@@ -2,6 +2,7 @@ package com.ani.bus.service.commons.dto.privilege;
 
 import com.ani.octopus.commons.stub.enumeration.PrivilegeType;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,9 +15,13 @@ import java.util.Set;
 public class PrivilegeGrantSameDto implements Serializable {
     private static final long serialVersionUID = -4627180708029858360L;
 
+    @NotNull
     public Long accountId;
+    @NotNull
     public List<Long> objects;
+    @NotNull
     public Long accountGroupId;
+    @NotNull
     public Set<PrivilegeType> privileges;
 
     public PrivilegeGrantSameDto() {
