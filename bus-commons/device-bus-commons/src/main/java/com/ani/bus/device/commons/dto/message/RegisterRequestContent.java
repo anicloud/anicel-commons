@@ -26,10 +26,13 @@ public class RegisterRequestContent extends DeviceMessageContent {
 
     public Long versionId;
 
+    public Long deviceId;
+
     public RegisterRequestContent() {
     }
 
-    public RegisterRequestContent(String physicalId, String physicalAddress, String name, String description, String avatarUrl, List<String> tags, Long versionId) {
+    public RegisterRequestContent(Long deviceId, String physicalId, String physicalAddress, String name, String description, String avatarUrl, List<String> tags, Long versionId) {
+        this.deviceId = deviceId;
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
@@ -41,6 +44,7 @@ public class RegisterRequestContent extends DeviceMessageContent {
 
     @Override
     public void write(DataOutput out) throws IOException {
+        out.writeLong(deviceId);
         MessageUtils.writeString(out, physicalId);
         MessageUtils.writeString(out, physicalAddress);
         MessageUtils.writeString(out, name);
@@ -59,6 +63,7 @@ public class RegisterRequestContent extends DeviceMessageContent {
 
     @Override
     public void read(DataInput in) throws IOException {
+        deviceId = in.readLong();
         physicalId = MessageUtils.readString(in);
         physicalAddress = MessageUtils.readString(in);
         name = MessageUtils.readString(in);
