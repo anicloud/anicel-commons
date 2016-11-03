@@ -27,12 +27,27 @@ public class AniStub implements Serializable {
     @NotNull
     private Integer stubId;
 
+    private Long fromObjectId;
+    private Integer fromslaveId;
+
     private List<Argument> inputValues;
     private List<Argument> outputValues;
 
     private SocketMessage resultMsg;
 
     public AniStub() {
+    }
+
+    public AniStub(Long targetObjectId, Integer slaveId,Long fromObjectId, Integer fromslaveId, Long accountId, Long groupId,
+                   Integer stubId, List<Argument> inputValues) {
+        this.targetObjectId = targetObjectId;
+        this.slaveId = slaveId;
+        this.fromObjectId = fromObjectId;
+        this.fromslaveId = fromslaveId;
+        this.accountId = accountId;
+        this.groupId = groupId;
+        this.stubId = stubId;
+        this.inputValues = inputValues;
     }
 
     public AniStub(Long targetObjectId, Integer slaveId, Long accountId, Long groupId,
