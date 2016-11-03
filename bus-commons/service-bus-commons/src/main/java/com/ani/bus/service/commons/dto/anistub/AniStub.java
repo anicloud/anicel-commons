@@ -137,6 +137,21 @@ public class AniStub implements Serializable {
         this.resultMsg = resultMsg;
     }
 
+    public Long getFromObjectId() {
+        return fromObjectId;
+    }
+
+    public void setFromObjectId(Long fromObjectId) {
+        this.fromObjectId = fromObjectId;
+    }
+
+    public Integer getFromslaveId() {
+        return fromslaveId;
+    }
+
+    public void setFromslaveId(Integer fromslaveId) {
+        this.fromslaveId = fromslaveId;
+    }
 
 
     @Override
