@@ -13,7 +13,7 @@ public enum DeviceMessageType {
     INVOKE_REQUEST(6),
     INVOKE_RESPONSE(7),
     INVOKE_SERVICE(8),
-    MASSAGE_HANDLE(9),
+    GETTIME_SERVICE(9),
     UNKNOWN(10);
 
     private Integer value;
@@ -27,7 +27,7 @@ public enum DeviceMessageType {
     }
 
     public static DeviceMessageType getType(Integer value) {
-        switch(value) {
+        switch (value) {
             case 0:
                 return REGISTER_REQUEST;
             case 1:
@@ -47,7 +47,7 @@ public enum DeviceMessageType {
             case 8:
                 return INVOKE_SERVICE;
             case 9:
-                return MASSAGE_HANDLE;
+                return GETTIME_SERVICE;
             default:
                 return UNKNOWN;
         }
