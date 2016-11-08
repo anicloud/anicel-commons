@@ -6,25 +6,19 @@ import java.io.IOException;
 
 /**
  * Created by zsl on 16-8-22.
+ * Modified by xuben on 16-11-8
  */
-public class GetTimeContent extends DeviceMessageContent {
-    public Long systemtime;
+public class TimeSyncRequestContent extends DeviceMessageContent {
 
-    public GetTimeContent() {
-
+    public TimeSyncRequestContent() {
     }
 
-    public GetTimeContent(Long time) {
-        this.systemtime = time;
-    }
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeLong(systemtime);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        systemtime = in.readLong();
     }
 }

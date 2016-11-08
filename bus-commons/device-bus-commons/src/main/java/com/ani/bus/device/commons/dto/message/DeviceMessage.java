@@ -4,8 +4,11 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
+import static com.ani.bus.device.commons.dto.message.DeviceMessageType.TIME_SYNC_REQUEST;
+
 /**
  * Created by huangbin on 10/18/15.
+ * Modified by xuben on 11/08/15
  */
 public class DeviceMessage implements ByteSerializable {
     public DeviceMessageType type;
@@ -53,8 +56,10 @@ public class DeviceMessage implements ByteSerializable {
             case INVOKE_RESPONSE:
                 content = new InvokeResponseContent();
                 break;
-            case GETTIME_SERVICE:
-                content = new GetTimeContent();
+            case TIME_SYNC_REQUEST:
+                content = new TimeSyncRequestContent();
+            case TIME_SYNC_RESPONSE:
+                content = new TimeSyncResponseContent();
             default:
                 throw new IOException();
         }
