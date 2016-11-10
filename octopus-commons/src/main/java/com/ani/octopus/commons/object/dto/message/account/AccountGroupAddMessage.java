@@ -1,7 +1,7 @@
 package com.ani.octopus.commons.object.dto.message.account;
 
-import com.ani.octopus.commons.object.dto.message.ObjectMessage;
 import com.ani.octopus.commons.object.dto.object.ObjectQueryDto;
+import com.ani.octopus.commons.object.message.ObjectMessage;
 
 /**
  * Created by huangbin on 1/20/16.
