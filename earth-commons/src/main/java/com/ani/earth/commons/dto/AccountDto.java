@@ -1,5 +1,6 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.AccountType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;

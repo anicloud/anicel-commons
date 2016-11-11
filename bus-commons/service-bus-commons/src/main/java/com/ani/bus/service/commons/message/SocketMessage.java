@@ -1,6 +1,7 @@
 package com.ani.bus.service.commons.message;
 
-import com.ani.bus.service.commons.core.message.Message;
+
+import com.ani.octopus.commons.message.http.Message;
 
 /**
  * Created by zhaoyu on 15-10-30.

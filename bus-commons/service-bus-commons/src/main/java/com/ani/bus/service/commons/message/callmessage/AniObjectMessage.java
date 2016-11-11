@@ -1,10 +1,9 @@
 package com.ani.bus.service.commons.message.callmessage;
 
 import com.ani.bus.service.commons.dto.anidevice.DeviceMasterObjInfoDto;
-import com.ani.bus.service.commons.dto.anistub.AniStub;
-import com.ani.bus.service.commons.dto.anistub.AniStubConnType;
 import com.ani.bus.service.commons.message.MessageType;
 import com.ani.bus.service.commons.message.SocketMessage;
+import com.ani.octopus.commons.message.object.Type;
 
 /**
  * Created by zhaoyu on 15-10-30.
@@ -82,25 +81,5 @@ public class AniObjectMessage extends SocketMessage {
                 ", objMsgType=" + objMsgType +
                 ", deviceMasterObjInfoDto=" + deviceMasterObjInfoDto +
                 '}';
-    }
-
-    public static enum Type {
-        DEVICE_CONNECTED,
-        DEVICE_DISCONNECTED,
-        DEVICE_UPDATED,
-        DEVICE_BOUND,
-        DEVICE_UNBOUND,
-        DEVICE_SHARED,
-        DEVICE_UNSHARED,
-        ACCOUNT_GROUP_ADDED,
-        ACCOUNT_GROUP_REMOVED,
-        ACCOUNT_GROUP_MODIFIED,
-        ACCOUNT_GROUP_INVITED,
-        ACCOUNT_GROUP_DISINVITED,
-        ACCOUNT_GROUP_JOINED,
-        ACCOUNT_GROUP_QUIT;
-
-        private Type() {
-        }
     }
 }

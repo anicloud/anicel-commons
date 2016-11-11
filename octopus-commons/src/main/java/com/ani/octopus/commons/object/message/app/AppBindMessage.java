@@ -1,8 +1,8 @@
 package com.ani.octopus.commons.object.message.app;
 
+import com.ani.octopus.commons.message.object.Type;
 import com.ani.octopus.commons.object.message.AppMessage;
-import com.ani.octopus.commons.object.message.ObjectMessage;
-import com.ani.octopus.commons.object.dto.object.ObjectQueryDto;
+import com.ani.octopus.commons.dto.object.ObjectQueryDto;
 
 /**
  * Created by acbson on 16-7-28.
@@ -10,6 +10,6 @@ import com.ani.octopus.commons.object.dto.object.ObjectQueryDto;
 public class AppBindMessage extends AppMessage {
 
     public AppBindMessage(String description, ObjectQueryDto src, Long appId, Long accountId) {
-        super(ObjectMessage.Type.APP_BIND, description, src , appId, accountId);
+        super(Type.APP_BIND, description, src , appId, accountId);
     }
 }

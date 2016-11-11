@@ -1,5 +1,7 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.GroupType;
+
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;

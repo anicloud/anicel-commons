@@ -1,5 +1,7 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.GroupType;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;

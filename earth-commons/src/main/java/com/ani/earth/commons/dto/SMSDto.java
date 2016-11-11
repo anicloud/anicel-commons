@@ -1,5 +1,7 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.SmsType;
+
 import java.io.Serializable;
 /**
  * Created by hey on 16-8-12.

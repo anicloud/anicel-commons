@@ -1,5 +1,7 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.NationalcodeEnum;
+
 import java.io.Serializable;
 
 /**

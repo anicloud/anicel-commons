@@ -7,6 +7,12 @@
     <groupId>com.ani.octopus</groupId>
     <artifactId>octopus-message</artifactId>
     <version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.ani.utils</groupId>
+            <artifactId>ani-utils</artifactId>
+        </dependency>
+    </dependencies>
     <packaging>jar</packaging>
     <name>octopus-message</name>
 

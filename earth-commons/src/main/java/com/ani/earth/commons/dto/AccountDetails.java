@@ -1,5 +1,6 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.AccountType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

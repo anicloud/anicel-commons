@@ -1,7 +1,7 @@
 package com.ani.bus.service.commons.message;
 
-import com.ani.bus.service.commons.core.message.HttpMessage;
 import com.ani.bus.service.commons.dto.anidevice.DeviceMasterObjInfoDto;
+import com.ani.octopus.commons.message.http.HttpMessage;
 
 import java.util.List;
 

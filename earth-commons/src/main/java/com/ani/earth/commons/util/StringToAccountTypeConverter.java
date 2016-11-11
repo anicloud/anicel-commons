@@ -1,6 +1,6 @@
 package com.ani.earth.commons.util;
 
-import com.ani.earth.commons.dto.AccountType;
+import com.ani.earth.commons.enumeration.AccountType;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.databind.util.Converter;
