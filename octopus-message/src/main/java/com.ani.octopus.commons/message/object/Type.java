@@ -12,6 +12,7 @@ public enum Type {
     DEVICE_UNBOUND,
     DEVICE_SHARED,
     DEVICE_UNSHARED,
+    DEVICE_SEARCHSLAVES,
 
     // account group
     ACCOUNT_GROUP_ADDED,
