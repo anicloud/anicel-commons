@@ -58,8 +58,10 @@ public class DeviceMessage implements ByteSerializable {
                 break;
             case TIME_SYNC_REQUEST:
                 content = new TimeSyncRequestContent();
+                break;
             case TIME_SYNC_RESPONSE:
                 content = new TimeSyncResponseContent();
+                break;
             default:
                 throw new IOException();
         }
