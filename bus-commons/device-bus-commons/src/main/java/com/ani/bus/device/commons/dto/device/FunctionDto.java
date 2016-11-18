@@ -24,13 +24,13 @@ public class FunctionDto implements ByteSerializable {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeInt(functionId);
         out.writeLong(groupId);
+        out.writeInt(functionId);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        functionId = in.readInt();
         groupId = in.readLong();
+        functionId = in.readInt();
     }
 }

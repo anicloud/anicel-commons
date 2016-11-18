@@ -51,12 +51,8 @@ public class FunctionInstance implements ByteSerializable {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeLong(instanceId);
-        out.writeLong(createTime);
-        out.writeLong(startTime);
         out.writeLong(deviceId);
         out.writeInt(slaveId);
-        out.writeBoolean(async);
         function.write(out);
         if (inputValues == null) {
             out.writeInt(0);
@@ -74,16 +70,16 @@ public class FunctionInstance implements ByteSerializable {
                 arg.write(out);
             }
         }
+        out.writeLong(instanceId);
+        out.writeLong(createTime);
+        out.writeLong(startTime);
+        out.writeBoolean(async);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        instanceId = in.readLong();
-        createTime = in.readLong();
-        startTime = in.readLong();
         deviceId = in.readLong();
         slaveId = in.readInt();
-        async = in.readBoolean();
         function = new FunctionDto();
         function.read(in);
         int size = in.readInt();
@@ -104,7 +100,9 @@ public class FunctionInstance implements ByteSerializable {
                 outputValues.add(argument);
             }
         }
+        instanceId = in.readLong();
+        createTime = in.readLong();
+        startTime = in.readLong();
+        async = in.readBoolean();
     }
-
-
 }
