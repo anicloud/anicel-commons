@@ -2,6 +2,7 @@ package com.ani.bus.device.commons.dto.device;
 
 /**
  * Created by huangbin on 10/26/15.
+ * Modified by xuben on 11/19/16.
  */
 
 import com.ani.bus.device.commons.dto.message.ByteSerializable;
@@ -9,16 +10,13 @@ import com.ani.bus.device.commons.dto.message.ByteSerializable;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.charset.Charset;
-
 
 public class ArgumentDto implements ByteSerializable {
     public ArgumentType argumentType;
     public Object instance;
 
     public ArgumentDto() {
-        argumentType = null;
+        argumentType = ArgumentType.NULL;
         instance = null;
     }
 
@@ -33,19 +31,74 @@ public class ArgumentDto implements ByteSerializable {
 
 
     public void write(DataOutput out) throws IOException {
-        writeObject(out, instance, argumentType);
+        out.writeByte(argumentType.getValue());
+
+        if (instance == null) { // todo
+//            out.writeChar('N');
+//        else if (argumentType.isArray()) { // array  todo
+//            out.writeChar('[');
+//            int len = Array.getLength(instance);
+//            out.writeInt(len);
+//            for (int i = 0; i < len; i++) {
+//                writeObject(out, Array.get(instance, i), argumentType.componentType);
+//            }
+//        }
+        } else if (argumentType == ArgumentType.BOOLEAN) {
+            out.writeBoolean((Boolean) instance);
+        } else if (argumentType == ArgumentType.CHAR) {
+            out.writeChar((Character) instance);
+        } else if (argumentType == ArgumentType.BYTE) {
+            out.writeByte((Byte) instance);
+        } else if (argumentType == ArgumentType.SHORT) {
+            out.writeShort((Short) instance);
+        } else if (argumentType == ArgumentType.INTEGER) {
+            out.writeInt((Integer) instance);
+        } else if (argumentType == ArgumentType.LONG) {
+            out.writeLong((Long) instance);
+        } else if (argumentType == ArgumentType.FLOAT) {
+            out.writeFloat((Float) instance);
+        } else if (argumentType == ArgumentType.DOUBLE) {
+            out.writeDouble((Double) instance);
+//        } else if (argumentType == ArgumentType.STRING) {
+//            byte[] strBytes = ((String)instance).getBytes(Charset.forName("utf-8"));
+//            out.writeInt(strBytes.length);
+//            out.write(strBytes);
+        } else {
+            throw new IOException("cannot write the object type: " + argumentType.name());
+        }
     }
 
     public void read(DataInput in) throws IOException {
         argumentType = null;
-        instance = readObject(in);
-    }
-
-    private Object readObject(DataInput in) throws IOException {
-        Object value;
-        int len;
-        switch (in.readChar()) {
-            case '[': // array
+        argumentType = ArgumentType.getType(in.readByte());
+        switch (argumentType) {
+            case BOOLEAN:
+                instance = in.readBoolean();
+                break;
+            case BYTE:
+                instance = in.readByte();
+                break;
+            case CHAR:
+                instance = in.readChar();
+                break;
+            case SHORT:
+                instance = in.readShort();
+                break;
+            case INTEGER:
+                instance = in.readInt();
+                break;
+            case FLOAT:
+                instance = in.readFloat();
+                break;
+            case DOUBLE:
+                instance = in.readDouble();
+                break;
+            default:
+                argumentType = ArgumentType.NULL;
+                instance = null;
+                break;
+        }
+/*            case '[': // array
                 len = in.readInt();
                 Object[] components;
                 if (len > 0) {
@@ -69,86 +122,14 @@ public class ArgumentDto implements ByteSerializable {
                     value = null;
                 }
                 break;
-            case 'T': // boolean
-                value = in.readBoolean();
-                break;
-            case 'B': // byte
-                value = in.readByte();
-                break;
-            case 'C': // char
-                value = in.readChar();
-                break;
-            case 'S': // short
-                value = in.readShort();
-                break;
-            case 'I': // int
-                value = in.readInt();
-                break;
-            case 'L': // long
-                value = in.readLong();
-                break;
-            case 'F': // float
-                value = in.readFloat();
-                break;
-            case 'D': // double
-                value = in.readDouble();
-                break;
             case 'R': // string
                 len = in.readInt();
-                byte []strBytes = new byte[len];
+                byte[] strBytes = new byte[len];
                 in.readFully(strBytes, 0, len);
                 value = new String(strBytes, 0, len, Charset.forName("utf-8"));
                 break;
-            case 'N': // null
-            default: // unknown
-                value = null;
         }
-        return value;
-    }
-
-    private void writeObject(DataOutput out, Object instance, ArgumentType argumentType) throws IOException {
-        if (instance == null) {
-            out.writeChar('N');
-        } else if (argumentType.isArray()) { // array
-            out.writeChar('[');
-            int len = Array.getLength(instance);
-            out.writeInt(len);
-            for (int i = 0; i < len; i++) {
-                writeObject(out, Array.get(instance, i), argumentType.componentType);
-            }
-        } else if (argumentType.type == ArgumentType.Type.BOOLEAN) {
-            out.writeChar('T');
-            out.writeBoolean((Boolean) instance);
-        } else if (argumentType.type == ArgumentType.Type.CHAR) {
-            out.writeChar('C');
-            out.writeChar((Character) instance);
-        } else if (argumentType.type == ArgumentType.Type.BYTE) {
-            out.writeChar('B');
-            out.writeByte((Byte) instance);
-        } else if (argumentType.type == ArgumentType.Type.SHORT) {
-            out.writeChar('S');
-            out.writeShort((Short) instance);
-        } else if (argumentType.type == ArgumentType.Type.INTEGER) {
-            out.writeChar('I');
-            out.writeInt((Integer) instance);
-        } else if (argumentType.type == ArgumentType.Type.LONG) {
-            out.writeChar('L');
-            out.writeLong((Long) instance);
-        } else if (argumentType.type == ArgumentType.Type.FLOAT) {
-            out.writeChar('F');
-            out.writeFloat((Float) instance);
-        } else if (argumentType.type == ArgumentType.Type.DOUBLE) {
-            out.writeChar('D');
-            out.writeDouble((Double) instance);
-        } else if (argumentType.type == ArgumentType.Type.STRING) {
-            out.writeChar('R');
-            byte[] strBytes = ((String)instance).getBytes(Charset.forName("utf-8"));
-            out.writeInt(strBytes.length);
-            out.write(strBytes);
-        } else {
-            throw new IOException("cannot write the object type: " + argumentType.type.name());
-        }
-
+        */
     }
 
 }

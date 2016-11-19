@@ -2,36 +2,51 @@ package com.ani.bus.device.commons.dto.device;
 
 /**
  * Created by huangbin on 10/26/15.
+ * Modified by xuben on 11/19/16.
  */
-public class ArgumentType {
-    public Type type;
-    public ArgumentType componentType;
+public enum ArgumentType {
+    NULL(-1),
+    BOOLEAN(0),
+    CHAR(1),
+    BYTE(2),
+    SHORT(3),
+    INTEGER(4),
+    LONG(5),
+    FLOAT(6),
+    DOUBLE(7);
 
-    public enum Type {
-        BOOLEAN,
-        BYTE,
-        CHAR,
-        SHORT,
-        INTEGER,
-        LONG,
-        FLOAT,
-        DOUBLE,
-        STRING,
-        ARRAY
+    private int value;
+
+    ArgumentType(int value) {
+        this.value = value;
     }
 
-    public ArgumentType(Type type) {
-        this.type = type;
-        this.componentType = null;
+    public int getValue() {
+        return this.value;
     }
 
-    public ArgumentType(Type type, ArgumentType componentType) {
-        this.type = type;
-        this.componentType = componentType;
+    public static ArgumentType getType(int type) {
+        switch (type) {
+            case -1:
+                return NULL;
+            case 0:
+                return BOOLEAN;
+            case 1:
+                return CHAR;
+            case 2:
+                return BYTE;
+            case 3:
+                return SHORT;
+            case 4:
+                return INTEGER;
+            case 5:
+                return LONG;
+            case 6:
+                return FLOAT;
+            case 7:
+                return DOUBLE;
+            default:
+                return NULL;
+        }
     }
-
-    public boolean isArray() {
-        return (type == Type.ARRAY);
-    }
-
 }
