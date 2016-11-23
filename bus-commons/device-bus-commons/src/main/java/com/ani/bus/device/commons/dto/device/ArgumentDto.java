@@ -31,9 +31,12 @@ public class ArgumentDto implements ByteSerializable {
 
 
     public void write(DataOutput out) throws IOException {
+        System.out.println("-------------------------------------Argument type: " + type.getValue());
+        System.out.println("----------------------------------------Argument value: " + value.toString());
         out.writeByte(type.getValue());
 
-        if (value == null) { // // TODO: 16-11-19  
+        try {
+            if (value == null) { // // TODO: 16-11-19
 //            out.writeChar('N');
 //        else if (type.isArray()) { // array  // TODO: 16-11-19  
 //            out.writeChar('[');
@@ -43,28 +46,36 @@ public class ArgumentDto implements ByteSerializable {
 //                writeObject(out, Array.get(value, i), type.componentType);
 //            }
 //        }
-        } else if (type == ArgumentType.BOOLEAN) {
-            out.writeBoolean((Boolean) value);
-        } else if (type == ArgumentType.CHAR) {
-            out.writeChar((Character) value);
-        } else if (type == ArgumentType.BYTE) {
-            out.writeByte((Byte) value);
-        } else if (type == ArgumentType.SHORT) {
-            out.writeShort((Short) value);
-        } else if (type == ArgumentType.INTEGER) {
-            out.writeInt((Integer) value);
-        } else if (type == ArgumentType.LONG) {
-            out.writeLong((Long) value);
-        } else if (type == ArgumentType.FLOAT) {
-            out.writeFloat((Float) value);
-        } else if (type == ArgumentType.DOUBLE) {
-            out.writeDouble((Double) value);
+            } else if (type == ArgumentType.BOOLEAN) {
+                out.writeBoolean(Boolean.valueOf(value.toString()));
+            } else if (type == ArgumentType.CHAR) {
+                if(value instanceof Character){
+                    char c = (Character)value;
+                    out.writeChar(c);
+                }
+            } else if (type == ArgumentType.BYTE) {
+                out.writeByte(Byte.valueOf(value.toString()));
+            } else if (type == ArgumentType.SHORT) {
+                out.writeShort(Short.valueOf(value.toString()));
+            } else if (type == ArgumentType.INTEGER) {
+                out.writeInt(Integer.valueOf(value.toString()));
+            } else if (type == ArgumentType.LONG) {
+                out.writeLong(Long.valueOf(value.toString()));
+            } else if (type == ArgumentType.FLOAT) {
+                System.out.println("---------------------------------ArgumentType.float");
+                out.writeFloat(Float.valueOf(value.toString()));
+            } else if (type == ArgumentType.DOUBLE) {
+                out.writeDouble(Double.valueOf(value.toString()));
 //        } else if (type == ArgumentType.STRING) { // TODO: 16-11-19  
 //            byte[] strBytes = ((String)value).getBytes(Charset.forName("utf-8"));
 //            out.writeInt(strBytes.length);
 //            out.write(strBytes);
-        } else {
-            throw new IOException("cannot write the object type: " + type.name());
+            } else {
+                throw new IOException("cannot write the object type: " + type.name());
+            }
+        }catch(IOException e) {
+            e.printStackTrace();
+            throw new IOException(e.getMessage());
         }
     }
 
