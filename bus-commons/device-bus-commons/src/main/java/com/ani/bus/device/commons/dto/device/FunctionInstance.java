@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangbin on 10/22/15.
+ * Created by huangbin on 15/10/22
+ * Modified by xuben on 16/11/22
  */
 
 /**
@@ -70,9 +71,7 @@ public class FunctionInstance implements ByteSerializable {
                 arg.write(out);
             }
         }
-        out.writeLong(instanceId);
         out.writeLong(createTime);
-        out.writeLong(startTime);
         out.writeBoolean(async);
     }
 
@@ -100,9 +99,7 @@ public class FunctionInstance implements ByteSerializable {
                 outputValues.add(argument);
             }
         }
-        instanceId = in.readLong();
         createTime = in.readLong();
-        startTime = in.readLong();
         async = in.readBoolean();
     }
 }
