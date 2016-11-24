@@ -31,26 +31,15 @@ public class ArgumentDto implements ByteSerializable {
 
 
     public void write(DataOutput out) throws IOException {
-        System.out.println("-------------------------------------Argument type: " + type.getValue());
-        System.out.println("----------------------------------------Argument value: " + value.toString());
         out.writeByte(type.getValue());
 
         try {
-            if (value == null) { // // TODO: 16-11-19
-//            out.writeChar('N');
-//        else if (type.isArray()) { // array  // TODO: 16-11-19  
-//            out.writeChar('[');
-//            int len = Array.getLength(value);
-//            out.writeInt(len);
-//            for (int i = 0; i < len; i++) {
-//                writeObject(out, Array.get(value, i), type.componentType);
-//            }
-//        }
+            if (value == null) {
             } else if (type == ArgumentType.BOOLEAN) {
                 out.writeBoolean(Boolean.valueOf(value.toString()));
             } else if (type == ArgumentType.CHAR) {
-                if(value instanceof Character){
-                    char c = (Character)value;
+                if (value instanceof Character) {
+                    char c = (Character) value;
                     out.writeChar(c);
                 }
             } else if (type == ArgumentType.BYTE) {
@@ -62,18 +51,13 @@ public class ArgumentDto implements ByteSerializable {
             } else if (type == ArgumentType.LONG) {
                 out.writeLong(Long.valueOf(value.toString()));
             } else if (type == ArgumentType.FLOAT) {
-                System.out.println("---------------------------------ArgumentType.float");
                 out.writeFloat(Float.valueOf(value.toString()));
             } else if (type == ArgumentType.DOUBLE) {
                 out.writeDouble(Double.valueOf(value.toString()));
-//        } else if (type == ArgumentType.STRING) { // TODO: 16-11-19  
-//            byte[] strBytes = ((String)value).getBytes(Charset.forName("utf-8"));
-//            out.writeInt(strBytes.length);
-//            out.write(strBytes);
             } else {
                 throw new IOException("cannot write the object type: " + type.name());
             }
-        }catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new IOException(e.getMessage());
         }
@@ -109,38 +93,6 @@ public class ArgumentDto implements ByteSerializable {
                 value = null;
                 break;
         }
-/*            case '[': // array
-                len = in.readInt();
-                Object[] components;
-                if (len > 0) {
-                    components = new Object[len];
-                    for (int i = 0; i < len; i++) {
-                        components[i] = readObject(in);
-                        if (components[i] == null) { // An array's all elements are supposed to be primitive.
-                            components = null;
-                            break;
-                        }
-                    }
-                    if (components != null) {
-                        value = Array.newInstance(components[0].getClass(), len);
-                        for (int i = 0; i < len; i++) {
-                            Array.set(value, i, components[i]);
-                        }
-                    } else {
-                        value = null;
-                    }
-                } else {
-                    value = null;
-                }
-                break;
-            case 'R': // string
-                len = in.readInt();
-                byte[] strBytes = new byte[len];
-                in.readFully(strBytes, 0, len);
-                value = new String(strBytes, 0, len, Charset.forName("utf-8"));
-                break;
-        }
-        */
     }
 
 }

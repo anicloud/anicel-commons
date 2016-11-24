@@ -19,7 +19,6 @@ import java.util.List;
 public class FunctionInstance implements ByteSerializable {
     public Long instanceId;
     public Long createTime;
-    public Long startTime;
 
     public Long deviceId;
     public Integer slaveId;
