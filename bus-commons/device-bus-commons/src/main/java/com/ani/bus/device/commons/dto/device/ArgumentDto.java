@@ -37,11 +37,6 @@ public class ArgumentDto implements ByteSerializable {
             if (value == null) {
             } else if (type == ArgumentType.BOOLEAN) {
                 out.writeBoolean(Boolean.valueOf(value.toString()));
-            } else if (type == ArgumentType.CHAR) {
-                if (value instanceof Character) {
-                    char c = (Character) value;
-                    out.writeChar(c);
-                }
             } else if (type == ArgumentType.BYTE) {
                 out.writeByte(Byte.valueOf(value.toString()));
             } else if (type == ArgumentType.SHORT) {
@@ -54,6 +49,9 @@ public class ArgumentDto implements ByteSerializable {
                 out.writeFloat(Float.valueOf(value.toString()));
             } else if (type == ArgumentType.DOUBLE) {
                 out.writeDouble(Double.valueOf(value.toString()));
+            } else if (type == ArgumentType.CHAR && (value instanceof Character)) {
+                char c = (Character) value;
+                out.writeChar(c);
             } else {
                 throw new IOException("cannot write the object type: " + type.name());
             }
