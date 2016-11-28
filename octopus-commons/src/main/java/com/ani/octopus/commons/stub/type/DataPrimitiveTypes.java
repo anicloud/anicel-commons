@@ -1,6 +1,8 @@
 package com.ani.octopus.commons.stub.type;
 
+import com.ani.utils.dto.AniDto;
 import com.ani.utils.exception.AniRuleException;
+
 
 /**
  * Created by yeh on 15-10-16.
@@ -12,8 +14,10 @@ public enum DataPrimitiveTypes {
     STRING(String.class),
     BOOLEAN(Boolean.class),
     BINARY(byte[].class),
-    OBJECT(Object.class),
-    LONG(Long.class);
+    CHAR(char.class),
+    SHORT(Short.class),
+    LONG(Long.class),
+    OBJECT(Object.class),;
 
     private final Class dataClass;
 
@@ -21,12 +25,12 @@ public enum DataPrimitiveTypes {
         this.dataClass = dataClass;
     }
 
-    public Class getValue() {
+    public Class getValue(){
         return this.dataClass;
     }
 
     public static <T extends Object> void checkValueLegality(DataPrimitiveTypes type, T oneValue) throws AniRuleException {
-        if (oneValue.getClass() != type.getValue()) {
+        if(oneValue.getClass() != type.getValue()){
             throw new AniRuleException("DATA_VALUE_NOT_MATCHES_TYPE_" + type.name());
         }
     }

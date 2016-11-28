@@ -1,6 +1,6 @@
 package com.ani.bus.service.commons.message;
 
-import com.ani.bus.service.commons.dto.aniStorage.AniStorageServiceAccessDto;
+import com.ani.octopus.commons.object.dto.aniStorage.AniStorageServiceAccessDto;
 import com.ani.octopus.commons.message.http.HttpMessage;
 
 /**

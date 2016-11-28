@@ -1,4 +1,4 @@
-package com.ani.bus.service.commons.dto.aniStorage;
+package com.ani.octopus.commons.object.dto.aniStorage;
 
 import java.io.Serializable;
 
