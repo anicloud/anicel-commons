@@ -21,13 +21,21 @@ public class UpdateRequestContent extends DeviceMessageContent {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        dto.write(out);
+    public void write(DataOutput out) {
+        try {
+            dto.write(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        dto = new DeviceMasterDto();
-        dto.read(in);
+    public void read(DataInput in) {
+        try {
+            dto = new DeviceMasterDto();
+            dto.read(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

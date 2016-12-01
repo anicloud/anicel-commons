@@ -23,19 +23,28 @@ public class UpdateResponseContent extends DeviceMessageContent {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeBoolean(result);
-        if (result) {
-            dto.write(out);
+    public void write(DataOutput out) {
+        try {
+            if (result) {
+                dto.write(out);
+            }
+            out.writeBoolean(result);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        result = in.readBoolean();
-        if (result) {
-            dto = new DeviceMasterDto();
-            dto.read(in);
+    public void read(DataInput in) {
+        try {
+            result = in.readBoolean();
+            if (result) {
+                dto = new DeviceMasterDto();
+                dto.read(in);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
