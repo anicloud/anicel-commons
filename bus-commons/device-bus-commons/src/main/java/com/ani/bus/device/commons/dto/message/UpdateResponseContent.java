@@ -25,10 +25,10 @@ public class UpdateResponseContent extends DeviceMessageContent {
     @Override
     public void write(DataOutput out) {
         try {
+            out.writeBoolean(result);
             if (result) {
                 dto.write(out);
             }
-            out.writeBoolean(result);
         } catch (IOException e) {
             e.printStackTrace();
         }

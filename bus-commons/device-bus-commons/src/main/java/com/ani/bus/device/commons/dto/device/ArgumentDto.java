@@ -87,6 +87,8 @@ public class ArgumentDto implements ByteSerializable {
             case DOUBLE:
                 value = in.readDouble();
                 break;
+            case LONG:
+                value = in.readLong();
             default:
                 type = ArgumentType.NULL;
                 value = null;
