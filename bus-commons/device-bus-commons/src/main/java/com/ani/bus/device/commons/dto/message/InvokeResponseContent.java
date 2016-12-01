@@ -1,8 +1,6 @@
 package com.ani.bus.device.commons.dto.message;
 
 
-
-
 import com.ani.bus.device.commons.dto.device.FunctionInstance;
 
 import java.io.*;
@@ -25,15 +23,23 @@ public class InvokeResponseContent extends DeviceMessageContent {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeBoolean(result);
-        instance.write(out);
+    public void write(DataOutput out) {
+        try {
+            out.writeBoolean(result);
+            instance.write(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        result = in.readBoolean();
-        instance = new FunctionInstance();
-        instance.read(in);
+    public void read(DataInput in) {
+        try {
+            result = in.readBoolean();
+            instance = new FunctionInstance();
+            instance.read(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

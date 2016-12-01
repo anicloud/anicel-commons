@@ -51,10 +51,14 @@ public class MessageUtils {
         return message;
     }
 
-    public static byte[] encodeMessage(DeviceMessage message) throws IOException {
+    public static byte[] encodeMessage(DeviceMessage message) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
-        message.write(dos);
+        try {
+            message.write(dos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return baos.toByteArray();
     }
 

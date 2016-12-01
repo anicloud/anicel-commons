@@ -20,13 +20,21 @@ public class InvokeRequestContent extends DeviceMessageContent {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        instance.write(out);
+    public void write(DataOutput out) {
+        try {
+            instance.write(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
+    public void read(DataInput in)  {
         instance = new FunctionInstance();
-        instance.read(in);
+        try {
+            instance.read(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
