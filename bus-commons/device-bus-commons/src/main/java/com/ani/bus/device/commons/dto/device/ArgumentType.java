@@ -14,13 +14,14 @@ public enum ArgumentType {
     LONG(5),
     FLOAT(6),
     DOUBLE(7),
-    CHARARRAY(8),
-    BYTEARRAY(9),
-    SHORTARRAY(10),
-    INTEGERARRAY(11),
-    LONGARRAY(12),
-    FLOATARRAY(13),
-    DOUBLEARRAY(14);
+    STRING(8),
+    CHARARRAY(9),
+    BYTEARRAY(10),
+    SHORTARRAY(11),
+    INTEGERARRAY(12),
+    LONGARRAY(13),
+    FLOATARRAY(14),
+    DOUBLEARRAY(15);
 
     private int value;
 
@@ -53,18 +54,20 @@ public enum ArgumentType {
             case 7:
                 return DOUBLE;
             case 8:
-                return CHARARRAY;
+                return STRING;
             case 9:
-                return BYTEARRAY;
+                return CHARARRAY;
             case 10:
-                return SHORTARRAY;
+                return BYTEARRAY;
             case 11:
-                return INTEGERARRAY;
+                return SHORTARRAY;
             case 12:
-                return LONGARRAY;
+                return INTEGERARRAY;
             case 13:
-                return FLOATARRAY;
+                return LONGARRAY;
             case 14:
+                return FLOATARRAY;
+            case 15:
                 return DOUBLEARRAY;
             default:
                 return NULL;
