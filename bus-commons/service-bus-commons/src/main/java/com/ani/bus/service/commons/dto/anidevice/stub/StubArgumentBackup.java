@@ -9,23 +9,23 @@ import java.io.Serializable;
  * @date 16-3-7
  * @since JDK 1.7
  */
-public class StubArgument<T> implements Serializable {
+public class StubArgumentBackup<T> implements Serializable {
     private static final long serialVersionUID = 2380569542561491376L;
 
     public String name;
     public T argumentType;
 
-    public StubArgument() {
+    public StubArgumentBackup() {
     }
 
-    public StubArgument(String name, T argumentType) {
+    public StubArgumentBackup(String name, T argumentType) {
         this.name = name;
         this.argumentType = argumentType;
     }
 
     @Override
     public String toString() {
-        return "StubArgument{" +
+        return "StubArgumentBackup{" +
                 "name='" + name + '\'' +
                 '}';
     }
