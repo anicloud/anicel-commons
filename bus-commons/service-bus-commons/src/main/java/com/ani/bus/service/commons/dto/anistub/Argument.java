@@ -1,5 +1,7 @@
 package com.ani.bus.service.commons.dto.anistub;
 
+import com.ani.octopus.commons.stub.type.ArgumentType;
+
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
