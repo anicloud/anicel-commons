@@ -1,5 +1,10 @@
 package com.ani.bus.service.commons.dto.anidevice.stub;
 
+
+
+import com.ani.octopus.commons.stub.domain.StubArgument;
+import com.ani.octopus.commons.stub.domain.StubGroup;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;

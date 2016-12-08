@@ -11,16 +11,16 @@ import java.util.Objects;
  * @since JDK 1.7
  */
 @Configurable
-public class StubGroup implements Serializable {
+public class StubGroupBackup implements Serializable {
     private static final long serialVersionUID = 4026107055349990977L;
 
     public Long groupId;
     public String name;
 
-    public StubGroup() {
+    public StubGroupBackup() {
     }
 
-    public StubGroup(Long groupId, String name) {
+    public StubGroupBackup(Long groupId, String name) {
         this.groupId = groupId;
         this.name = name;
     }
@@ -29,7 +29,7 @@ public class StubGroup implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StubGroup stubGroup = (StubGroup) o;
+        StubGroupBackup stubGroup = (StubGroupBackup) o;
         return Objects.equals(groupId, stubGroup.groupId) &&
                 Objects.equals(name, stubGroup.name);
     }
@@ -41,7 +41,7 @@ public class StubGroup implements Serializable {
 
     @Override
     public String toString() {
-        return "StubGroup{" +
+        return "StubGroupBackup{" +
                 "groupId=" + groupId +
                 ", name='" + name + '\'' +
                 '}';
