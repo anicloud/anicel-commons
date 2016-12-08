@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangbin on 10/23/15.
+ * Created by huangbin on 15/10/23
+ * Modified by xuben on 16/12/08
  */
 public class RegisterRequestContent extends DeviceMessageContent {
 
-    public String physicalId;
+    public Integer physicalId;
 
-    public String physicalAddress;
+    public Long physicalAddress;
 
     public String name;
 
@@ -22,7 +23,7 @@ public class RegisterRequestContent extends DeviceMessageContent {
 
     public String avatarUrl;
 
-    public List<String> tags;
+    public List<Integer> tags;
 
     public Long versionId;
 
@@ -31,7 +32,7 @@ public class RegisterRequestContent extends DeviceMessageContent {
     public RegisterRequestContent() {
     }
 
-    public RegisterRequestContent(Long deviceId, String physicalId, String physicalAddress, String name, String description, String avatarUrl, List<String> tags, Long versionId) {
+    public RegisterRequestContent(Long deviceId, Integer physicalId, Long physicalAddress, String name, String description, String avatarUrl, List<Integer> tags, Long versionId) {
         this.deviceId = deviceId;
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
@@ -45,8 +46,8 @@ public class RegisterRequestContent extends DeviceMessageContent {
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeLong(deviceId);
-        MessageUtils.writeString(out, physicalId);
-        MessageUtils.writeString(out, physicalAddress);
+        out.writeInt(physicalId);
+        out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
         MessageUtils.writeString(out, avatarUrl);
@@ -54,8 +55,8 @@ public class RegisterRequestContent extends DeviceMessageContent {
             out.writeInt(0);
         } else {
             out.writeInt(tags.size());
-            for (String tag : tags) {
-                MessageUtils.writeString(out, tag);
+            for (Integer tag : tags) {
+                out.writeInt(tag);
             }
         }
         out.writeLong(versionId);
@@ -64,8 +65,8 @@ public class RegisterRequestContent extends DeviceMessageContent {
     @Override
     public void read(DataInput in) throws IOException {
         deviceId = in.readLong();
-        physicalId = MessageUtils.readString(in);
-        physicalAddress = MessageUtils.readString(in);
+        physicalId = in.readInt();
+        physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
         avatarUrl = MessageUtils.readString(in);
@@ -73,7 +74,7 @@ public class RegisterRequestContent extends DeviceMessageContent {
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                tags.add(MessageUtils.readString(in));
+                tags.add(in.readInt());
             }
         }
         versionId = in.readLong();
