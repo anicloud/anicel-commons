@@ -57,7 +57,8 @@ public class StubArgument implements Serializable{
     public StubArgumentDto toDto() {
         return new StubArgumentDto(
                 this.dataType,
-                this.name
+                this.name,
+                null
         );
     }
 
