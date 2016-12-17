@@ -95,7 +95,7 @@ public class DeviceMasterDto implements ByteSerializable {
             }
         }
         out.writeLong(lastModifiedTime);
-   }
+    }
 
     @Override
     public void read(DataInput in) throws IOException {
@@ -133,7 +133,7 @@ public class DeviceMasterDto implements ByteSerializable {
         size = in.readInt();
         if (size > 0) {
             slaves = new ArrayList<>();
-            for (int i=0; i<size; i++) {
+            for (int i = 0; i < size; i++) {
                 DeviceSlaveDto slave = new DeviceSlaveDto();
                 slave.read(in);
                 slaves.add(slave);
@@ -141,4 +141,5 @@ public class DeviceMasterDto implements ByteSerializable {
         }
         lastModifiedTime = in.readLong();
     }
+
 }

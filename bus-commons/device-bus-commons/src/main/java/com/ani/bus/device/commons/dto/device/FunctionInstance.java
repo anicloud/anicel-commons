@@ -36,6 +36,20 @@ public class FunctionInstance implements ByteSerializable {
     public FunctionInstance() {
     }
 
+    public FunctionInstance(Long deviceId, Integer slaveId, Boolean async, FunctionDto function,
+                            List<ArgumentDto> inputValues, List<ArgumentDto> outputValues) {
+        Long createTime = System.currentTimeMillis();
+        Long instanceId = Long.valueOf((createTime.toString() + deviceId.toString() + function.functionId + function.groupId).hashCode());
+        this.instanceId = instanceId;
+        this.createTime = createTime;
+        this.slaveId = slaveId;
+        this.deviceId = deviceId;
+        this.async = async;
+        this.function = function;
+        this.inputValues = inputValues;
+        this.outputValues = outputValues;
+    }
+
     public FunctionInstance(Long instanceId, Long createTime, Long deviceId, Integer slaveId, Boolean async,
                             FunctionDto function, List<ArgumentDto> inputValues, List<ArgumentDto> outputValues) {
         this.instanceId = instanceId;
