@@ -6,6 +6,7 @@ import com.ani.octopus.commons.object.enumeration.AniObjectType;
 import com.ani.octopus.commons.object.dto.object.privilege.ObjectMainPrivilegeDto;
 import com.ani.octopus.commons.object.enumeration.DataState;
 import com.ani.octopus.commons.stub.dto.StubDto;
+import com.ani.octopus.commons.stub.dto.StubInfoDto;
 import com.ani.utils.core.AniByte;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class ObjectMainInfoDto extends ObjectInfoDto {
         super();
     }
 
-    public ObjectMainInfoDto(List<StubDto> stubs, DataState dataState, Long objectId, String uniId, AccountDto owner, AniObjectType objectType, List<ObjectMainPrivilegeDto> privileges, Map<AniByte, AniObjectState> hostsState, List<ObjectSlaveInfoDto> slaves) {
+    public ObjectMainInfoDto(List<StubInfoDto> stubs, DataState dataState, Long objectId, String uniId, AccountDto owner, AniObjectType objectType, List<ObjectMainPrivilegeDto> privileges, Map<AniByte, AniObjectState> hostsState, List<ObjectSlaveInfoDto> slaves) {
         super(stubs, dataState);
         this.objectId = objectId;
         this.uniId = uniId;

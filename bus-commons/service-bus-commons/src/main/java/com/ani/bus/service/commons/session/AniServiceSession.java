@@ -34,7 +34,7 @@ public class AniServiceSession implements Serializable {
     }
 
     public synchronized void put(AniStub aniStub) {
-        this.stubInstanceMap.put(aniStub.getKeyId(), aniStub);
+        this.stubInstanceMap.put(aniStub.keyId, aniStub);
     }
 
     public synchronized AniStub getAniStub(String keyId) {
@@ -42,7 +42,7 @@ public class AniServiceSession implements Serializable {
     }
 
     public synchronized void delete(AniStub aniStub) {
-        this.stubInstanceMap.remove(aniStub.getKeyId());
+        this.stubInstanceMap.remove(aniStub.keyId);
     }
 
     public synchronized void put(AccountObject accountObject) {

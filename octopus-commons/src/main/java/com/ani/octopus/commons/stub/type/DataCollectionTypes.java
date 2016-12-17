@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Created by yeh on 15-10-16.
  */
-public enum DataCollectionTypes {
+public enum DataCollectionTypes{
     LIST(List.class),
     MAP(Map.class),
     SET(Set.class);

@@ -8,15 +8,41 @@ import com.ani.utils.dto.AniDto;
  */
 public class StubArgumentDto extends AniDto{
 
-    public DataType dataType;
-
-    public String name;
+    public Object value;
 
     public StubArgumentDto() {
     }
 
-    public StubArgumentDto(DataType dataType, String name) {
-        this.dataType = dataType;
-        this.name = name;
+    public StubArgumentDto(Object value) {
+        this.value = value;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StubArgumentDto that = (StubArgumentDto) o;
+        return value != null ? value.equals(that.value) : that.value == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 31 * (value != null ? value.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "StubArgumentDto{" +
+                "value=" + value +
+                '}';
     }
 }
