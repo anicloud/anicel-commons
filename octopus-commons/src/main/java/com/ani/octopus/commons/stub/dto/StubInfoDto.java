@@ -29,6 +29,12 @@ public class StubInfoDto extends AniDto{
 
     public StubInfoDto() {}
 
+    public StubInfoDto(Integer stubId, String name, StubGroupInfoDto group){
+        this.stubId = stubId;
+        this.name = name;
+        this.group = group;
+    }
+
     public StubInfoDto(Integer stubId, String name, StubGroupInfoDto group, List<StubArgumentInfoDto> inputArguments, List<StubArgumentInfoDto> outputArguments, StubConnType connType, PrivilegeType privilegeType) {
         this.stubId = stubId;
         this.name = name;

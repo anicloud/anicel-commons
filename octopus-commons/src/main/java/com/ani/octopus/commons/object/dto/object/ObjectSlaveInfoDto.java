@@ -3,6 +3,7 @@ package com.ani.octopus.commons.object.dto.object;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.object.enumeration.DataState;
 import com.ani.octopus.commons.stub.dto.StubDto;
+import com.ani.octopus.commons.stub.dto.StubInfoDto;
 
 import java.util.List;
 
@@ -25,13 +26,13 @@ public class ObjectSlaveInfoDto extends ObjectInfoDto {
     public ObjectSlaveInfoDto() {
     }
 
-    public ObjectSlaveInfoDto(List<StubDto> stubs, DataState dataState, AniObjectState state, Integer objectSlaveId) {
+    public ObjectSlaveInfoDto(List<StubInfoDto> stubs, DataState dataState, AniObjectState state, Integer objectSlaveId) {
         super(stubs, dataState);
         this.state = state;
         this.objectSlaveId = objectSlaveId;
     }
 
-    public ObjectSlaveInfoDto(List<StubDto> stubs, DataState dataState, AniObjectState state, Integer objectSlaveId, ObjectMainInfoDto mainInfoDto) {
+    public ObjectSlaveInfoDto(List<StubInfoDto> stubs, DataState dataState, AniObjectState state, Integer objectSlaveId, ObjectMainInfoDto mainInfoDto) {
         super(stubs, dataState);
         this.state = state;
         this.objectSlaveId = objectSlaveId;

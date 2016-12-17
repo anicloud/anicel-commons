@@ -21,10 +21,6 @@ public class StubDto extends AniDto{
 
     public List<StubArgumentDto> outputArguments;
 
-    public StubConnType connType;
-
-    public PrivilegeType privilegeType;
-
     public StubDto() {}
 
     public StubDto(Long stubGroupId, Integer stubId) {
@@ -32,13 +28,11 @@ public class StubDto extends AniDto{
         this.stubId = stubId;
     }
 
-    public StubDto(Long stubGroupId, Integer stubId, List<StubArgumentDto> inputArguments, List<StubArgumentDto> outputArguments, StubConnType connType, PrivilegeType privilegeType) {
+    public StubDto(Long stubGroupId, Integer stubId, List<StubArgumentDto> inputArguments, List<StubArgumentDto> outputArguments) {
         this.stubGroupId = stubGroupId;
         this.stubId = stubId;
         this.inputArguments = inputArguments;
         this.outputArguments = outputArguments;
-        this.connType = connType;
-        this.privilegeType = privilegeType;
     }
 
     //    public StubDto(Stub oneStub){

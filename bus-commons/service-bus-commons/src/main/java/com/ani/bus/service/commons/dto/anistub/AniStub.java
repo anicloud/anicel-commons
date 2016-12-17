@@ -1,6 +1,8 @@
 package com.ani.bus.service.commons.dto.anistub;
 
 import com.ani.bus.service.commons.message.SocketMessage;
+import com.ani.octopus.commons.stub.dto.StubArgumentDto;
+import com.ani.octopus.commons.stub.dto.StubDto;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -11,146 +13,53 @@ import java.util.UUID;
 /**
  * Created by zhaoyu on 15-10-29.
  */
-public class AniStub implements Serializable {
+public class AniStub extends StubDto implements Serializable {
     private static final long serialVersionUID = 3790604372796535245L;
 
     @NotNull
-    private String keyId = generateKeyId(); // for every times call, unique key
+    public String keyId = generateKeyId(); // for every times call, unique key
 
-    @NotNull
-    private Long targetObjectId;
-    private Integer slaveId;
-    @NotNull
-    private Long accountId;
-    @NotNull
-    private Long groupId;
-    @NotNull
-    private Integer stubId;
+    public Long targetObjectId;
+    public Integer targetSlaveId;
+    public Long accountId;
+    public Long fromObjectId;
+    public Integer fromslaveId;
 
-    private Long fromObjectId;
-    private Integer fromslaveId;
 
-    private List<Argument> inputValues;
-    private List<Argument> outputValues;
-
-    private SocketMessage resultMsg;
+    public SocketMessage resultMsg;
 
     public AniStub() {
     }
 
-    public AniStub(Long targetObjectId, Integer slaveId,Long fromObjectId, Integer fromslaveId, Long accountId, Long groupId,
-                   Integer stubId, List<Argument> inputValues) {
+    public AniStub(Long targetObjectId, Integer targetSlaveId,Long fromObjectId, Integer fromslaveId, Long accountId, Long groupId,
+                   Integer stubId, List<StubArgumentDto> inputValues) {
         this.targetObjectId = targetObjectId;
-        this.slaveId = slaveId;
+        this.targetSlaveId = targetSlaveId;
         this.fromObjectId = fromObjectId;
         this.fromslaveId = fromslaveId;
         this.accountId = accountId;
-        this.groupId = groupId;
+        this.stubGroupId = groupId;
         this.stubId = stubId;
-        this.inputValues = inputValues;
+        this.inputArguments = inputValues;
     }
 
-    public AniStub(Long targetObjectId, Integer slaveId, Long accountId, Long groupId,
-                   Integer stubId, List<Argument> inputValues) {
+    public AniStub(Long targetObjectId, Integer targetSlaveId, Long accountId, Long groupId,
+                   Integer stubId, List<StubArgumentDto> inputValues) {
         this.targetObjectId = targetObjectId;
-        this.slaveId = slaveId;
+        this.targetSlaveId = targetSlaveId;
         this.accountId = accountId;
-        this.groupId = groupId;
+        this.stubGroupId = groupId;
         this.stubId = stubId;
-        this.inputValues = inputValues;
+        this.inputArguments = inputValues;
     }
 
     public AniStub(Long targetObjectId, Long accountId, Long groupId,
-                   Integer stubId, List<Argument> inputValues) {
+                   Integer stubId, List<StubArgumentDto> inputValues) {
         this.targetObjectId = targetObjectId;
         this.accountId = accountId;
-        this.groupId = groupId;
+        this.stubGroupId = groupId;
         this.stubId = stubId;
-        this.inputValues = inputValues;
-    }
-
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    public Integer getStubId() {
-        return stubId;
-    }
-
-    public void setStubId(Integer stubId) {
-        this.stubId = stubId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public List<Argument> getInputValues() {
-        return inputValues;
-    }
-
-    public void setInputValues(List<Argument> inputValues) {
-        this.inputValues = inputValues;
-    }
-
-    public List<Argument> getOutputValues() {
-        return outputValues;
-    }
-
-    public void setOutputValues(List<Argument> outputValues) {
-        this.outputValues = outputValues;
-    }
-
-    public String getKeyId() {
-        return keyId;
-    }
-
-    public Long getTargetObjectId() {
-        return targetObjectId;
-    }
-
-    public void setTargetObjectId(Long targetObjectId) {
-        this.targetObjectId = targetObjectId;
-    }
-
-    public Integer getSlaveId() {
-        return slaveId;
-    }
-
-    public void setSlaveId(Integer slaveId) {
-        this.slaveId = slaveId;
-    }
-
-    public SocketMessage getResultMsg() {
-        return resultMsg;
-    }
-
-    public void setResultMsg(SocketMessage resultMsg) {
-        this.resultMsg = resultMsg;
-    }
-
-    public Long getFromObjectId() {
-        return fromObjectId;
-    }
-
-    public void setFromObjectId(Long fromObjectId) {
-        this.fromObjectId = fromObjectId;
-    }
-
-    public Integer getFromslaveId() {
-        return fromslaveId;
-    }
-
-    public void setFromslaveId(Integer fromslaveId) {
-        this.fromslaveId = fromslaveId;
+        this.inputArguments = inputValues;
     }
 
 
@@ -160,9 +69,9 @@ public class AniStub implements Serializable {
                 "keyId='" + keyId + '\'' +
                 ", accountId=" + accountId +
                 ", stubId=" + stubId +
-                ", groupId=" + groupId +
-                ", inputValues=" + inputValues +
-                ", outputValues=" + outputValues +
+                ", stubGroupId=" + stubGroupId +
+                ", inputArguments=" + inputArguments +
+                ", outputArguments=" + outputArguments +
                 '}';
     }
 

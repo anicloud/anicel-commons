@@ -1,13 +1,12 @@
 package com.ani.octopus.commons.stub.type;
 
-import com.ani.utils.dto.AniDto;
 import com.ani.utils.exception.AniRuleException;
 
 
 /**
  * Created by yeh on 15-10-16.
  */
-public enum DataPrimitiveTypes {
+public enum DataPrimitiveTypes{
     INTEGER(Integer.class),
     PERCENTAGE(Short.class),
     FLOAT(Float.class),

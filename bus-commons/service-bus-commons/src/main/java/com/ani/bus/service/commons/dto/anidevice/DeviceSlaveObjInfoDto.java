@@ -2,6 +2,8 @@ package com.ani.bus.service.commons.dto.anidevice;
 
 import com.ani.bus.service.commons.dto.anidevice.stub.StubMeta;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
+import com.ani.octopus.commons.stub.dto.StubInfoDto;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,12 +21,12 @@ public class DeviceSlaveObjInfoDto implements Serializable {
 
     public Integer objectSlaveId;
 
-    public List<StubMeta> stubs;
+    public List<StubInfoDto> stubs;
 
     public DeviceSlaveObjInfoDto() {
     }
 
-    public DeviceSlaveObjInfoDto(String name, String description, List<StubMeta> stubs,
+    public DeviceSlaveObjInfoDto(String name, String description, List<StubInfoDto> stubs,
                                     AniObjectState state, Integer objectSlaveId) {
         this.name = name;
         this.description = description;
