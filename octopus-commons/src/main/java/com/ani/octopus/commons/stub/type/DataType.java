@@ -15,6 +15,10 @@ public abstract class DataType<T extends Enum> implements Serializable {
         return type;
     }
 
+    public void setType(T type) {
+        this.type = type;
+    }
+
     public DataType() {
     }
 
