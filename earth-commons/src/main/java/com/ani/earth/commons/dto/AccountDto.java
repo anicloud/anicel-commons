@@ -1,5 +1,6 @@
 package com.ani.earth.commons.dto;
 
+import com.ani.earth.commons.enumeration.AccountRoleType;
 import com.ani.earth.commons.enumeration.AccountType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,6 +22,7 @@ public class AccountDto implements Serializable {
     public boolean enabled;
     public Long registerDate;
     public AccountType accountType;
+    public AccountRoleType accountRole;
 
     public boolean accountNonExpired;
     public boolean accountNonLocked;
@@ -49,7 +51,19 @@ public class AccountDto implements Serializable {
     }
 
     public AccountDto(Long accountId, String screenName, String email, String password,
-                      boolean enabled, Long registerDate, AccountType accountType,
+                      AccountType accountType,AccountRoleType accountRole,AccountPhoneDto accountPhoneDto,AccountInfoDto accountInfo) {
+        this.accountId = accountId;
+        this.screenName = screenName;
+        this.email = email;
+        this.password = password;
+        this.accountType = accountType;
+        this.accountRole = accountRole;
+        this.accountPhoneDto = accountPhoneDto;
+        this.accountInfo = accountInfo;
+    }
+
+    public AccountDto(Long accountId, String screenName, String email, String password,
+                      boolean enabled, Long registerDate, AccountType accountType, AccountRoleType accountRole,
                       boolean accountNonExpired, boolean accountNonLocked,
                       boolean credentialsNonExpired, AccountInfoDto accountInfo,
                       AccountPhoneDto accountPhoneDto,
@@ -61,6 +75,7 @@ public class AccountDto implements Serializable {
         this.enabled = enabled;
         this.registerDate = registerDate;
         this.accountType = accountType;
+        this.accountRole = accountRole;
         this.accountNonExpired = accountNonExpired;
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
@@ -92,6 +107,7 @@ public class AccountDto implements Serializable {
                 ", enabled=" + enabled +
                 ", registerDate=" + registerDate +
                 ", accountType=" + accountType +
+                ", accountRole=" + accountRole +
                 ", accountNonExpired=" + accountNonExpired +
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +

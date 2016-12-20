@@ -2,7 +2,6 @@ package com.ani.earth.commons.dto;
 
 import com.ani.earth.commons.enumeration.AccountType;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.Valid;
@@ -142,12 +141,4 @@ public class AccountDetails implements UserDetails, Serializable {
                 "} " + super.toString();
     }
 
-    public static Set<GrantedAuthority> loadUserAuthorities(Set<AccountGroupDto> groupSet) {
-        Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-        for (AccountGroupDto sysGroup : groupSet) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(sysGroup.groupName);
-            authorities.add(grantedAuthority);
-        }
-        return authorities;
-    }
 }
