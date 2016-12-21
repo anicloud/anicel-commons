@@ -6,16 +6,16 @@ import com.ani.utils.dto.AniDto;
 /**
  * Created by yeh on 3/14/16.
  */
-public class StubArgumentInfoDto extends AniDto{
+public class StubArgumentInfoDto<T extends DataType> extends AniDto{
 
-    public DataType dataType;
+    public T dataType;
 
     public String name;
 
     public StubArgumentInfoDto() {
     }
 
-    public StubArgumentInfoDto(DataType dataType, String name) {
+    public StubArgumentInfoDto(T dataType, String name) {
         this.dataType = dataType;
         this.name = name;
     }
