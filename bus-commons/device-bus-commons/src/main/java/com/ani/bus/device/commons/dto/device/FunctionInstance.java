@@ -65,7 +65,7 @@ public class FunctionInstance implements ByteSerializable {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeLong(deviceId);
+//        out.writeLong(deviceId);
         out.writeInt(slaveId);
         function.write(out);
         if (inputValues == null) {
@@ -90,7 +90,7 @@ public class FunctionInstance implements ByteSerializable {
 
     @Override
     public void read(DataInput in) throws IOException {
-        deviceId = in.readLong();
+//        deviceId = in.readLong();
         slaveId = in.readInt();
         function = new FunctionDto();
         function.read(in);

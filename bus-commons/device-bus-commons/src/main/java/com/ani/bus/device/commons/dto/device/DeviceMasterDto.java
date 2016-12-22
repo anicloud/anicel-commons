@@ -27,16 +27,13 @@ public class DeviceMasterDto implements ByteSerializable {
     public Long deviceId;
     public List<DeviceSlaveDto> slaves;
 
-    public Long owner;
-    public List<Long> accountGroups;
-
     public Long versionId;
     public Long lastModifiedTime;
 
     public DeviceMasterDto() {
     }
 
-    public DeviceMasterDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Long deviceId, List<DeviceSlaveDto> slaves, Long owner, List<Long> accountGroups, Long versionId, Long lastModifiedTime) {
+    public DeviceMasterDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Long deviceId, List<DeviceSlaveDto> slaves, Long versionId, Long lastModifiedTime) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
@@ -46,8 +43,6 @@ public class DeviceMasterDto implements ByteSerializable {
         this.tags = tags;
         this.deviceId = deviceId;
         this.slaves = slaves;
-        this.owner = owner;
-        this.accountGroups = accountGroups;
         this.versionId = versionId;
         this.lastModifiedTime = lastModifiedTime;
     }
@@ -69,15 +64,6 @@ public class DeviceMasterDto implements ByteSerializable {
         }
         out.writeLong(versionId);
         out.writeLong(deviceId);
-        out.writeLong(owner);
-        if (accountGroups == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(accountGroups.size());
-            for (Long group : accountGroups) {
-                out.writeLong(group);
-            }
-        }
         if (functions == null) {
             out.writeInt(0);
         } else {
@@ -113,14 +99,7 @@ public class DeviceMasterDto implements ByteSerializable {
         }
         versionId = in.readLong();
         deviceId = in.readLong();
-        owner = in.readLong();
         size = in.readInt();
-        if (size > 0) {
-            accountGroups = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                accountGroups.add(in.readLong());
-            }
-        }
         size = in.readInt();
         if (size > 0) {
             functions = new ArrayList<>();
