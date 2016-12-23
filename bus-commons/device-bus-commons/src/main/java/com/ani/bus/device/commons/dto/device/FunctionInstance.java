@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Created by huangbin on 15/10/22
- * Modified by xuben on 16/11/22
+ * Modified by xuben on 16/12/23
  */
 
 /**
@@ -69,17 +69,17 @@ public class FunctionInstance implements ByteSerializable {
         out.writeInt(slaveId);
         function.write(out);
         if (inputValues == null) {
-            out.writeInt(0);
+            out.writeByte(0); // 参数最多允许127个, 一个字节足够用
         } else {
-            out.writeInt(inputValues.size());
+            out.writeByte(inputValues.size());
             for (ArgumentDto arg : inputValues) {
                 arg.write(out);
             }
         }
         if (outputValues == null) {
-            out.writeInt(0);
+            out.writeByte(0); // 参数最多允许127个, 一个字节足够用
         } else {
-            out.writeInt(outputValues.size());
+            out.writeByte(outputValues.size());
             for (ArgumentDto arg : outputValues) {
                 arg.write(out);
             }
@@ -94,7 +94,7 @@ public class FunctionInstance implements ByteSerializable {
         slaveId = in.readInt();
         function = new FunctionDto();
         function.read(in);
-        int size = in.readInt();
+        int size = in.readByte();
         if (size > 0) {
             inputValues = new ArrayList<>();
             for (int i = 0; i < size; i++) {
@@ -103,7 +103,7 @@ public class FunctionInstance implements ByteSerializable {
                 inputValues.add(argument);
             }
         }
-        size = in.readInt();
+        size = in.readByte();
         if (size > 0) {
             outputValues = new ArrayList<>();
             for (int i = 0; i < size; i++) {
