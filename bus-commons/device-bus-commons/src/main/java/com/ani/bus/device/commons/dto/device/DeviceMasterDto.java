@@ -100,7 +100,6 @@ public class DeviceMasterDto implements ByteSerializable {
         versionId = in.readLong();
         deviceId = in.readLong();
         size = in.readInt();
-        size = in.readInt();
         if (size > 0) {
             functions = new ArrayList<>();
             for (int i = 0; i < size; i++) {
