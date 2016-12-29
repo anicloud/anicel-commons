@@ -39,7 +39,7 @@ public class FunctionInstance implements ByteSerializable {
     public FunctionInstance(Long deviceId, Integer slaveId, Boolean async, FunctionDto function,
                             List<ArgumentDto> inputValues, List<ArgumentDto> outputValues) {
         Long createTime = System.currentTimeMillis();
-        Long instanceId = Long.valueOf((createTime.toString() + deviceId.toString() + function.functionId + function.groupId).hashCode());
+        Long instanceId = Long.valueOf((createTime.toString() + deviceId.toString()+slaveId.toString() + function.functionId + function.groupId).hashCode());
         this.instanceId = instanceId;
         this.createTime = createTime;
         this.slaveId = slaveId;
