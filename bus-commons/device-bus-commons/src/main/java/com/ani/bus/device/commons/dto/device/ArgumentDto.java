@@ -52,7 +52,6 @@ public class ArgumentDto implements ByteSerializable {
             } else if (type == ArgumentType.CHAR && (value instanceof Character)) {
                 char c = (Character) value;
                 out.writeChar(c);
-            } else if (type == ArgumentType.BYTEARRAY) {
             } else {
                 throw new IOException("cannot write the object type: " + type.name());
             }

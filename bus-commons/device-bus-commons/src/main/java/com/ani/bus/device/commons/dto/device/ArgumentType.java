@@ -15,14 +15,9 @@ public enum ArgumentType {
     FLOAT(6),
     DOUBLE(7),
     STRING(8),
-    CHARARRAY(9),
-    BYTEARRAY(10),
-    SHORTARRAY(11),
-    INTEGERARRAY(12),
-    LONGARRAY(13),
-    FLOATARRAY(14),
-    DOUBLEARRAY(15);
-
+    LIST(9),
+    MAP(10),
+    SET(11);
     private int value;
 
     ArgumentType(int value) {
@@ -56,19 +51,11 @@ public enum ArgumentType {
             case 8:
                 return STRING;
             case 9:
-                return CHARARRAY;
+                return LIST;
             case 10:
-                return BYTEARRAY;
+                return MAP;
             case 11:
-                return SHORTARRAY;
-            case 12:
-                return INTEGERARRAY;
-            case 13:
-                return LONGARRAY;
-            case 14:
-                return FLOATARRAY;
-            case 15:
-                return DOUBLEARRAY;
+                return SET;
             default:
                 return NULL;
         }
