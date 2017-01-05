@@ -15,9 +15,8 @@ public enum ArgumentType {
     FLOAT(6),
     DOUBLE(7),
     STRING(8),
-    LIST(9),
-    MAP(10),
-    SET(11);
+    ARRAY(9),
+    COLLECTION(10);
     private int value;
 
     ArgumentType(int value) {
@@ -51,11 +50,9 @@ public enum ArgumentType {
             case 8:
                 return STRING;
             case 9:
-                return LIST;
+                return ARRAY;
             case 10:
-                return MAP;
-            case 11:
-                return SET;
+                return COLLECTION;
             default:
                 return NULL;
         }

@@ -1,4 +1,6 @@
-package com.ani.bus.device.commons.dto.message;
+package com.ani.bus.device.commons.dto;
+
+import com.ani.bus.device.commons.dto.message.DeviceMessage;
 
 import java.io.*;
 import java.nio.charset.Charset;

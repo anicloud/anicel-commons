@@ -23,7 +23,7 @@ public class InvokeRequestContent extends DeviceMessageContent {
     public void write(DataOutput out) {
         try {
             instance.write(out);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -33,7 +33,7 @@ public class InvokeRequestContent extends DeviceMessageContent {
         instance = new FunctionInstance();
         try {
             instance.read(in);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
