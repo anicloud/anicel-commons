@@ -16,6 +16,8 @@ public class AniObjectMessage extends SocketMessage {
 
     private Type objMsgType;
 
+    private Long userId;
+
     private DeviceMasterObjInfoDto deviceMasterObjInfoDto;
 
 
@@ -23,12 +25,13 @@ public class AniObjectMessage extends SocketMessage {
         super(MessageType.OBJECT_MESSAGE);
     }
 
-    public AniObjectMessage(Long objectId, String description, Type objMsgType, DeviceMasterObjInfoDto deviceMasterObjInfoDto) {
+    public AniObjectMessage(Long objectId, String description, Type objMsgType, DeviceMasterObjInfoDto deviceMasterObjInfoDto, Long userId) {
         super(MessageType.OBJECT_MESSAGE);
         this.objectId = objectId;
         this.description = description;
         this.objMsgType = objMsgType;
         this.deviceMasterObjInfoDto = deviceMasterObjInfoDto;
+        this.userId = userId;
     }
 
     public AniObjectMessage(ResultCode resultCode, String msg, Long objectId, String description, Type objMsgType, DeviceMasterObjInfoDto deviceMasterObjInfoDto) {
@@ -72,6 +75,13 @@ public class AniObjectMessage extends SocketMessage {
         this.deviceMasterObjInfoDto = deviceMasterObjInfoDto;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     @Override
     public String toString() {
