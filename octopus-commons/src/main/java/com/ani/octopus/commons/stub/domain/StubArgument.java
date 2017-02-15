@@ -1,8 +1,7 @@
 package com.ani.octopus.commons.stub.domain;
 
-import com.ani.octopus.commons.stub.dto.StubArgumentDto;
 import com.ani.octopus.commons.stub.dto.StubArgumentInfoDto;
-import com.ani.octopus.commons.stub.type.DataType;
+import com.ani.octopus.commons.stub.type.AniDataType;
 import com.ani.utils.core.AniGeneralUtils;
 
 import java.io.Serializable;
@@ -16,7 +15,7 @@ public class StubArgument implements Serializable {
 
     private static final long serialVersionUID = 3279913717029887609L;
 
-    public DataType dataType;
+    public AniDataType dataType;
 
     public String name;
 
@@ -25,13 +24,13 @@ public class StubArgument implements Serializable {
     public StubArgument() {
     }
 
-    public StubArgument(DataType dataType, String name) {
+    public StubArgument(AniDataType dataType, String name) {
         this.dataType = dataType;
         this.name = name;
         this.isRequired = true;
     }
 
-    public StubArgument(DataType dataType, String name, boolean isRequired) {
+    public StubArgument(AniDataType dataType, String name, boolean isRequired) {
         this.dataType = dataType;
         this.name = name;
         this.isRequired = isRequired;

@@ -1,6 +1,5 @@
 package com.ani.octopus.commons.stub.dto;
 
-import com.ani.octopus.commons.stub.type.DataType;
 import com.ani.utils.dto.AniDto;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
