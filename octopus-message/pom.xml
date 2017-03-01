@@ -12,6 +12,10 @@
             <groupId>com.ani.utils</groupId>
             <artifactId>ani-utils</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.ani.utils</groupId>
+            <artifactId>ani-utils</artifactId>
+        </dependency>
     </dependencies>
     <packaging>jar</packaging>
     <name>octopus-message</name>
