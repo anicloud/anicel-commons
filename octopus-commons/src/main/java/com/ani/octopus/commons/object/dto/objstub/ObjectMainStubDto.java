@@ -1,6 +1,6 @@
 package com.ani.octopus.commons.object.dto.objstub;
 
-import com.ani.octopus.commons.stub.dto.StubDto;
+import com.ani.octopus.commons.stub.dto.StubInvokeDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +11,13 @@ import java.util.Map;
  */
 public class ObjectMainStubDto extends ObjectStubDto{
 
-    public List<StubDto> stubs;
+    public List<StubInvokeDto> stubs;
 
     public ObjectMainStubDto() {
         super();
     }
 
-    public ObjectMainStubDto(Long objectMainId, List<StubDto> stubs) {
+    public ObjectMainStubDto(Long objectMainId, List<StubInvokeDto> stubs) {
         super(objectMainId);
         this.stubs = stubs;
     }
@@ -28,13 +28,13 @@ public class ObjectMainStubDto extends ObjectStubDto{
 
     public static ObjectMainStubDto getFromMap(Long objectMainId, Map<Long, List<Integer>> groupsStubMap){
         if(groupsStubMap == null || groupsStubMap.size() < 1) return new ObjectMainStubDto(objectMainId);
-        ObjectMainStubDto oneObjMainStubDto = new ObjectMainStubDto(objectMainId, new ArrayList<StubDto>(groupsStubMap.size() * 3));
+        ObjectMainStubDto oneObjMainStubDto = new ObjectMainStubDto(objectMainId, new ArrayList<StubInvokeDto>(groupsStubMap.size() * 3));
         for(Long oneStubGroupId: groupsStubMap.keySet()){
             List<Integer> groupStubsId = groupsStubMap.get(oneStubGroupId);
             if(groupStubsId == null || groupStubsId.size() < 1) continue;
-            List<StubDto> curGroupStubsDto = new ArrayList<>(groupStubsId.size());
+            List<StubInvokeDto> curGroupStubsDto = new ArrayList<>(groupStubsId.size());
             for(Integer oneGroupStubId: groupStubsId){
-                oneObjMainStubDto.stubs.add(new StubDto(oneStubGroupId, oneGroupStubId));
+                oneObjMainStubDto.stubs.add(new StubInvokeDto(oneStubGroupId, oneGroupStubId));
             }
         }
         return oneObjMainStubDto;

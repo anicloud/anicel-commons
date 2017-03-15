@@ -16,6 +16,7 @@ public enum DeviceMessageType {
     TIME_SYNC_REQUEST(9),
     TIME_SYNC_RESPONSE(10),
     INVOKE_SERVICE(11),
+
     UNKNOWN(12);
 
     private Integer value;

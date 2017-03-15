@@ -1,7 +1,7 @@
 package com.ani.bus.device.commons.dto.device;
 
 import com.ani.bus.device.commons.dto.message.ByteSerializable;
-import com.ani.bus.device.commons.dto.MessageUtils;
+import com.ani.bus.device.commons.dto.util.MessageUtils;
 
 import java.io.DataInput;
 import java.io.DataOutput;

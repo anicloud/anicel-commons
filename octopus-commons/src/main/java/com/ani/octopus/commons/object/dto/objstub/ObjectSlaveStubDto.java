@@ -1,6 +1,6 @@
 package com.ani.octopus.commons.object.dto.objstub;
 
-import com.ani.octopus.commons.stub.dto.StubDto;
+import com.ani.octopus.commons.stub.dto.StubInvokeDto;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,13 +11,13 @@ import java.util.Map;
  */
 public class ObjectSlaveStubDto extends ObjectStubDto{
 
-    public Map<Integer, List<StubDto>> slavesStub;
+    public Map<Integer, List<StubInvokeDto>> slavesStub;
 
     public ObjectSlaveStubDto() {
         super();
     }
 
-    public ObjectSlaveStubDto(Long objectMainId, Map<Integer, List<StubDto>> slavesStub) {
+    public ObjectSlaveStubDto(Long objectMainId, Map<Integer, List<StubInvokeDto>> slavesStub) {
         super(objectMainId);
         this.slavesStub = slavesStub;
     }

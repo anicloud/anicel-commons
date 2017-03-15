@@ -1,6 +1,6 @@
 package com.ani.octopus.commons.object.dto.object.invocation;
 
-import com.ani.octopus.commons.stub.dto.StubDto;
+import com.ani.octopus.commons.stub.dto.StubInvokeDto;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ public abstract class ObjectInvocationDto {
 
     public Long objectMainId;
 
-    public List<StubDto> invokableStubs;
+    public List<StubInvokeDto> invokableStubs;
 
     public ObjectInvocationDto() {
     }
 
-    public ObjectInvocationDto(Long objectMainId, List<StubDto> invokableStubs) {
+    public ObjectInvocationDto(Long objectMainId, List<StubInvokeDto> invokableStubs) {
         this.objectMainId = objectMainId;
         this.invokableStubs = invokableStubs;
     }

@@ -5,7 +5,6 @@ import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.object.enumeration.AniObjectType;
 import com.ani.octopus.commons.object.dto.object.privilege.ObjectMainPrivilegeDto;
 import com.ani.octopus.commons.object.enumeration.DataState;
-import com.ani.octopus.commons.stub.dto.StubDto;
 import com.ani.octopus.commons.stub.dto.StubInfoDto;
 import com.ani.utils.core.AniByte;
 

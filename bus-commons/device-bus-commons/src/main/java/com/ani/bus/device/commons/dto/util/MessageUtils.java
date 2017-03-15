@@ -1,9 +1,11 @@
-package com.ani.bus.device.commons.dto;
+package com.ani.bus.device.commons.dto.util;
 
 import com.ani.bus.device.commons.dto.message.DeviceMessage;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Created by huangbin on 10/22/15.
@@ -44,6 +46,25 @@ public class MessageUtils {
     public static Long readLong(DataInput in) throws IOException {
         return in.readLong();
     }
+
+    public static void writeMap(DataOutput out, Map map) throws IOException {//TODO 将map结构化传入
+        Iterator it = map.keySet().iterator();
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        while (!it.hasNext()) {
+            Object key = it.next();
+            Object value = map.get(key);
+            sb.append(key).append(":").append(value);
+        }
+        sb.append("}");
+        writeString(out, sb.toString());
+    }
+
+    public static Map readMap(DataInput in) throws IOException {// TODO: 17-3-3
+        String map = readString(in);
+        return null;
+    }
+
 
     public static DeviceMessage decodeMessage(byte[] in) throws IOException {
         ByteArrayInputStream bais = new ByteArrayInputStream(in);

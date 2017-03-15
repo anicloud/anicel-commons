@@ -2,7 +2,6 @@ package com.ani.octopus.commons.object.dto.object;
 
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.object.enumeration.DataState;
-import com.ani.octopus.commons.stub.dto.StubDto;
 import com.ani.octopus.commons.stub.dto.StubInfoDto;
 
 import java.util.List;

@@ -2,18 +2,17 @@ package com.ani.bus.service.commons.dto.anistub;
 
 import com.ani.bus.service.commons.message.SocketMessage;
 import com.ani.octopus.commons.stub.dto.StubArgumentDto;
-import com.ani.octopus.commons.stub.dto.StubDto;
+import com.ani.octopus.commons.stub.dto.StubInvokeDto;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Created by zhaoyu on 15-10-29.
  */
-public class AniStub extends StubDto implements Serializable {
+public class AniStub extends StubInvokeDto implements Serializable {
     private static final long serialVersionUID = 3790604372796535245L;
 
     @NotNull
