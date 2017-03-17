@@ -1,6 +1,6 @@
 package com.ani.octopus.commons.stub.dto;
 
-import com.ani.octopus.commons.stub.type.AniDataType;
+import com.ani.utils.core.datatype.AniDataType;
 import com.ani.utils.dto.AniDto;
 
 /**

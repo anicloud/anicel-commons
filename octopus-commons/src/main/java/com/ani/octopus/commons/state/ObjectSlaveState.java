@@ -1,7 +1,7 @@
 package com.ani.octopus.commons.state;
 
-import com.ani.cel.anole.domain.statemachine.StateObject;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
+import com.ani.octopus.commons.state.dto.StateMachineDto;
 import com.ani.utils.core.AniByte;
 
 import java.util.Map;
@@ -17,7 +17,7 @@ public class ObjectSlaveState extends ObjectState {
         super();
     }
 
-    public ObjectSlaveState(StateObject stateMachines, AniObjectState connState) {
+    public ObjectSlaveState(Map<Integer, StateMachineDto> stateMachines, AniObjectState connState) {
         super(stateMachines);
         this.connState = connState;
     }

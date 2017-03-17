@@ -1,6 +1,6 @@
 package com.ani.octopus.commons.object.dto.object.privilege;
 
-import com.ani.octopus.commons.stub.enumeration.PrivilegeType;
+import com.ani.utils.core.datatype.PrivilegeType;
 import com.ani.utils.dto.AniDto;
 
 /**

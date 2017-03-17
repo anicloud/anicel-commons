@@ -1,7 +1,7 @@
 package com.ani.octopus.commons.object.dto.object.privilege;
 
 import com.ani.earth.commons.dto.AccountGroupDto;
-import com.ani.octopus.commons.stub.enumeration.PrivilegeType;
+import com.ani.utils.core.datatype.PrivilegeType;
 
 /**
  * Created by yeh on 15-12-1.

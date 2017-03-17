@@ -1,6 +1,5 @@
 package com.ani.octopus.commons.object.dto.state;
 
-import com.ani.octopus.commons.object.dto.stateMachine.StateMachineDto;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 
 import java.util.Map;

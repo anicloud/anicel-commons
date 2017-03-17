@@ -1,6 +1,6 @@
 package com.ani.bus.service.commons.dto.privilege;
 
-import com.ani.octopus.commons.stub.enumeration.PrivilegeType;
+import com.ani.utils.core.datatype.PrivilegeType;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;

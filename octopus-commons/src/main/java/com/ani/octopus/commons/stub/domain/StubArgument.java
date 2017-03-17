@@ -1,7 +1,7 @@
 package com.ani.octopus.commons.stub.domain;
 
 import com.ani.octopus.commons.stub.dto.StubArgumentInfoDto;
-import com.ani.octopus.commons.stub.type.AniDataType;
+import com.ani.utils.core.datatype.AniDataType;
 import com.ani.utils.core.AniGeneralUtils;
 
 import java.io.Serializable;

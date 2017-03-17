@@ -1,19 +1,20 @@
 package com.ani.octopus.commons.state;
 
-import com.ani.cel.anole.domain.statemachine.StateMachine;
-import com.ani.cel.anole.domain.statemachine.StateObject;
+import com.ani.octopus.commons.state.dto.StateMachineDto;
+
+import java.util.Map;
 
 /**
  * Created by yeh on 17-3-17.
  */
 public abstract class ObjectState {
 
-    public StateObject stateMachines;
+    public Map<Integer, StateMachineDto> stateMachines;
 
     public ObjectState() {
     }
 
-    public ObjectState(StateObject stateMachines) {
+    public ObjectState(Map<Integer, StateMachineDto> stateMachines) {
         this.stateMachines = stateMachines;
     }
 }

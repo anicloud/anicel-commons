@@ -2,21 +2,21 @@ package com.ani.octopus.commons.object.message.state;
 
 import com.ani.octopus.commons.message.objectState.ObjectStateMessage;
 import com.ani.octopus.commons.message.objectState.StateChangeEvents;
-import com.ani.octopus.commons.object.dto.stateMachine.StateObjectDto;
 import com.ani.octopus.commons.object.enumeration.StateMachineMessageTypes;
+import com.ani.octopus.commons.state.ObjectMainState;
 
 /**
  * Created by hey on 17-3-15.
  */
-public class StateMachineMessage extends ObjectStateMessage{
+public class ObjectMainStateMessage extends ObjectStateMessage{
 
     public StateMachineMessageTypes types;
 
-    public StateObjectDto stateObjectDto;
+    public ObjectMainState objectMainState;
 
-    public StateMachineMessage(Long objectId,StateMachineMessageTypes types,StateObjectDto stateObjectDto) {
+    public ObjectMainStateMessage(Long objectId, StateMachineMessageTypes types, ObjectMainState objectMainState) {
         super(objectId, StateChangeEvents.STATE_MACHINE_CHANGED);
         this.types = types;
-        this.stateObjectDto = stateObjectDto;
+        this.objectMainState = objectMainState;
     }
 }
