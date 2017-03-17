@@ -45,7 +45,6 @@
         <dependency>
             <groupId>com.ani.utils</groupId>
             <artifactId>ani-utils</artifactId>
-            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>com.ani.octopus</groupId>
@@ -55,6 +54,11 @@
         <dependency>
             <groupId>com.ani.earth</groupId>
             <artifactId>earth-commons</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ani.cel.anole</groupId>
+            <artifactId>anole</artifactId>
             <version>1.0</version>
         </dependency>
         <!--j2ee-->
