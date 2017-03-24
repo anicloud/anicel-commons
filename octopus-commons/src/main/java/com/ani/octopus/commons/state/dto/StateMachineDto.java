@@ -11,10 +11,13 @@ public class StateMachineDto {
 
     public Set<StateNodeDto> stateNodes;
 
+    public StateNodeDto curState;
+
     public StateMachineDto() {}
 
-    public StateMachineDto(Integer smId, Set<StateNodeDto> stateNodes) {
+    public StateMachineDto(Integer smId, Set<StateNodeDto> stateNodes, StateNodeDto curState) {
         this.smId = smId;
         this.stateNodes = stateNodes;
+        this.curState = curState;
     }
 }

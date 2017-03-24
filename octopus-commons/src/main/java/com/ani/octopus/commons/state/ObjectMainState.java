@@ -14,8 +14,6 @@ public class ObjectMainState extends ObjectState {
 
     public Map<AniByte, AniObjectState> hostsConnState;
 
-    public Map<Integer, ObjectSlaveState> slavesState;
-
     public ObjectMainState(){
         super();
     }
