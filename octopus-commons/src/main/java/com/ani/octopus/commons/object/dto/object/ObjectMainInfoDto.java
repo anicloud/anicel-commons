@@ -1,6 +1,7 @@
 package com.ani.octopus.commons.object.dto.object;
 
 import com.ani.earth.commons.dto.AccountDto;
+import com.ani.octopus.commons.object.dto.state.ObjectMainStateDto;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.object.enumeration.AniObjectType;
 import com.ani.octopus.commons.object.dto.object.privilege.ObjectMainPrivilegeDto;
@@ -27,7 +28,9 @@ public class ObjectMainInfoDto extends ObjectInfoDto {
 
     public List<ObjectMainPrivilegeDto> privileges;
 
-    public Map<AniByte, AniObjectState> hostsState;
+    public ObjectMainStateDto objectMainState;
+
+//    public Map<AniByte, AniObjectState> hostsState;
 
     public List<ObjectSlaveInfoDto> slaves;
 
@@ -35,14 +38,34 @@ public class ObjectMainInfoDto extends ObjectInfoDto {
         super();
     }
 
-    public ObjectMainInfoDto(List<StubInfoDto> stubs, DataState dataState, Long objectId, String uniId, AccountDto owner, AniObjectType objectType, List<ObjectMainPrivilegeDto> privileges, Map<AniByte, AniObjectState> hostsState, List<ObjectSlaveInfoDto> slaves) {
+    public ObjectMainInfoDto(List<StubInfoDto> stubs, DataState dataState, Long objectId, String uniId, AccountDto owner, AniObjectType objectType, List<ObjectMainPrivilegeDto> privileges, List<ObjectSlaveInfoDto> slaves) {
         super(stubs, dataState);
         this.objectId = objectId;
         this.uniId = uniId;
         this.owner = owner;
         this.objectType = objectType;
         this.privileges = privileges;
-        this.hostsState = hostsState;
+        this.slaves = slaves;
+    }
+//    public ObjectMainInfoDto(List<StubInfoDto> stubs, DataState dataState, Long objectId, String uniId, AccountDto owner, AniObjectType objectType, List<ObjectMainPrivilegeDto> privileges, Map<AniByte, AniObjectState> hostsState, List<ObjectSlaveInfoDto> slaves) {
+//        super(stubs, dataState);
+//        this.objectId = objectId;
+//        this.uniId = uniId;
+//        this.owner = owner;
+//        this.objectType = objectType;
+//        this.privileges = privileges;
+//        this.hostsState = hostsState;
+//        this.slaves = slaves;
+//    }
+
+    public ObjectMainInfoDto(List<StubInfoDto> stubs, DataState dataState, Long objectId, String uniId, AccountDto owner, AniObjectType objectType, List<ObjectMainPrivilegeDto> privileges, ObjectMainStateDto objectMainState, List<ObjectSlaveInfoDto> slaves) {
+        super(stubs, dataState);
+        this.objectId = objectId;
+        this.uniId = uniId;
+        this.owner = owner;
+        this.objectType = objectType;
+        this.privileges = privileges;
+        this.objectMainState = objectMainState;
         this.slaves = slaves;
     }
 }

@@ -11,19 +11,18 @@ import java.util.Map;
 public class ObjectSlaveStateDto extends ObjectStateDto {
 
     @AniRequiredField
-    public Map<Integer, AniObjectState> slavesState;
-
+//    public Map<Integer, AniObjectState> slavesState;
+    public AniObjectState slaveState;
     public ObjectSlaveStateDto() {
     }
 
-//    public AniObjectMainStatePo toPo() {
-//        AniObjectMainStatePo objectMainStatePo = new AniObjectMainStatePo(this.objectMainId);
-//        objectMainStatePo.slavesState = slavesState;
-//        return objectMainStatePo;
+//    public ObjectSlaveStateDto(Long objectMainId, Map<Integer, AniObjectState> slavesState) {
+//        super(objectMainId);
+//        this.slavesState = slavesState;
 //    }
 
-    public ObjectSlaveStateDto(Long objectMainId, Map<Integer, AniObjectState> slavesState) {
+    public ObjectSlaveStateDto(Long objectMainId, AniObjectState slaveState) {
         super(objectMainId);
-        this.slavesState = slavesState;
+        this.slaveState = slaveState;
     }
 }
