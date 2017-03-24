@@ -4,6 +4,7 @@ import java.util.Set;
 
 /**
  * Created by yeh on 17-3-17.
+ * transfer between devicebus and octopus
  */
 public class StateMachineDto {
 
