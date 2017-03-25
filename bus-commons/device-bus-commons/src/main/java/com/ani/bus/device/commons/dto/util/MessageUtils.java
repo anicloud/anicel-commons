@@ -61,10 +61,10 @@ public class MessageUtils {
     }
 
     public static Map readMap(DataInput in) throws IOException {// TODO: 17-3-3
-        String map = readString(in);
+        String mapString = readString(in);
         return null;
+//        return new HashMap(mapString);
     }
-
 
     public static DeviceMessage decodeMessage(byte[] in) throws IOException {
         ByteArrayInputStream bais = new ByteArrayInputStream(in);
