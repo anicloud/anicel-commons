@@ -16,8 +16,10 @@ public enum DeviceMessageType {
     TIME_SYNC_REQUEST(9),
     TIME_SYNC_RESPONSE(10),
     INVOKE_SERVICE(11),
+    STATEOBJECT_REQUEST(12),
+    STATEOBJECT_RESPONSE(13),
 
-    UNKNOWN(12);
+    UNKNOWN(14);
 
     private Integer value;
 
@@ -53,6 +55,10 @@ public enum DeviceMessageType {
                 return TIME_SYNC_RESPONSE;
             case 11:
                 return INVOKE_SERVICE;
+            case 12:
+                return STATEOBJECT_REQUEST;
+            case 13:
+                return STATEOBJECT_RESPONSE;
             default:
                 return UNKNOWN;
         }

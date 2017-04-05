@@ -1,6 +1,7 @@
 package com.ani.bus.device.commons.dto.statemachine;
 
 import com.ani.bus.device.commons.dto.message.ByteSerializable;
+import com.ani.bus.device.commons.dto.util.MessageUtils;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -13,13 +14,13 @@ import java.util.List;
  * transfer between devicebus and deviceagent
  */
 public class DeviceStateObjectDto implements ByteSerializable {
-    public Integer smId;
+    public String smId;
     public List<DeviceStateMachineDto> deviceStateMachineDtos;
     public Long timestamp;
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeInt(smId);
+        MessageUtils.writeString(out, smId);
         if (deviceStateMachineDtos == null) {
             out.writeByte(0);
         } else {
@@ -32,7 +33,7 @@ public class DeviceStateObjectDto implements ByteSerializable {
 
     @Override
     public void read(DataInput in) throws IOException {
-        smId = in.readInt();
+        smId = MessageUtils.readString(in);
         int size = in.readByte();
         if (size > 0) {
             deviceStateMachineDtos = new ArrayList<>();

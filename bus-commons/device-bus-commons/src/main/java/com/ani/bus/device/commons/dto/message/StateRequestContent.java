@@ -12,11 +12,24 @@ public class StateRequestContent extends DeviceMessageContent {
     public Integer slaveId;
     public Integer numId;
 
+    public StateRequestContent(Long objectId, Integer slaveId, Integer numId) {
+        this.objectId = objectId;
+        this.slaveId = slaveId;
+        this.numId = numId;
+    }
+
+    public StateRequestContent(Long objectId, Integer slaveId) {
+        this.objectId = objectId;
+        this.slaveId = slaveId;
+    }
+
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeLong(objectId);
         out.writeInt(slaveId);
-        out.writeInt(numId);
+        if (this.numId == null) out.writeInt(0);
+        else
+            out.writeInt(numId);
     }
 
     @Override

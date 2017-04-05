@@ -47,6 +47,7 @@ public class MessageUtils {
         return in.readLong();
     }
 
+    @Deprecated //不推荐使用Map传输
     public static void writeMap(DataOutput out, Map map) throws IOException {//TODO 将map结构化传入
         Iterator it = map.keySet().iterator();
         StringBuilder sb = new StringBuilder();
@@ -60,6 +61,7 @@ public class MessageUtils {
         writeString(out, sb.toString());
     }
 
+    @Deprecated
     public static Map readMap(DataInput in) throws IOException {// TODO: 17-3-3
         String mapString = readString(in);
         return null;
