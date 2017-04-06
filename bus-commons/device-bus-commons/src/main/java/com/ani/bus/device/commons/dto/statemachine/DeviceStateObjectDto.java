@@ -14,17 +14,17 @@ import java.util.List;
  * transfer between devicebus and deviceagent
  */
 public class DeviceStateObjectDto implements ByteSerializable {
-    public String smId;
+//    public String smId;//todo delete
     public List<DeviceStateMachineDto> deviceStateMachineDtos;
     public Long timestamp;
 
     @Override
     public void write(DataOutput out) throws IOException {
-        MessageUtils.writeString(out, smId);
+//        MessageUtils.writeString(out, smId);
         if (deviceStateMachineDtos == null) {
-            out.writeByte(0);
+            out.writeInt(0);
         } else {
-            out.writeByte(deviceStateMachineDtos.size());
+            out.writeInt(deviceStateMachineDtos.size());
             for (DeviceStateMachineDto deviceStateObjectDto : deviceStateMachineDtos) {
                 deviceStateObjectDto.write(out);
             }
@@ -33,8 +33,8 @@ public class DeviceStateObjectDto implements ByteSerializable {
 
     @Override
     public void read(DataInput in) throws IOException {
-        smId = MessageUtils.readString(in);
-        int size = in.readByte();
+//        smId = MessageUtils.readString(in);
+        int size = in.readInt();
         if (size > 0) {
             deviceStateMachineDtos = new ArrayList<>();
             for (int i = 0; i < size; i++) {

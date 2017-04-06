@@ -19,9 +19,9 @@ public class DeviceStateMachineNodeDto implements ByteSerializable {
     public void write(DataOutput out) throws IOException {
         state.write(out);
         if (deviceStateTransferStubInvokeTriggerDtos == null) {
-            out.writeByte(0);
+            out.writeInt(0);
         } else {
-            out.writeByte(deviceStateTransferStubInvokeTriggerDtos.size());
+            out.writeInt(deviceStateTransferStubInvokeTriggerDtos.size());
             for (DeviceStateTransferStubInvokeTriggerDto deviceStateTransferStubInvokeTriggerDto : deviceStateTransferStubInvokeTriggerDtos) {
                 deviceStateTransferStubInvokeTriggerDto.write(out);
             }
@@ -33,7 +33,7 @@ public class DeviceStateMachineNodeDto implements ByteSerializable {
     public void read(DataInput in) throws IOException {
         state = new DeviceStateDto();
         state.read(in);
-        int size = in.readByte();
+        int size = in.readInt();
         if (size > 0) {
             deviceStateTransferStubInvokeTriggerDtos = new ArrayList<>();
             for (int i = 0; i < size; i++) {

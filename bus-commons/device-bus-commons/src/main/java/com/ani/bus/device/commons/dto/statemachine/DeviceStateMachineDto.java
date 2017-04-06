@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class DeviceStateMachineDto implements ByteSerializable {
     public Integer smId;
-    public DeviceStateMachineDto currentDeviceStateMachineDto;
+    public DeviceStateDto currentDeviceStateMachineDto;
     public Set<DeviceStateMachineNodeDto> deviceStateMachineNodeDtos;
 
     @Override
@@ -21,9 +21,9 @@ public class DeviceStateMachineDto implements ByteSerializable {
         out.writeInt(smId);
         currentDeviceStateMachineDto.write(out);
         if (deviceStateMachineNodeDtos == null) {
-            out.writeByte(0);
+            out.writeInt(0);
         } else {
-            out.writeByte(deviceStateMachineNodeDtos.size());
+            out.writeInt(deviceStateMachineNodeDtos.size());
             for (DeviceStateMachineNodeDto deviceStateMachineNodeDto : deviceStateMachineNodeDtos) {
                 deviceStateMachineNodeDto.write(out);
             }
@@ -34,7 +34,7 @@ public class DeviceStateMachineDto implements ByteSerializable {
     public void read(DataInput in) throws IOException {
         smId = in.readInt();
         currentDeviceStateMachineDto.read(in);
-        int size = in.readByte();
+        int size = in.readInt();
         if (size > 0) {
             deviceStateMachineNodeDtos = new HashSet<>();
             for (int i = 0; i < size; i++) {

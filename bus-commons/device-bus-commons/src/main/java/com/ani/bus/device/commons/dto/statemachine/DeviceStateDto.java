@@ -20,7 +20,7 @@ public class DeviceStateDto implements ByteSerializable {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeLong(stateGroupId);//TODO
+        MessageUtils.writeLong(out,stateGroupId);
         out.writeInt(stateId);
         if (properties == null) out.writeInt(0);
         else {
@@ -34,7 +34,7 @@ public class DeviceStateDto implements ByteSerializable {
     public void read(DataInput in) throws IOException {
         stateGroupId = MessageUtils.readLong(in);
         stateId = in.readInt();
-        int size = in.readByte();
+        int size = in.readInt();
         if (size > 0) {
             properties = new ArrayList<>();//TODO 合并list 参数的读写
             for (int i = 0; i < size; i++) {
