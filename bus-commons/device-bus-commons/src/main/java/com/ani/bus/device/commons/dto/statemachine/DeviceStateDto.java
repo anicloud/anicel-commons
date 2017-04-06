@@ -18,9 +18,18 @@ public class DeviceStateDto implements ByteSerializable {
     public Integer stateId;
     public List<ArgumentDto> properties;
 
+    public DeviceStateDto() {
+
+    }
+
+    public DeviceStateDto(Long stateGroupId, Integer stateId) {
+        this.stateGroupId = stateGroupId;
+        this.stateId = stateId;
+    }
+
     @Override
     public void write(DataOutput out) throws IOException {
-        MessageUtils.writeLong(out,stateGroupId);
+        MessageUtils.writeLong(out, stateGroupId);
         out.writeInt(stateId);
         if (properties == null) out.writeInt(0);
         else {

@@ -15,6 +15,14 @@ public class DeviceStateMachineNodeDto implements ByteSerializable {
     public DeviceStateDto state;
     public Collection<DeviceStateTransferStubInvokeTriggerDto> deviceStateTransferStubInvokeTriggerDtos;
 
+    public DeviceStateMachineNodeDto() {
+
+    }
+
+    public DeviceStateMachineNodeDto(Long stateGroupId, Integer stateId) {
+        this.state = new DeviceStateDto(stateGroupId, stateId);
+    }
+
     @Override
     public void write(DataOutput out) throws IOException {
         state.write(out);

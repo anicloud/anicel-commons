@@ -19,13 +19,17 @@ public class DeviceStateTransferStubInvokeTriggerDto implements ByteSerializable
     public void write(DataOutput out) throws IOException {
         MessageUtils.writeLong(out, stubGroupId);
         out.writeInt(stubId);
-        nextNode.write(out);
+        MessageUtils.writeLong(out, nextNode.state.stateGroupId);
+        out.writeInt(nextNode.state.stateId);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
         stubGroupId = MessageUtils.readLong(in);
         stubId = in.readInt();
-        nextNode.read(in);
+//        nextNode.read(in);
+        Long stateGroupId = MessageUtils.readLong(in);
+        Integer stateId = in.readInt();
+        nextNode = new DeviceStateMachineNodeDto(stateGroupId, stateId);
     }
 }
