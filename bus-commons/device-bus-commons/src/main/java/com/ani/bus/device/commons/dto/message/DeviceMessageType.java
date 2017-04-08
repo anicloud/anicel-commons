@@ -2,7 +2,7 @@ package com.ani.bus.device.commons.dto.message;
 
 /**
  * Created by huangbin on 15/10/27
- * Modified by xuben on 17/01/12
+ * Modified by xuben on 17/04/08
  */
 public enum DeviceMessageType {
     REGISTER_REQUEST(1),
@@ -15,11 +15,12 @@ public enum DeviceMessageType {
     INVOKE_RESPONSE(8),
     TIME_SYNC_REQUEST(9),
     TIME_SYNC_RESPONSE(10),
-    INVOKE_SERVICE(11),
-    STATEOBJECT_REQUEST(12),
-    STATEOBJECT_RESPONSE(13),
-
-    UNKNOWN(14);
+    STATE_OBJECT_REQUEST(11),
+    STATE_OBJECT_RESPONSE(12),
+    STATE_UPDATE_REQUEST(13),
+    STATE_UPDATE_RESPONSE(14),
+    INVOKE_SERVICE(15),
+    UNKNOWN(16);
 
     private Integer value;
 
@@ -54,11 +55,15 @@ public enum DeviceMessageType {
             case 10:
                 return TIME_SYNC_RESPONSE;
             case 11:
-                return INVOKE_SERVICE;
+                return STATE_OBJECT_REQUEST;
             case 12:
-                return STATEOBJECT_REQUEST;
+                return STATE_OBJECT_RESPONSE;
             case 13:
-                return STATEOBJECT_RESPONSE;
+                return STATE_UPDATE_REQUEST;
+            case 14:
+                return STATE_UPDATE_RESPONSE;
+            case 15:
+                return INVOKE_SERVICE;
             default:
                 return UNKNOWN;
         }
