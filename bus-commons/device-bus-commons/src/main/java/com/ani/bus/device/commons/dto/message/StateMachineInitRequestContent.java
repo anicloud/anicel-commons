@@ -7,16 +7,11 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 /**
- * Created by zsl on 17-3-1.
+ * Created by zsl on 17-4-9.
  */
-public class StateRequestContent extends DeviceMessageContent {
+public class StateMachineInitRequestContent extends DeviceMessageContent {
     public Long objectId;
     public Integer slaveId;
-
-    public StateRequestContent(Long objectId, Integer slaveId) {
-        this.objectId = objectId;
-        this.slaveId = slaveId;
-    }
 
     @Override
     public void write(DataOutput out) throws IOException {
