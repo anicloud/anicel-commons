@@ -63,10 +63,16 @@ public class DeviceMessage implements ByteSerializable {
                 content = new TimeSyncResponseContent();
                 break;
             case STATE_OBJECT_REQUEST:
-                content = new StateObjectRequestContent();
+                content = new StateMachineInitRequestContent();
                 break;
             case STATE_OBJECT_RESPONSE:
-                content = new StateObjectResponseContent();
+                content = new StateMachineInitResponseContent();
+                break;
+            case STATES_OBJECT_REQUEST:
+                content = new StateMachinesInitRequestContent();
+                break;
+            case STATES_OBJECT_RESPONSE:
+                content = new StateMachinesInitResponseContent();
                 break;
             case STATE_UPDATE_REQUEST:
                 content = new StateUpdateRequestContent();
