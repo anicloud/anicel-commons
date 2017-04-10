@@ -11,7 +11,7 @@ import java.io.IOException;
 public class StateRequestContent extends DeviceMessageContent {
     public Integer slaveId;
 
-    public StateRequestContent(Long objectId, Integer slaveId) {
+    public StateRequestContent(Integer slaveId) {
         this.slaveId = slaveId;
     }
 
