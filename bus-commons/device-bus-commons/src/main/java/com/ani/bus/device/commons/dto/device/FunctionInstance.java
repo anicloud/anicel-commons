@@ -39,7 +39,7 @@ public class FunctionInstance implements ByteSerializable {
     public FunctionInstance(Long deviceId, Integer slaveId, Boolean async, FunctionDto function,
                             List<ArgumentDto> inputValues, List<ArgumentDto> outputValues) {
         Long createTime = System.currentTimeMillis();
-        Long instanceId = Long.valueOf((createTime.toString() + deviceId.toString()+slaveId.toString() + function.functionId + function.groupId).hashCode());
+        Long instanceId = Long.valueOf((createTime.toString() + deviceId.toString() + slaveId.toString() + function.functionId + function.groupId).hashCode());
         this.instanceId = instanceId;
         this.createTime = createTime;
         this.slaveId = slaveId;
@@ -69,17 +69,17 @@ public class FunctionInstance implements ByteSerializable {
         out.writeInt(slaveId);
         function.write(out);
         if (inputValues == null) {
-            out.writeByte(0); // 参数最多允许127个, 一个字节足够用
+            out.writeInt(0); // 参数最多允许127个, 一个字节足够用
         } else {
-            out.writeByte(inputValues.size());
+            out.writeInt(inputValues.size());
             for (ArgumentDto arg : inputValues) {
                 arg.write(out);
             }
         }
         if (outputValues == null) {
-            out.writeByte(0); // 参数最多允许127个, 一个字节足够用
+            out.writeInt(0); // 参数最多允许127个, 一个字节足够用
         } else {
-            out.writeByte(outputValues.size());
+            out.writeInt(outputValues.size());
             for (ArgumentDto arg : outputValues) {
                 arg.write(out);
             }
@@ -94,18 +94,18 @@ public class FunctionInstance implements ByteSerializable {
         slaveId = in.readInt();
         function = new FunctionDto();
         function.read(in);
-        int size = in.readByte();
+        int size = in.readInt();
+        inputValues = new ArrayList<>();
         if (size > 0) {
-            inputValues = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 ArgumentDto argument = new ArgumentDto();
                 argument.read(in);
                 inputValues.add(argument);
             }
         }
-        size = in.readByte();
+        size = in.readInt();
+        outputValues = new ArrayList<>();
         if (size > 0) {
-            outputValues = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 ArgumentDto argument = new ArgumentDto();
                 argument.read(in);
