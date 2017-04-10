@@ -1,6 +1,7 @@
 package com.ani.bus.device.commons.dto.message;
 
 import com.ani.bus.device.commons.dto.statemachine.DeviceStateDto;
+import com.ani.bus.device.commons.dto.statemachine.DeviceStateMachineDto;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -12,32 +13,32 @@ import java.util.List;
  * Created by zsl on 17-4-9.
  */
 public class StateMachineInitResponseContent extends DeviceMessageContent {
-    public Long Objectid;
+    //    public Long Objectid;
     public Integer slaveid;
-    public List<DeviceStateDto> deviceStateDtos;
+    public List<DeviceStateMachineDto> deviceStateDtos;
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeLong(Objectid);
+//        out.writeLong(Objectid);
         out.writeInt(slaveid);
         if (deviceStateDtos == null) {
             out.writeInt(0);
         } else {
             out.writeInt(deviceStateDtos.size());
-            for (DeviceStateDto deviceStateDto : deviceStateDtos)
+            for (DeviceStateMachineDto deviceStateDto : deviceStateDtos)
                 deviceStateDto.write(out);
         }
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        Objectid = in.readLong();
+//        Objectid = in.readLong();
         slaveid = in.readInt();
         int size = in.readInt();
         if (size > 0) {
             deviceStateDtos = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                DeviceStateDto deviceStateDto = new DeviceStateDto();
+                DeviceStateMachineDto deviceStateDto = new DeviceStateMachineDto();
                 deviceStateDto.read(in);
                 deviceStateDtos.add(deviceStateDto);
             }

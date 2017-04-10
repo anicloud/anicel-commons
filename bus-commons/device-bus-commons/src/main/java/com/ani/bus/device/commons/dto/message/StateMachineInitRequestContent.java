@@ -10,18 +10,23 @@ import java.io.IOException;
  * Created by zsl on 17-4-9.
  */
 public class StateMachineInitRequestContent extends DeviceMessageContent {
-    public Long objectId;
+    //    public Long objectId;
     public Integer slaveId;
+
+    public StateMachineInitRequestContent(Integer slaveId) {
+//        this.objectId = objectId;
+        this.slaveId = slaveId;
+    }
 
     @Override
     public void write(DataOutput out) throws IOException {
-        MessageUtils.writeLong(out, objectId);
+//        MessageUtils.writeLong(out, objectId);
         out.writeInt(slaveId);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        objectId = MessageUtils.readLong(in);
+//        objectId = MessageUtils.readLong(in);
         slaveId = in.readInt();
     }
 }
