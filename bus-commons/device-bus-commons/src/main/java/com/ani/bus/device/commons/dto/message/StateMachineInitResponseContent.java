@@ -13,13 +13,11 @@ import java.util.List;
  * Created by zsl on 17-4-9.
  */
 public class StateMachineInitResponseContent extends DeviceMessageContent {
-    //    public Long Objectid;
     public Integer slaveid;
     public List<DeviceStateMachineDto> deviceStateDtos;
 
     @Override
     public void write(DataOutput out) throws IOException {
-//        out.writeLong(Objectid);
         out.writeInt(slaveid);
         if (deviceStateDtos == null) {
             out.writeInt(0);
@@ -32,7 +30,6 @@ public class StateMachineInitResponseContent extends DeviceMessageContent {
 
     @Override
     public void read(DataInput in) throws IOException {
-//        Objectid = in.readLong();
         slaveid = in.readInt();
         int size = in.readInt();
         if (size > 0) {

@@ -9,16 +9,13 @@ import java.io.IOException;
 /**
  * Created by zsl on 17-4-9.
  */
-public class StateMachineInitRequestContent extends DeviceMessageContent {
-    public Integer slaveid;
+public class StateMachinesInitRequestContent extends DeviceMessageContent {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeInt(slaveid);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        slaveid = in.readInt();
     }
 }
