@@ -43,9 +43,9 @@ public class DeviceStateDto implements ByteSerializable {
     public void read(DataInput in) throws IOException {
         stateGroupId = MessageUtils.readLong(in);
         stateId = in.readInt();
-        int size = in.readInt();
+        int size = in.readByte();
+        properties = new ArrayList<>();//TODO 合并list 参数的读写
         if (size > 0) {
-            properties = new ArrayList<>();//TODO 合并list 参数的读写
             for (int i = 0; i < size; i++) {
                 ArgumentDto argumentDto = new ArgumentDto();
                 argumentDto.read(in);

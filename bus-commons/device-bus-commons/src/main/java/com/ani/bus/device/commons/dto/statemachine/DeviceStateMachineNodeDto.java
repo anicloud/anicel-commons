@@ -42,8 +42,8 @@ public class DeviceStateMachineNodeDto implements ByteSerializable {
         state = new DeviceStateDto();
         state.read(in);
         int size = in.readInt();
+        deviceStateTransferStubInvokeTriggerDtos = new ArrayList<>();
         if (size > 0) {
-            deviceStateTransferStubInvokeTriggerDtos = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 DeviceStateTransferStubInvokeTriggerDto deviceStateTransferStubInvokeTriggerDto = new DeviceStateTransferStubInvokeTriggerDto();
                 deviceStateTransferStubInvokeTriggerDto.read(in);
