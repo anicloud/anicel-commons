@@ -42,7 +42,6 @@ public class StateMachinesInitResponseContent extends DeviceMessageContent {
     @Override
     public void read(DataInput in) throws IOException {
         int size = in.readInt();
-        Map<Integer, List<DeviceStateMachineDto>> deviceStateMachines = new HashMap<>();
 
         for (int i = 0; i < size; i++) {
             Integer slaveId = in.readInt();
@@ -53,7 +52,7 @@ public class StateMachinesInitResponseContent extends DeviceMessageContent {
                 deviceStateMachineDto.read(in);
                 deviceStateMachineDtos.add(deviceStateMachineDto);
             }
-            deviceStateMachines.put(slaveId, deviceStateMachineDtos);
+            deviceStateDtos.put(slaveId, deviceStateMachineDtos);
         }
 
     }
