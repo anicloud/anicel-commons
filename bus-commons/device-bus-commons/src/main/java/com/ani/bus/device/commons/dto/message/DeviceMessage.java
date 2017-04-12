@@ -24,10 +24,19 @@ public class DeviceMessage implements ByteSerializable {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeShort(type.getValue());
-        content.write(out);
+        try {
+            out.writeShort(type.getValue());
+            content.write(out);
+        }
+    catch(
+    IOException e
+    )
+
+    {
+        e.printStackTrace();
     }
 
+}
     @Override
     public void read(DataInput in) throws IOException {
         type = DeviceMessageType.getType((int) in.readShort());
@@ -84,7 +93,11 @@ public class DeviceMessage implements ByteSerializable {
             default:
                 throw new IOException();
         }
-        content.read(in);
+        try {
+            content.read(in);
+        }catch (IOException e){
+        e.printStackTrace();
+        }
     }
 
 }
