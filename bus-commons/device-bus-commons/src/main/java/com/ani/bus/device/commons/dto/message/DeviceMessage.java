@@ -27,16 +27,13 @@ public class DeviceMessage implements ByteSerializable {
         try {
             out.writeShort(type.getValue());
             content.write(out);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
         }
-    catch(
-    IOException e
-    )
 
-    {
-        e.printStackTrace();
     }
 
-}
     @Override
     public void read(DataInput in) throws IOException {
         type = DeviceMessageType.getType((int) in.readShort());
@@ -95,8 +92,8 @@ public class DeviceMessage implements ByteSerializable {
         }
         try {
             content.read(in);
-        }catch (IOException e){
-        e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

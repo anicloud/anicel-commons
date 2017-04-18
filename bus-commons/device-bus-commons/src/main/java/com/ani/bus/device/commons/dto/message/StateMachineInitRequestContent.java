@@ -1,7 +1,5 @@
 package com.ani.bus.device.commons.dto.message;
 
-import com.ani.bus.device.commons.dto.util.MessageUtils;
-
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
