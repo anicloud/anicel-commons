@@ -1,11 +1,13 @@
 package com.ani.octopus.commons.state.dto;
 
+import com.ani.utils.dto.AniDto;
+
 import java.util.List;
 
 /**
  * Created by yeh on 17-3-17.
  */
-public class StateDto {
+public class StateDto extends AniDto {
 
     public Long groupId;
 
@@ -25,9 +27,9 @@ public class StateDto {
     }
 
     @Override
-    public boolean equals(Object obj){
-        StateDto cmpState = (StateDto)obj;
-        if(!this.isLegal()) return false;
+    public boolean equals(Object obj) {
+        StateDto cmpState = (StateDto) obj;
+        if (!this.isLegal()) return false;
         return (this.groupId == cmpState.groupId)
                 && (this.stateId == cmpState.stateId);
     }
@@ -35,7 +37,7 @@ public class StateDto {
     public boolean isLegal() {
         if (
                 this.stateId == null
-                || this.groupId == null)
+                        || this.groupId == null)
             return false;
         else
             return true;
