@@ -26,7 +26,8 @@ public class InvokeResponseContent extends DeviceMessageContent {
     public void write(DataOutput out) {
         try {
             out.writeBoolean(result);
-            instance.write(out);
+            if (result)
+                instance.write(out);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,6 +37,7 @@ public class InvokeResponseContent extends DeviceMessageContent {
     public void read(DataInput in) {
         try {
             result = in.readBoolean();
+            if (!result) return;
             instance = new FunctionInstance();
             instance.read(in);
         } catch (Exception e) {
