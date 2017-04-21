@@ -4,7 +4,6 @@ package com.ani.octopus.commons.object.message.device;
 import com.ani.octopus.commons.dto.object.ObjectQueryDto;
 import com.ani.octopus.commons.message.object.Type;
 import com.ani.octopus.commons.message.objectState.StateChangeEvents;
-import com.ani.octopus.commons.object.dto.object.ObjectSlaveQueryDto;
 import com.ani.octopus.commons.object.message.DeviceMessage;
 import com.ani.octopus.commons.state.dto.StateDto;
 
