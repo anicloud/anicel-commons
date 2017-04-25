@@ -2,6 +2,7 @@ package com.ani.octopus.commons.state.dto;
 
 import com.ani.utils.dto.AniDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +21,15 @@ public class StateDto extends AniDto {
         this.groupId = groupId;
         this.stateId = stateId;
     }
+
+    public static List<Long> getStateGroupQuery(List<StateDto> stateDtos) {
+        List<Long> statesGroup = new ArrayList<>(stateDtos.size());
+        for(StateDto oneState: stateDtos){
+            statesGroup.add(oneState.groupId);
+        }
+        return statesGroup;
+    }
+
 
     @Override
     public int hashCode() {
