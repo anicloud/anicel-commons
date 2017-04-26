@@ -1,6 +1,5 @@
 package com.ani.bus.service.commons.dto.anidevice;
 
-import com.ani.bus.service.commons.dto.anidevice.stub.StubMeta;
 import com.ani.earth.commons.dto.AccountDto;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.stub.dto.StubInfoDto;
