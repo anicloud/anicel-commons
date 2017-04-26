@@ -14,12 +14,14 @@ import java.util.List;
  * transfer between devicebus and deviceagent
  */
 public class DeviceStateObjectDto implements ByteSerializable {
+//    public Integer slaveId;
     public List<DeviceStateDto> deviceStateMachineDtos;
     public Long timestamp;
 
     public final Object lock = new Object();
     @Override
     public void write(DataOutput out) throws IOException {
+//        out.writeInt(slaveId);
         if (deviceStateMachineDtos == null) {
             out.writeInt(0);
         } else {
@@ -32,6 +34,7 @@ public class DeviceStateObjectDto implements ByteSerializable {
 
     @Override
     public void read(DataInput in) throws IOException {
+//        slaveId = in.readInt();
         int size = in.readInt();
         if (size > 0) {
             deviceStateMachineDtos = new ArrayList<>();
