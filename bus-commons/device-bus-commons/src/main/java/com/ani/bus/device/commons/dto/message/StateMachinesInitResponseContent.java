@@ -1,13 +1,11 @@
 package com.ani.bus.device.commons.dto.message;
 
-import com.ani.bus.device.commons.dto.statemachine.DeviceStateDto;
-import com.ani.bus.device.commons.dto.statemachine.DeviceStateMachineDto;
+import com.ani.bus.device.commons.dto.statemachine.DeviceStateMachineDBDto;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +14,7 @@ import java.util.Map;
  */
 public class StateMachinesInitResponseContent extends DeviceMessageContent {
 
-    public Map<Integer, List<DeviceStateMachineDto>> deviceStateDtos;
+    public Map<Integer, List<DeviceStateMachineDBDto>> deviceStateDtos;
 
     @Override
     public void write(DataOutput out) throws IOException {
@@ -27,14 +25,14 @@ public class StateMachinesInitResponseContent extends DeviceMessageContent {
         out.writeInt(deviceStateDtos.size());
         for (Integer slaveId : deviceStateDtos.keySet()) {
             out.writeInt(slaveId);
-            List<DeviceStateMachineDto> deviceStateMachineDtos = deviceStateDtos.get(slaveId);
-            if (deviceStateMachineDtos.size() == 0) {
+            List<DeviceStateMachineDBDto> deviceStateMachineDBDtos = deviceStateDtos.get(slaveId);
+            if (deviceStateMachineDBDtos.size() == 0) {
                 out.writeInt(0);
                 return;
             }
-            out.writeInt(deviceStateMachineDtos.size());
-            for (DeviceStateMachineDto deviceStateMachineDto : deviceStateMachineDtos) {
-                deviceStateMachineDto.write(out);
+            out.writeInt(deviceStateMachineDBDtos.size());
+            for (DeviceStateMachineDBDto deviceStateMachineDBDto : deviceStateMachineDBDtos) {
+                deviceStateMachineDBDto.write(out);
             }
         }
     }
@@ -46,13 +44,13 @@ public class StateMachinesInitResponseContent extends DeviceMessageContent {
         for (int i = 0; i < size; i++) {
             Integer slaveId = in.readInt();
             Integer listsize = in.readInt();
-            List<DeviceStateMachineDto> deviceStateMachineDtos = new ArrayList<>();
+            List<DeviceStateMachineDBDto> deviceStateMachineDBDtos = new ArrayList<>();
             for (int j = 0; j < listsize; j++) {
-                DeviceStateMachineDto deviceStateMachineDto = new DeviceStateMachineDto();
-                deviceStateMachineDto.read(in);
-                deviceStateMachineDtos.add(deviceStateMachineDto);
+                DeviceStateMachineDBDto deviceStateMachineDBDto = new DeviceStateMachineDBDto();
+                deviceStateMachineDBDto.read(in);
+                deviceStateMachineDBDtos.add(deviceStateMachineDBDto);
             }
-            deviceStateDtos.put(slaveId, deviceStateMachineDtos);
+            deviceStateDtos.put(slaveId, deviceStateMachineDBDtos);
         }
 
     }

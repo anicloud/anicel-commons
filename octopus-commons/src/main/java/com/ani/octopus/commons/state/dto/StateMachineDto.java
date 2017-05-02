@@ -1,24 +1,25 @@
 package com.ani.octopus.commons.state.dto;
 
-import java.util.Set;
+import com.ani.utils.dto.AniDto;
+
+import java.util.List;
 
 /**
  * Created by yeh on 17-3-17.
  * transfer between devicebus and octopus
  */
-public class StateMachineDto {
+public class StateMachineDto extends AniDto {
 
     public Integer smId;
 
-    public Set<StateNodeDto> stateNodes;
+    public List<StateNodeDto> stateNodes;
 
-    public StateNodeDto curState;
+//    public StateNodeDto curState;
 
     public StateMachineDto() {}
 
-    public StateMachineDto(Integer smId, Set<StateNodeDto> stateNodes, StateNodeDto curState) {
+    public StateMachineDto(Integer smId, List<StateNodeDto> stateNodes) {
         this.smId = smId;
         this.stateNodes = stateNodes;
-        this.curState = curState;
     }
 }

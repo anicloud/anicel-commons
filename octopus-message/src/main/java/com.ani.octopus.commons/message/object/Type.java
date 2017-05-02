@@ -14,6 +14,7 @@ public enum Type {
     DEVICE_UNSHARED,
     DEVICE_SEARCHSLAVES,
     DEVICE_UPDATE_STATE,
+    DEVICE_STATEMACHINE,
 
     // account group
     ACCOUNT_GROUP_ADDED,

@@ -13,16 +13,16 @@ import java.util.List;
 /**
  * Created by zsl on 17-3-24.
  */
-public class DeviceStateDto implements ByteSerializable {
+public class DeviceStateDBDto implements ByteSerializable {
     public Long stateGroupId;
     public Integer stateId;
     public List<ArgumentDto> properties;
 
-    public DeviceStateDto() {
+    public DeviceStateDBDto() {
 
     }
 
-    public DeviceStateDto(Long stateGroupId, Integer stateId) {
+    public DeviceStateDBDto(Long stateGroupId, Integer stateId) {
         this.stateGroupId = stateGroupId;
         this.stateId = stateId;
     }

@@ -10,10 +10,10 @@ import java.io.IOException;
 /**
  * Created by zsl on 17-3-24.
  */
-public class DeviceStateTransferStubInvokeTriggerDto implements ByteSerializable {
+public class DeviceStateTransferStubInvokeTriggerDBDto implements ByteSerializable {
     public Long stubGroupId;
     public Integer stubId;
-    public DeviceStateMachineNodeDto nextNode;
+    public DeviceStateMachineNodeDBDto nextNode;
 
     @Override
     public void write(DataOutput out) throws IOException {
@@ -30,6 +30,6 @@ public class DeviceStateTransferStubInvokeTriggerDto implements ByteSerializable
 //        nextNode.read(in);
         Long stateGroupId = MessageUtils.readLong(in);
         Integer stateId = in.readInt();
-        nextNode = new DeviceStateMachineNodeDto(stateGroupId, stateId);
+        nextNode = new DeviceStateMachineNodeDBDto(stateGroupId, stateId);
     }
 }

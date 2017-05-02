@@ -1,7 +1,6 @@
 package com.ani.bus.device.commons.dto.message;
 
-import com.ani.bus.device.commons.dto.statemachine.DeviceStateDto;
-import com.ani.bus.device.commons.dto.statemachine.DeviceStateMachineDto;
+import com.ani.bus.device.commons.dto.statemachine.DeviceStateMachineDBDto;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -14,7 +13,7 @@ import java.util.List;
  */
 public class StateMachineInitResponseContent extends DeviceMessageContent {
     public Integer slaveid;
-    public List<DeviceStateMachineDto> deviceStateDtos;
+    public List<DeviceStateMachineDBDto> deviceStateDtos;
 
     @Override
     public void write(DataOutput out) throws IOException {
@@ -23,7 +22,7 @@ public class StateMachineInitResponseContent extends DeviceMessageContent {
             out.writeInt(0);
         } else {
             out.writeInt(deviceStateDtos.size());
-            for (DeviceStateMachineDto deviceStateDto : deviceStateDtos)
+            for (DeviceStateMachineDBDto deviceStateDto : deviceStateDtos)
                 deviceStateDto.write(out);
         }
     }
@@ -35,7 +34,7 @@ public class StateMachineInitResponseContent extends DeviceMessageContent {
         if (size > 0) {
             deviceStateDtos = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                DeviceStateMachineDto deviceStateDto = new DeviceStateMachineDto();
+                DeviceStateMachineDBDto deviceStateDto = new DeviceStateMachineDBDto();
                 deviceStateDto.read(in);
                 deviceStateDtos.add(deviceStateDto);
             }

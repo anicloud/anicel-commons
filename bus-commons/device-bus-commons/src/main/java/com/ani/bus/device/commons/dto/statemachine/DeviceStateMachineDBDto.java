@@ -11,21 +11,21 @@ import java.util.Set;
 /**
  * Created by zsl on 17-3-24.
  */
-public class DeviceStateMachineDto implements ByteSerializable {
+public class DeviceStateMachineDBDto implements ByteSerializable {
     public Integer smId;
 //    public DeviceStateDto currentDeviceStateMachineDto;
-    public Set<DeviceStateMachineNodeDto> deviceStateMachineNodeDtos;
+    public Set<DeviceStateMachineNodeDBDto> deviceStateMachineNodeDBDtos;
 
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeInt(smId);
 //        currentDeviceStateMachineDto.write(out);
-        if (deviceStateMachineNodeDtos == null) {
+        if (deviceStateMachineNodeDBDtos == null) {
             out.writeInt(0);
         } else {
-            out.writeInt(deviceStateMachineNodeDtos.size());
-            for (DeviceStateMachineNodeDto deviceStateMachineNodeDto : deviceStateMachineNodeDtos) {
-                deviceStateMachineNodeDto.write(out);
+            out.writeInt(deviceStateMachineNodeDBDtos.size());
+            for (DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto : deviceStateMachineNodeDBDtos) {
+                deviceStateMachineNodeDBDto.write(out);
             }
         }
     }
@@ -36,11 +36,11 @@ public class DeviceStateMachineDto implements ByteSerializable {
 //        currentDeviceStateMachineDto.read(in);
         int size = in.readInt();
         if (size > 0) {
-            deviceStateMachineNodeDtos = new HashSet<>();
+            deviceStateMachineNodeDBDtos = new HashSet<>();
             for (int i = 0; i < size; i++) {
-                DeviceStateMachineNodeDto deviceStateMachineNodeDto = new DeviceStateMachineNodeDto();
-                deviceStateMachineNodeDto.read(in);
-                deviceStateMachineNodeDtos.add(deviceStateMachineNodeDto);
+                DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto = new DeviceStateMachineNodeDBDto();
+                deviceStateMachineNodeDBDto.read(in);
+                deviceStateMachineNodeDBDtos.add(deviceStateMachineNodeDBDto);
             }
         }
     }

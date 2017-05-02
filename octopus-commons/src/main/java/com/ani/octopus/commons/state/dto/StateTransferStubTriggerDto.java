@@ -7,7 +7,7 @@ import com.ani.octopus.commons.stub.dto.StubDto;
  */
 public class StateTransferStubTriggerDto extends StateTransferTriggerDto {
 
-    StubDto stub;
+    public StubDto stub;
 
     public StateTransferStubTriggerDto() {
         super();
