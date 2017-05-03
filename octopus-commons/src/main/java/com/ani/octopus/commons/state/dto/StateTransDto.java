@@ -10,6 +10,4 @@ import java.util.List;
  */
 public class StateTransDto extends AniDto {
     public StateInfoDto stateinfoDto;
-    public List<StateArgumentDto>  stateArgumentDtos;
-    public List<StubDto>  stubDtos;
 }
