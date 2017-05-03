@@ -9,5 +9,8 @@ import java.util.List;
  * Created by zsl on 17-5-3.
  */
 public class StateTransDto extends AniDto {
-    public StateInfoDto stateinfoDto;
+    public Long stateGroupid;
+    public Integer stateId;
+    public String description;
+    public List<StateArgumentInfoDto> stateArgumentInfoDtoList;
 }
