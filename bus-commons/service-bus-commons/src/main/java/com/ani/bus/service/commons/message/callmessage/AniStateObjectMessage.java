@@ -1,9 +1,7 @@
 package com.ani.bus.service.commons.message.callmessage;
 
-import com.ani.bus.service.commons.dto.anidevice.DeviceStateDto;
 import com.ani.bus.service.commons.message.MessageType;
 import com.ani.bus.service.commons.message.SocketMessage;
-import com.ani.octopus.commons.state.dto.StateMachineTransDto;
 import com.ani.octopus.commons.state.dto.StateTransDto;
 
 import java.util.List;
@@ -17,8 +15,15 @@ public class AniStateObjectMessage extends SocketMessage {
     public Integer slaveId;
     public List<StateTransDto> stateTransDtos;
 
-    public AniStateObjectMessage(ResultCode resultCode, String msg, MessageType messageType, Long deviceId, Integer slaveId, List<StateTransDto> stateTransDtos) {
-        super(resultCode, msg, messageType);
+    public AniStateObjectMessage(ResultCode resultCode, String msg, Long deviceId, Integer slaveId, List<StateTransDto> stateTransDtos) {
+        super(resultCode, msg, MessageType.OBJECT_STATE_MESSAGE);
+        this.deviceId = deviceId;
+        this.slaveId = slaveId;
+        this.stateTransDtos = stateTransDtos;
+    }
+
+    public AniStateObjectMessage(Long deviceId, Integer slaveId, List<StateTransDto> stateTransDtos) {
+        super(MessageType.OBJECT_STATE_MESSAGE);
         this.deviceId = deviceId;
         this.slaveId = slaveId;
         this.stateTransDtos = stateTransDtos;

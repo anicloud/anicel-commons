@@ -14,7 +14,15 @@ public class StateDto extends AniDto {
 
     public Integer stateId;
 
+    public List<StateArgumentInfoDto> argumentDtos;
+
     public StateDto() {
+    }
+
+    public StateDto(Long groupId, Integer stateId, List<StateArgumentInfoDto> argumentDtos) {
+        this.groupId = groupId;
+        this.stateId = stateId;
+        this.argumentDtos = argumentDtos;
     }
 
     public StateDto(Long groupId, Integer stateId) {
@@ -24,7 +32,7 @@ public class StateDto extends AniDto {
 
     public static List<Long> getStateGroupQuery(List<StateDto> stateDtos) {
         List<Long> statesGroup = new ArrayList<>(stateDtos.size());
-        for(StateDto oneState: stateDtos){
+        for (StateDto oneState : stateDtos) {
             statesGroup.add(oneState.groupId);
         }
         return statesGroup;

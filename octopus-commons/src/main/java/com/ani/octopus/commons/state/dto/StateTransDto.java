@@ -1,6 +1,5 @@
 package com.ani.octopus.commons.state.dto;
 
-import com.ani.octopus.commons.stub.dto.StubDto;
 import com.ani.utils.dto.AniDto;
 
 import java.util.List;
@@ -13,4 +12,10 @@ public class StateTransDto extends AniDto {
     public Integer stateId;
     public String description;
     public List<StateArgumentInfoDto> stateArgumentInfoDtoList;
+
+    public StateTransDto(Long stateGroupid, Integer stateId, List<StateArgumentInfoDto> stateArgumentInfoDtoList) {
+        this.stateGroupid = stateGroupid;
+        this.stateId = stateId;
+        this.stateArgumentInfoDtoList = stateArgumentInfoDtoList;
+    }
 }
