@@ -3,6 +3,7 @@ package com.ani.octopus.commons.object.message.device;
 import com.ani.octopus.commons.dto.object.ObjectQueryDto;
 import com.ani.octopus.commons.message.object.Type;
 import com.ani.octopus.commons.message.objectState.StateChangeEvents;
+import com.ani.octopus.commons.object.dto.object.ObjectSlaveQueryDto;
 import com.ani.octopus.commons.object.message.DeviceMessage;
 import com.ani.octopus.commons.state.dto.StateDto;
 
@@ -23,7 +24,7 @@ public class DeviceStateUpdateMessage extends DeviceMessage {
     }
 
     public DeviceStateUpdateMessage(Long deviceId, Integer slaveId, StateChangeEvents stateChangeEvents, List<StateDto> stateDtos) {
-        super(Type.DEVICE_UPDATE_STATE, "", null, deviceId);
+        super(Type.DEVICE_UPDATE_STATE, "StateUpdate", new ObjectSlaveQueryDto(deviceId,slaveId), deviceId);
         this.slaveId = slaveId;
         this.stateChangeEvents = stateChangeEvents;
         this.stateDtoList = stateDtos;
