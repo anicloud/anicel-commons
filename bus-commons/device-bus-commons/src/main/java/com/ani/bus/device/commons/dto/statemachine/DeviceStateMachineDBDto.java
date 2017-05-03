@@ -36,7 +36,7 @@ public class DeviceStateMachineDBDto implements ByteSerializable {
 //        currentDeviceStateMachineDto.read(in);
         int size = in.readInt();
         if (size > 0) {
-            deviceStateMachineNodeDBDtos = new HashSet<>();
+            deviceStateMachineNodeDBDtos = new HashSet<>(size);
             for (int i = 0; i < size; i++) {
                 DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto = new DeviceStateMachineNodeDBDto();
                 deviceStateMachineNodeDBDto.read(in);
