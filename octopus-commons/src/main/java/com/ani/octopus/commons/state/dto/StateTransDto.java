@@ -18,4 +18,43 @@ public class StateTransDto extends AniDto {
         this.stateId = stateId;
         this.stateArgumentInfoDtoList = stateArgumentInfoDtoList;
     }
+
+    public StateTransDto(Long stateGroupid, Integer stateId, String description, List<StateArgumentInfoDto> stateArgumentInfoDtoList) {
+        this.stateGroupid = stateGroupid;
+        this.stateId = stateId;
+        this.description = description;
+        this.stateArgumentInfoDtoList = stateArgumentInfoDtoList;
+    }
+
+    public Long getStateGroupid() {
+        return stateGroupid;
+    }
+
+    public void setStateGroupid(Long stateGroupid) {
+        this.stateGroupid = stateGroupid;
+    }
+
+    public Integer getStateId() {
+        return stateId;
+    }
+
+    public void setStateId(Integer stateId) {
+        this.stateId = stateId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<StateArgumentInfoDto> getStateArgumentInfoDtoList() {
+        return stateArgumentInfoDtoList;
+    }
+
+    public void setStateArgumentInfoDtoList(List<StateArgumentInfoDto> stateArgumentInfoDtoList) {
+        this.stateArgumentInfoDtoList = stateArgumentInfoDtoList;
+    }
 }

@@ -23,4 +23,28 @@ public class StateArgumentInfoDto extends AniDto {
         this.value = value;
         this.dataType = dataType;
     }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    public AniDataType getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(AniDataType dataType) {
+        this.dataType = dataType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
