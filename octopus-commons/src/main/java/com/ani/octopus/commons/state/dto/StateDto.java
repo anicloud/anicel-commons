@@ -14,12 +14,12 @@ public class StateDto extends AniDto {
 
     public Integer stateId;
 
-    public List<StateArgumentInfoDto> argumentDtos;
+    public List<StateArgumentDto> argumentDtos;
 
     public StateDto() {
     }
 
-    public StateDto(Long groupId, Integer stateId, List<StateArgumentInfoDto> argumentDtos) {
+    public StateDto(Long groupId, Integer stateId, List<StateArgumentDto> argumentDtos) {
         this.groupId = groupId;
         this.stateId = stateId;
         this.argumentDtos = argumentDtos;
