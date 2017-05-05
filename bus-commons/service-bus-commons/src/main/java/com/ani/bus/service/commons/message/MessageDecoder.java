@@ -1,9 +1,6 @@
 package com.ani.bus.service.commons.message;
 
-import com.ani.bus.service.commons.message.callmessage.AniAccountCallMessage;
-import com.ani.bus.service.commons.message.callmessage.AniObjectCallMessage;
-import com.ani.bus.service.commons.message.callmessage.AniObjectMessage;
-import com.ani.bus.service.commons.message.callmessage.AniServiceCallMessage;
+import com.ani.bus.service.commons.message.callmessage.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.websocket.DecodeException;
@@ -38,6 +35,9 @@ public class MessageDecoder implements Decoder.Text<SocketMessage> {
             }
             if (s != null && s.contains(MessageType.OBJECT_MESSAGE.toString())) {
                 message = objectMapper.readValue(s, AniObjectMessage.class);
+            }
+            if(s != null && s.contains((MessageType.OBJECT_STATE_MESSAGE.toString()))) {
+                message = objectMapper.readValue(s, AniStateObjectMessage.class);
             }
         } catch (IOException e) {
             e.printStackTrace();

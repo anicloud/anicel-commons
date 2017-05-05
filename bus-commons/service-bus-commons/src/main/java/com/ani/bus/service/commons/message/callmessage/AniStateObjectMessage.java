@@ -28,4 +28,42 @@ public class AniStateObjectMessage extends SocketMessage {
         this.slaveId = slaveId;
         this.stateTransDtos = stateTransDtos;
     }
+
+    public AniStateObjectMessage(MessageType messageType, Long deviceId, Integer slaveId, List<StateTransDto> stateTransDtos) {
+        super(messageType);
+        this.deviceId = deviceId;
+        this.slaveId = slaveId;
+        this.stateTransDtos = stateTransDtos;
+    }
+
+    public AniStateObjectMessage(ResultCode resultCode, String msg, MessageType messageType, Long deviceId, Integer slaveId, List<StateTransDto> stateTransDtos) {
+        super(resultCode, msg, messageType);
+        this.deviceId = deviceId;
+        this.slaveId = slaveId;
+        this.stateTransDtos = stateTransDtos;
+    }
+
+    public Long getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(Long deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public Integer getSlaveId() {
+        return slaveId;
+    }
+
+    public void setSlaveId(Integer slaveId) {
+        this.slaveId = slaveId;
+    }
+
+    public List<StateTransDto> getStateTransDtos() {
+        return stateTransDtos;
+    }
+
+    public void setStateTransDtos(List<StateTransDto> stateTransDtos) {
+        this.stateTransDtos = stateTransDtos;
+    }
 }
