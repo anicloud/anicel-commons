@@ -42,6 +42,9 @@ public class AniStateObjectMessage extends SocketMessage {
         this.slaveId = slaveId;
         this.stateTransDtos = stateTransDtos;
     }
+    public AniStateObjectMessage() {
+        super(MessageType.OBJECT_STATE_MESSAGE);
+    }
 
     public Long getDeviceId() {
         return deviceId;

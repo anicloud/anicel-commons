@@ -13,6 +13,9 @@ public class StateTransDto extends AniDto {
     public String description;
     public List<StateArgumentInfoDto> stateArgumentInfoDtoList;
 
+    public StateTransDto() {
+    }
+
     public StateTransDto(Long stateGroupid, Integer stateId, List<StateArgumentInfoDto> stateArgumentInfoDtoList) {
         this.stateGroupid = stateGroupid;
         this.stateId = stateId;

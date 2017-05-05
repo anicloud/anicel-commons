@@ -13,6 +13,9 @@ public class StateArgumentInfoDto extends AniDto {
     public AniDataType dataType;
     public String name;
 
+    public StateArgumentInfoDto() {
+    }
+
     public StateArgumentInfoDto(Object value, AniDataType dataType, String name) {
         this.value = value;
         this.dataType = dataType;
