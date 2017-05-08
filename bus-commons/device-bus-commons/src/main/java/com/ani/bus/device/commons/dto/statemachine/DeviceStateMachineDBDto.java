@@ -13,35 +13,43 @@ import java.util.Set;
  */
 public class DeviceStateMachineDBDto implements ByteSerializable {
     public Integer smId;
-//    public DeviceStateDto currentDeviceStateMachineDto;
+    public DeviceStateDBDto currentDeviceStateMachineDto;
     public Set<DeviceStateMachineNodeDBDto> deviceStateMachineNodeDBDtos;
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeInt(smId);
-//        currentDeviceStateMachineDto.write(out);
-        if (deviceStateMachineNodeDBDtos == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(deviceStateMachineNodeDBDtos.size());
-            for (DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto : deviceStateMachineNodeDBDtos) {
-                deviceStateMachineNodeDBDto.write(out);
+    public void write(DataOutput out) {
+        try {
+            out.writeInt(smId);
+            currentDeviceStateMachineDto.write(out);
+            if (deviceStateMachineNodeDBDtos == null) {
+                out.writeInt(0);
+            } else {
+                out.writeInt(deviceStateMachineNodeDBDtos.size());
+                for (DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto : deviceStateMachineNodeDBDtos) {
+                    deviceStateMachineNodeDBDto.write(out);
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        smId = in.readInt();
-//        currentDeviceStateMachineDto.read(in);
-        int size = in.readInt();
-        if (size > 0) {
-            deviceStateMachineNodeDBDtos = new HashSet<>(size);
-            for (int i = 0; i < size; i++) {
-                DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto = new DeviceStateMachineNodeDBDto();
-                deviceStateMachineNodeDBDto.read(in);
-                deviceStateMachineNodeDBDtos.add(deviceStateMachineNodeDBDto);
+    public void read(DataInput in) {
+        try {
+            smId = in.readInt();
+            currentDeviceStateMachineDto.read(in);
+            int size = in.readInt();
+            if (size > 0) {
+                deviceStateMachineNodeDBDtos = new HashSet<>(size);
+                for (int i = 0; i < size; i++) {
+                    DeviceStateMachineNodeDBDto deviceStateMachineNodeDBDto = new DeviceStateMachineNodeDBDto();
+                    deviceStateMachineNodeDBDto.read(in);
+                    deviceStateMachineNodeDBDtos.add(deviceStateMachineNodeDBDto);
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
