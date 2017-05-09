@@ -21,10 +21,14 @@ public class DeviceStateUpdateMessage extends DeviceMessage {
         super(Type.DEVICE_UPDATE_STATE, "", objectQueryDto, objectQueryDto.objectId);
         this.stateChangeEvents = stateChangeEvents;
         this.stateDtoList = stateDtos;
+        if (objectQueryDto instanceof ObjectSlaveQueryDto)
+            this.slaveId = ((ObjectSlaveQueryDto) objectQueryDto).objectSlaveId;
+        else
+            this.slaveId = -1;
     }
 
     public DeviceStateUpdateMessage(Long deviceId, Integer slaveId, StateChangeEvents stateChangeEvents, List<StateDto> stateDtos) {
-        super(Type.DEVICE_UPDATE_STATE, "StateUpdate", new ObjectSlaveQueryDto(deviceId,slaveId), deviceId);
+        super(Type.DEVICE_UPDATE_STATE, "StateUpdate", new ObjectSlaveQueryDto(deviceId, slaveId), deviceId);
         this.slaveId = slaveId;
         this.stateChangeEvents = stateChangeEvents;
         this.stateDtoList = stateDtos;

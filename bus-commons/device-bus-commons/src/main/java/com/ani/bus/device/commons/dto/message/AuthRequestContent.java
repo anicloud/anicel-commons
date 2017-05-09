@@ -26,19 +26,27 @@ public class AuthRequestContent extends DeviceMessageContent {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeLong(deviceId);
-        out.writeLong(timestamp);
-        out.writeInt(sign.length);
-        out.write(sign);
+    public void write(DataOutput out) {
+        try {
+            out.writeLong(deviceId);
+            out.writeLong(timestamp);
+            out.writeInt(sign.length);
+            out.write(sign);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        deviceId = in.readLong();
-        timestamp = in.readLong();
-        int len = in.readInt();
-        sign = new byte[len];
-        in.readFully(sign, 0, len);
+    public void read(DataInput in) {
+        try {
+            deviceId = in.readLong();
+            timestamp = in.readLong();
+            int len = in.readInt();
+            sign = new byte[len];
+            in.readFully(sign, 0, len);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

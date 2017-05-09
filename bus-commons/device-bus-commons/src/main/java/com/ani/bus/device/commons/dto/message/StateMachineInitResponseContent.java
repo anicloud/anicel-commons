@@ -16,28 +16,37 @@ public class StateMachineInitResponseContent extends DeviceMessageContent {
     public List<DeviceStateMachineDBDto> deviceStateDtos;
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeInt(slaveid);
-        if (deviceStateDtos == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(deviceStateDtos.size());
-            for (DeviceStateMachineDBDto deviceStateDto : deviceStateDtos)
-                deviceStateDto.write(out);
+    public void write(DataOutput out) {
+        try {
+            out.writeInt(slaveid);
+            if (deviceStateDtos == null) {
+                out.writeInt(0);
+            } else {
+                out.writeInt(deviceStateDtos.size());
+                for (DeviceStateMachineDBDto deviceStateDto : deviceStateDtos)
+                    deviceStateDto.write(out);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        slaveid = in.readInt();
-        int size = in.readInt();
-        if (size > 0) {
-            deviceStateDtos = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                DeviceStateMachineDBDto deviceStateDto = new DeviceStateMachineDBDto();
-                deviceStateDto.read(in);
-                deviceStateDtos.add(deviceStateDto);
+    public void read(DataInput in) {
+        try {
+            slaveid = in.readInt();
+            int size = in.readInt();
+
+            if (size > 0) {
+                deviceStateDtos = new ArrayList<>();
+                for (int i = 0; i < size; i++) {
+                    DeviceStateMachineDBDto deviceStateDto = new DeviceStateMachineDBDto();
+                    deviceStateDto.read(in);
+                    deviceStateDtos.add(deviceStateDto);
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

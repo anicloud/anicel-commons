@@ -1,7 +1,6 @@
 package com.ani.bus.device.commons.dto.message;
 
 
-
 import com.ani.bus.device.commons.dto.device.DeviceMasterDto;
 
 import java.io.DataInput;
@@ -27,19 +26,27 @@ public class AuthResponseContent extends DeviceMessageContent {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeBoolean(result);
-        if (result) {
-            dto.write(out);
+    public void write(DataOutput out) {
+        try {
+            out.writeBoolean(result);
+            if (result) {
+                dto.write(out);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        result = in.readBoolean();
-        if (result) {
-            dto = new DeviceMasterDto();
-            dto.read(in);
+    public void read(DataInput in) {
+        try {
+            result = in.readBoolean();
+            if (result) {
+                dto = new DeviceMasterDto();
+                dto.read(in);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

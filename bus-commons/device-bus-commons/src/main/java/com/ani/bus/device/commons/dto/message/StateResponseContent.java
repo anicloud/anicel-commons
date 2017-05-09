@@ -20,8 +20,13 @@ public class StateResponseContent extends DeviceMessageContent {
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        slaveid = in.readInt();
-        deviceStateObjectDBDto.read(in);
+    public void read(DataInput in) {
+        try {
+            slaveid = in.readInt();
+            deviceStateObjectDBDto.read(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

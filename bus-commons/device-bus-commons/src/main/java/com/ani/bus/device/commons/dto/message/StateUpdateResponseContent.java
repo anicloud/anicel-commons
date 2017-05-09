@@ -1,7 +1,6 @@
 package com.ani.bus.device.commons.dto.message;
 
 
-import com.ani.bus.device.commons.dto.device.DeviceMasterDto;
 
 import java.io.DataInput;
 import java.io.DataOutput;

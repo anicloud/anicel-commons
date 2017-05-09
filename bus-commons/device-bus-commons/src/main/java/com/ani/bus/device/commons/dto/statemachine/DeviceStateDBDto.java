@@ -28,29 +28,37 @@ public class DeviceStateDBDto implements ByteSerializable {
     }
 
     @Override
-    public void write(DataOutput out) throws IOException {
-        MessageUtils.writeLong(out, stateGroupId);
-        out.writeInt(stateId);
-        if (properties == null) out.writeInt(0);
-        else {
-            out.writeInt(properties.size());
-            for (ArgumentDto argumentDto : properties)
-                argumentDto.write(out);
+    public void write(DataOutput out) {
+        try {
+            MessageUtils.writeLong(out, stateGroupId);
+            out.writeInt(stateId);
+            if (properties == null) out.writeInt(0);
+            else {
+                out.writeInt(properties.size());
+                for (ArgumentDto argumentDto : properties)
+                    argumentDto.write(out);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void read(DataInput in) throws IOException {
-        stateGroupId = MessageUtils.readLong(in);
-        stateId = in.readInt();
-        int size = in.readByte();
-        properties = new ArrayList<>();//TODO 合并list 参数的读写
-        if (size > 0) {
-            for (int i = 0; i < size; i++) {
-                ArgumentDto argumentDto = new ArgumentDto();
-                argumentDto.read(in);
-                properties.add(argumentDto);
+    public void read(DataInput in) {
+        try {
+            stateGroupId = MessageUtils.readLong(in);
+            stateId = in.readInt();
+            int size = in.readByte();
+            properties = new ArrayList<>();//TODO 合并list 参数的读写
+            if (size > 0) {
+                for (int i = 0; i < size; i++) {
+                    ArgumentDto argumentDto = new ArgumentDto();
+                    argumentDto.read(in);
+                    properties.add(argumentDto);
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
