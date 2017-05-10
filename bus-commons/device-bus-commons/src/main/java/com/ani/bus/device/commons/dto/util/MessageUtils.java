@@ -48,7 +48,7 @@ public class MessageUtils {
     }
 
     @Deprecated //不推荐使用Map传输
-    public static void writeMap(DataOutput out, Map map) throws IOException {//TODO 将map结构化传入
+    public static void writeMap(DataOutput out, Map map) throws IOException {
         Iterator it = map.keySet().iterator();
         StringBuilder sb = new StringBuilder();
         sb.append("{");
@@ -62,7 +62,7 @@ public class MessageUtils {
     }
 
     @Deprecated
-    public static Map readMap(DataInput in) throws IOException {// TODO: 17-3-3
+    public static Map readMap(DataInput in) throws IOException {
         String mapString = readString(in);
         return null;
 //        return new HashMap(mapString);
