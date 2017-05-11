@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangbin on 15/12/18
- * Modified by xuben on 16/12/08
+ * Created by huangbin on 12/18/15
+ * Last Modified by xuben on 05/10/17
  */
 public class DeviceSlaveDto implements ByteSerializable {
     public Integer physicalId;
@@ -26,6 +26,7 @@ public class DeviceSlaveDto implements ByteSerializable {
 
     public Integer deviceId;
     public Long masterId;
+    public Boolean isactive;
 
     public DeviceSlaveDto() {
 
@@ -41,6 +42,7 @@ public class DeviceSlaveDto implements ByteSerializable {
         this.tags = tags;
         this.deviceId = deviceId;
         this.masterId = masterId;
+        this.isactive = true; // // TODO: 17-5-10
     }
 
     @Override
@@ -60,6 +62,7 @@ public class DeviceSlaveDto implements ByteSerializable {
         }
         out.writeInt(deviceId);
         out.writeLong(masterId);
+        out.writeBoolean(isactive);
         if (functions == null) {
             out.writeInt(0);
         } else {
@@ -86,6 +89,7 @@ public class DeviceSlaveDto implements ByteSerializable {
         }
         deviceId = in.readInt();
         masterId = in.readLong();
+        isactive = in.readBoolean();
 
         size = in.readInt();
         if (size > 0) {
