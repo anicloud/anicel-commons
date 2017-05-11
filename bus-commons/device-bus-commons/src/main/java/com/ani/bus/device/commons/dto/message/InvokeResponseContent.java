@@ -37,7 +37,7 @@ public class InvokeResponseContent extends DeviceMessageContent {
     public void read(DataInput in) {
         try {
             result = in.readBoolean();
-            if (!result) return;
+//            if (!result) return;
             instance = new FunctionInstance();
             instance.read(in);
         } catch (Exception e) {

@@ -92,7 +92,7 @@ public class DeviceMessage implements ByteSerializable {
         }
         try {
             content.read(in);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
