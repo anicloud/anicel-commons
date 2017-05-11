@@ -49,7 +49,7 @@ public class DeviceStateDBDto implements ByteSerializable {
             stateGroupId = MessageUtils.readLong(in);
             stateId = in.readInt();
             int size = in.readByte();
-            properties = new ArrayList<>();//TODO 合并list 参数的读写
+            properties = new ArrayList<>();
             if (size > 0) {
                 for (int i = 0; i < size; i++) {
                     ArgumentDto argumentDto = new ArgumentDto();
