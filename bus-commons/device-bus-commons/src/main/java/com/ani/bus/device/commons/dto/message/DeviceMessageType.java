@@ -42,42 +42,46 @@ public enum DeviceMessageType {
     public static DeviceMessageType getType(Integer value) {
         switch (value) {
             case 1:
-                return REGISTER_REQUEST;
+                return HEART_BEAT_REQUEST;
             case 2:
-                return REGISTER_RESPONSE;
+                return HEART_BEAT_RESPONSE;
             case 3:
-                return AUTH_REQUEST;
-            case 4:
-                return AUTH_RESPONSE;
-            case 5:
-                return UPDATE_REQUEST;
-            case 6:
-                return UPDATE_RESPONSE;
-            case 7:
-                return INVOKE_REQUEST;
-            case 8:
-                return INVOKE_RESPONSE;
-            case 9:
                 return TIME_SYNC_REQUEST;
-            case 10:
+            case 4:
                 return TIME_SYNC_RESPONSE;
+            case 5:
+                return REGISTER_REQUEST;
+            case 6:
+                return REGISTER_RESPONSE;
+            case 7:
+                return AUTH_REQUEST;
+            case 8:
+                return AUTH_RESPONSE;
+            case 9:
+                return UPDATE_REQUEST;
+            case 10:
+                return UPDATE_RESPONSE;
             case 11:
-                return STATE_OBJECT_REQUEST;
+                return INVOKE_REQUEST;
             case 12:
-                return STATE_OBJECT_RESPONSE;
+                return INVOKE_RESPONSE;
             case 13:
-                return STATES_OBJECT_REQUEST;
+                return STATE_OBJECT_REQUEST;
             case 14:
-                return STATES_OBJECT_RESPONSE;
+                return STATE_OBJECT_RESPONSE;
             case 15:
-                return STATE_UPDATE_REQUEST;
+                return STATES_OBJECT_REQUEST;
             case 16:
-                return STATE_UPDATE_RESPONSE;
+                return STATES_OBJECT_RESPONSE;
             case 17:
-                return STATE_REQUEST;
+                return STATE_UPDATE_REQUEST;
             case 18:
-                return STATE_RESPONSE;
+                return STATE_UPDATE_RESPONSE;
             case 19:
+                return STATE_REQUEST;
+            case 20:
+                return STATE_RESPONSE;
+            case 21:
                 return INVOKE_SERVICE;
             default:
                 return UNKNOWN;
