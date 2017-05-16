@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by huangbin on 12/18/15
- * Last Modified by xuben on 05/10/17
+ * Last Modified by xuben on 05/16/17
  */
 public class DeviceSlaveDto implements ByteSerializable {
     public Integer physicalId;
@@ -53,9 +53,9 @@ public class DeviceSlaveDto implements ByteSerializable {
         MessageUtils.writeString(out, description);
         MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
-            out.writeInt(0);
+            out.writeShort(0);
         } else {
-            out.writeInt(tags.size());
+            out.writeShort(tags.size());
             for (Integer tag : tags) {
                 out.writeInt(tag);
             }
@@ -64,9 +64,9 @@ public class DeviceSlaveDto implements ByteSerializable {
         out.writeLong(masterId);
         out.writeBoolean(isactive);
         if (functions == null) {
-            out.writeInt(0);
+            out.writeShort(0);
         } else {
-            out.writeInt(functions.size());
+            out.writeShort(functions.size());
             for (FunctionDto functionDto : functions) {
                 functionDto.write(out);
             }
@@ -80,7 +80,7 @@ public class DeviceSlaveDto implements ByteSerializable {
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
         avatarUrl = MessageUtils.readString(in);
-        int size = in.readInt();
+        int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
@@ -91,7 +91,7 @@ public class DeviceSlaveDto implements ByteSerializable {
         masterId = in.readLong();
         isactive = in.readBoolean();
 
-        size = in.readInt();
+        size = in.readShort();
         if (size > 0) {
             functions = new ArrayList<>();
             for (int i = 0; i < size; i++) {

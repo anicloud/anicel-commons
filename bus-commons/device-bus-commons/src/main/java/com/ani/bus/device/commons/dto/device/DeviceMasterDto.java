@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangbin on 15/12/17
- * Modified by xuben on 16/12/08
+ * Created by huangbin on 12/17/15
+ * Modified by xuben on 05/16/17
  */
 public class DeviceMasterDto implements ByteSerializable {
     public Integer physicalId;
@@ -55,9 +55,9 @@ public class DeviceMasterDto implements ByteSerializable {
         MessageUtils.writeString(out, description);
         MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
-            out.writeInt(0);
+            out.writeShort(0);
         } else {
-            out.writeInt(tags.size());
+            out.writeShort(tags.size());
             for (Integer tag : tags) {
                 out.writeInt(tag);
             }
@@ -65,17 +65,17 @@ public class DeviceMasterDto implements ByteSerializable {
         out.writeLong(versionId);
         out.writeLong(deviceId);
         if (functions == null) {
-            out.writeInt(0);
+            out.writeShort(0);
         } else {
-            out.writeInt(functions.size());
+            out.writeShort(functions.size());
             for (FunctionDto functionDto : functions) {
                 functionDto.write(out);
             }
         }
         if (slaves == null) {
-            out.writeInt(0);
+            out.writeShort(0);
         } else {
-            out.writeInt(slaves.size());
+            out.writeShort(slaves.size());
             for (DeviceSlaveDto slaveDto : slaves) {
                 slaveDto.write(out);
             }
@@ -90,7 +90,7 @@ public class DeviceMasterDto implements ByteSerializable {
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
         avatarUrl = MessageUtils.readString(in);
-        int size = in.readInt();
+        int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
@@ -99,7 +99,7 @@ public class DeviceMasterDto implements ByteSerializable {
         }
         versionId = in.readLong();
         deviceId = in.readLong();
-        size = in.readInt();
+        size = in.readShort();
         if (size > 0) {
             functions = new ArrayList<>();
             for (int i = 0; i < size; i++) {
@@ -108,7 +108,7 @@ public class DeviceMasterDto implements ByteSerializable {
                 functions.add(functionDto);
             }
         }
-        size = in.readInt();
+        size = in.readShort();
         if (size > 0) {
             slaves = new ArrayList<>();
             for (int i = 0; i < size; i++) {
