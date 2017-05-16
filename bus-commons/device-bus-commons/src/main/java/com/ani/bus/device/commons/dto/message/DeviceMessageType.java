@@ -24,10 +24,10 @@ public enum DeviceMessageType {
     STATES_OBJECT_RESPONSE(16),
     STATE_UPDATE_REQUEST(17),
     STATE_UPDATE_RESPONSE(18),
-    STATE_REQUEST(18),
-    STATE_RESPONSE(19),
-    INVOKE_SERVICE(20),
-    UNKNOWN(21);
+    STATE_REQUEST(19),
+    STATE_RESPONSE(20),
+    INVOKE_SERVICE(21),
+    UNKNOWN(22);
 
     private Integer value;
 
