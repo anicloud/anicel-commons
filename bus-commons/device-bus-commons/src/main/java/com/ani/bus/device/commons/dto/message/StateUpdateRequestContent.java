@@ -16,12 +16,14 @@ public class StateUpdateRequestContent extends DeviceMessageContent {
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeInt(slaveId);
+        deviceStateObjectDBDto = new DeviceStateObjectDBDto();
         deviceStateObjectDBDto.write(out);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
         slaveId = in.readInt();
+        deviceStateObjectDBDto = new DeviceStateObjectDBDto();
         deviceStateObjectDBDto.read(in);
     }
 }
