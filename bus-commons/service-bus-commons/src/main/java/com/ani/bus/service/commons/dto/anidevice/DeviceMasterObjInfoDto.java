@@ -1,6 +1,7 @@
 package com.ani.bus.service.commons.dto.anidevice;
 
 import com.ani.earth.commons.dto.AccountDto;
+import com.ani.octopus.commons.object.dto.state.ObjectMainStateDto;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
 import com.ani.octopus.commons.stub.dto.StubInfoDto;
 
@@ -24,8 +25,20 @@ public class DeviceMasterObjInfoDto implements Serializable {
     public AccountDto owner;
     public AniObjectState state;
     public List<DeviceSlaveObjInfoDto> slaves;
+    public ObjectMainStateDto objectMainState;
 
     public DeviceMasterObjInfoDto() {
+    }
+
+    public DeviceMasterObjInfoDto(String name, String description, List<StubInfoDto> stubs, Long objectId, AccountDto owner, AniObjectState state, List<DeviceSlaveObjInfoDto> slaves, ObjectMainStateDto objectMainState) {
+        this.name = name;
+        this.description = description;
+        this.stubs = stubs;
+        this.objectId = objectId;
+        this.owner = owner;
+        this.state = state;
+        this.slaves = slaves;
+        this.objectMainState = objectMainState;
     }
 
     public DeviceMasterObjInfoDto(String name, String description, List<StubInfoDto> stubs,
