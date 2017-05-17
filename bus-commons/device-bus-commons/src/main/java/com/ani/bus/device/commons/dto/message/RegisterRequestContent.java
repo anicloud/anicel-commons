@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangbin on 15/10/23
- * Modified by xuben on 16/12/08
+ * Created by huangbin on 10/23/15
+ * Modified by xuben on 05/17/17
  */
 public class RegisterRequestContent extends DeviceMessageContent {
 
@@ -54,9 +54,9 @@ public class RegisterRequestContent extends DeviceMessageContent {
         MessageUtils.writeString(out, description);
         MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
-            out.writeInt(0);
+            out.writeShort(0);
         } else {
-            out.writeInt(tags.size());
+            out.writeShort(tags.size());
             for (Integer tag : tags) {
                 out.writeInt(tag);
             }
@@ -72,7 +72,7 @@ public class RegisterRequestContent extends DeviceMessageContent {
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
         avatarUrl = MessageUtils.readString(in);
-        int size = in.readInt();
+        int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
