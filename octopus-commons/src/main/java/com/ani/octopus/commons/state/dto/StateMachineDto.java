@@ -14,12 +14,18 @@ public class StateMachineDto extends AniDto {
 
     public List<StateNodeDto> stateNodes;
 
-//    public StateNodeDto curState;
+    public StateDto curState;
 
-    public StateMachineDto() {}
+    public StateMachineDto() {
+    }
 
     public StateMachineDto(Integer smId, List<StateNodeDto> stateNodes) {
         this.smId = smId;
         this.stateNodes = stateNodes;
+    }
+
+    public StateMachineDto(Integer smId, StateDto curState) {
+        this.smId = smId;
+        this.curState = curState;
     }
 }
