@@ -42,6 +42,7 @@ public class DeviceMasterObjInfoDto implements Serializable {
         this.stateTransDtos = stateTransDtos;
     }
 
+    @Deprecated
     public DeviceMasterObjInfoDto(String name, String description, List<StubInfoDto> stubs,
                                   Long objectId, AccountDto owner,
                                   AniObjectState state,

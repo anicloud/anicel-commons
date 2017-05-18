@@ -31,6 +31,7 @@ public class DeviceSlaveObjInfoDto implements Serializable {
     public DeviceSlaveObjInfoDto() {
     }
 
+    @Deprecated
     public DeviceSlaveObjInfoDto(String name, String description, List<StubInfoDto> stubs,
                                  AniObjectState state, Integer objectSlaveId) {
         this.name = name;
@@ -40,12 +41,13 @@ public class DeviceSlaveObjInfoDto implements Serializable {
         this.objectSlaveId = objectSlaveId;
     }
 
-    public DeviceSlaveObjInfoDto(String name, String description, AniObjectState state, Integer objectSlaveId, List<StubInfoDto> stubs, List<StateTransDto> stateTransDtos) {
+    public DeviceSlaveObjInfoDto(String name, String description, List<StubInfoDto> stubs,
+                                 AniObjectState state, Integer objectSlaveId, List<StateTransDto> stateTransDtos) {
         this.name = name;
         this.description = description;
         this.state = state;
-        this.objectSlaveId = objectSlaveId;
         this.stubs = stubs;
+        this.objectSlaveId = objectSlaveId;
         this.stateTransDtos = stateTransDtos;
     }
 }
