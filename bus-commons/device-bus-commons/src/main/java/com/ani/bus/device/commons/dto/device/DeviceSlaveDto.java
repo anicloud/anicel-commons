@@ -42,7 +42,7 @@ public class DeviceSlaveDto implements ByteSerializable {
         this.tags = tags;
         this.deviceId = deviceId;
         this.masterId = masterId;
-        this.isactive = true; // // TODO: 17-5-10
+        this.isactive = true;
     }
 
     @Override
