@@ -93,7 +93,9 @@ public class DeviceMessage implements ByteSerializable {
                 case STATE_UPDATE_RESPONSE:
                     content = new StateUpdateResponseContent();
                     break;
-
+                case ON_STATES_OBJECT_REQUEST:
+                    content = new OnStateMachinesInitRequestContent();
+                    break;
                 default:
                     throw new IOException();
             }

@@ -26,8 +26,10 @@ public enum DeviceMessageType {
     STATE_UPDATE_RESPONSE(18),
     STATE_REQUEST(19),
     STATE_RESPONSE(20),
-    INVOKE_SERVICE(21),
-    UNKNOWN(22);
+    ON_STATES_OBJECT_REQUEST(21),
+    ON_STATES_OBJECT_RESPONSE(22),
+    INVOKE_SERVICE(23),
+    UNKNOWN(24);
 
     private Integer value;
 
@@ -82,6 +84,10 @@ public enum DeviceMessageType {
             case 20:
                 return STATE_RESPONSE;
             case 21:
+                return ON_STATES_OBJECT_REQUEST;
+            case 22:
+                return ON_STATES_OBJECT_RESPONSE;
+            case 23:
                 return INVOKE_SERVICE;
             default:
                 return UNKNOWN;
