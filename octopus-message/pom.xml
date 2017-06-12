@@ -11,10 +11,7 @@
         <dependency>
             <groupId>com.ani.utils</groupId>
             <artifactId>ani-utils</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ani.utils</groupId>
-            <artifactId>ani-utils</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
     <packaging>jar</packaging>
