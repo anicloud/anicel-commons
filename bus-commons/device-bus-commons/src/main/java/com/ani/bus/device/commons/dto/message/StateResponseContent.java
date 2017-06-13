@@ -23,6 +23,7 @@ public class StateResponseContent extends DeviceMessageContent {
     public void read(DataInput in) {
         try {
             slaveid = in.readInt();
+            deviceStateObjectDBDto = new DeviceStateObjectDBDto();
             deviceStateObjectDBDto.read(in);
         } catch (IOException e) {
             e.printStackTrace();
