@@ -4,6 +4,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.EOFException;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import static com.ani.bus.device.commons.dto.message.DeviceMessageType.TIME_SYNC_REQUEST;
 
@@ -96,7 +97,17 @@ public class DeviceMessage implements ByteSerializable {
                 case ON_STATES_OBJECT_REQUEST:
                     content = new OnStateMachinesInitRequestContent();
                     break;
+                case UPDATE_MASTER_REQUEST:
+                    content = new UpdateMasterRequestContent();
+                    break;
+                case UPDATE_SLAVE_REQUEST:
+                    content = new UpdateSingleRequestContent();
+                    break;
+                case STATEDTO_REQUEST:
+                    content = new StateDtoRequestContent();
+                    break;
                 default:
+                    System.out.println("Receive error Type :" + type);
                     throw new IOException();
             }
             content.read(in);

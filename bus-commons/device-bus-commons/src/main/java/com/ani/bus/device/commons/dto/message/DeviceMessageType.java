@@ -28,8 +28,14 @@ public enum DeviceMessageType {
     STATE_RESPONSE(20),
     ON_STATES_OBJECT_REQUEST(21),
     ON_STATES_OBJECT_RESPONSE(22),
-    INVOKE_SERVICE(23),
-    UNKNOWN(24);
+    UPDATE_MASTER_REQUEST(23),
+    UPDATE_MASTER_RESPONSE(24),
+    UPDATE_SLAVE_REQUEST(25),
+    UPDATE_SLAVE_RESPONSE(26),
+    STATEDTO_REQUEST(27),
+    STATEDTO_RESPONSE(28),
+    INVOKE_SERVICE(29),
+    UNKNOWN(30);
 
     private Integer value;
 
@@ -88,6 +94,18 @@ public enum DeviceMessageType {
             case 22:
                 return ON_STATES_OBJECT_RESPONSE;
             case 23:
+                return UPDATE_MASTER_REQUEST;
+            case 24:
+                return UPDATE_MASTER_RESPONSE;
+            case 25:
+                return UPDATE_SLAVE_REQUEST;
+            case 26:
+                return UPDATE_SLAVE_RESPONSE;
+            case 27:
+                return STATEDTO_REQUEST;
+            case 28:
+                return STATEDTO_RESPONSE;
+            case 29:
                 return INVOKE_SERVICE;
             default:
                 return UNKNOWN;
