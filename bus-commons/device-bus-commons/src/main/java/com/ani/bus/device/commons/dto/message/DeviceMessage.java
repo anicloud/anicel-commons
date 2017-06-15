@@ -10,7 +10,7 @@ import static com.ani.bus.device.commons.dto.message.DeviceMessageType.TIME_SYNC
 
 /**
  * Created by huangbin on 10/18/15.
- * Modified by xuben on 11/08/15
+ * Modified by xuben on 06/15/17
  */
 public class DeviceMessage implements ByteSerializable {
     public DeviceMessageType type;
@@ -87,12 +87,6 @@ public class DeviceMessage implements ByteSerializable {
                     break;
                 case STATES_OBJECT_RESPONSE:
                     content = new StateMachinesInitResponseContent();
-                    break;
-                case STATE_UPDATE_REQUEST:
-                    content = new StateUpdateRequestContent();
-                    break;
-                case STATE_UPDATE_RESPONSE:
-                    content = new StateUpdateResponseContent();
                     break;
                 case ON_STATES_OBJECT_REQUEST:
                     content = new OnStateMachinesInitRequestContent();
