@@ -23,18 +23,16 @@ public enum DeviceMessageType {
     STATE_OBJECT_RESPONSE(16),
     STATES_OBJECT_REQUEST(17),
     STATES_OBJECT_RESPONSE(18),
-    STATE_UPDATE_REQUEST(19),
-    STATE_UPDATE_RESPONSE(20),
-    STATEDTO_REQUEST(21),
-    STATEDTO_RESPONSE(22),
-    STATE_REQUEST(23),
-    STATE_RESPONSE(24),
-    ON_STATES_OBJECT_REQUEST(25),
-    ON_STATES_OBJECT_RESPONSE(26),
-    INVOKE_REQUEST(27),
-    INVOKE_RESPONSE(28),
-    INVOKE_SERVICE(29),
-    UNKNOWN(30);
+    STATEDTO_REQUEST(19),
+    STATEDTO_RESPONSE(20),
+    STATE_REQUEST(21),
+    STATE_RESPONSE(22),
+    ON_STATES_OBJECT_REQUEST(23),
+    ON_STATES_OBJECT_RESPONSE(24),
+    INVOKE_REQUEST(25),
+    INVOKE_RESPONSE(26),
+    INVOKE_SERVICE(27),
+    UNKNOWN(28);
 
     private Integer value;
 
@@ -85,26 +83,22 @@ public enum DeviceMessageType {
             case 18:
                 return STATES_OBJECT_RESPONSE;
             case 19:
-                return STATE_UPDATE_REQUEST;
-            case 20:
-                return STATE_UPDATE_RESPONSE;
-            case 21:
                 return STATEDTO_REQUEST;
-            case 22:
+            case 20:
                 return STATEDTO_RESPONSE;
-            case 23:
+            case 21:
                 return STATE_REQUEST;
-            case 24:
+            case 22:
                 return STATE_RESPONSE;
-            case 25:
+            case 23:
                 return ON_STATES_OBJECT_REQUEST;
-            case 26:
+            case 24:
                 return ON_STATES_OBJECT_RESPONSE;
-            case 27:
+            case 25:
                 return INVOKE_REQUEST;
-            case 28:
+            case 26:
                 return INVOKE_RESPONSE;
-            case 29:
+            case 27:
                 return INVOKE_SERVICE;
             default:
                 return UNKNOWN;
