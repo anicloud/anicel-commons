@@ -6,7 +6,7 @@ import com.ani.utils.dto.AniRequiredField;
 /**
  * Created by yeh on 15-10-16.
  */
-public abstract class ObjectQueryDto extends AniDto{
+public abstract class ObjectQueryDto extends AniDto {
 
     @AniRequiredField
     public Long objectId;
