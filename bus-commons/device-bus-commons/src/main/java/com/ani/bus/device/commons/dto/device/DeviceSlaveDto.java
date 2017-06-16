@@ -31,7 +31,7 @@ public class DeviceSlaveDto implements ByteSerializable {
 
     }
 
-    public DeviceSlaveDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Integer deviceId, Long masterId) {
+    public DeviceSlaveDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Integer deviceId) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
