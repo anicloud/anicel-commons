@@ -25,7 +25,6 @@ public class DeviceSlaveDto implements ByteSerializable {
     public List<Integer> tags;
 
     public Integer deviceId;
-    public Long masterId;
     public Boolean isactive;
 
     public DeviceSlaveDto() {
