@@ -41,7 +41,6 @@ public class DeviceSlaveDto implements ByteSerializable {
         this.avatarUrl = avatarUrl;
         this.tags = tags;
         this.deviceId = deviceId;
-        this.masterId = masterId;
         this.isactive = true;
     }
 
@@ -61,7 +60,6 @@ public class DeviceSlaveDto implements ByteSerializable {
             }
         }
         out.writeInt(deviceId);
-        out.writeLong(masterId);
         out.writeBoolean(isactive);
         if (functions == null) {
             out.writeShort(0);
@@ -88,7 +86,6 @@ public class DeviceSlaveDto implements ByteSerializable {
             }
         }
         deviceId = in.readInt();
-        masterId = in.readLong();
         isactive = in.readBoolean();
 
         size = in.readShort();
