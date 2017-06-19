@@ -11,6 +11,10 @@ public class StateDtoResponseContent extends DeviceMessageContent {
 
     public Boolean result;
 
+    public StateDtoResponseContent(Boolean result) {
+        this.result = result;
+    }
+
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeBoolean(result);

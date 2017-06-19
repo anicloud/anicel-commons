@@ -10,6 +10,10 @@ import java.io.IOException;
 public class UpdateSingleResponseContent extends DeviceMessageContent {
     public boolean result;
 
+    public UpdateSingleResponseContent(boolean result) {
+        this.result = result;
+    }
+
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeBoolean(result);
