@@ -21,29 +21,25 @@ public class DeviceMasterDto implements ByteSerializable {
 
     public List<FunctionDto> functions;
 
-    public String avatarUrl;
     public List<Integer> tags;
 
     public Long deviceId;
     public List<DeviceSlaveDto> slaves;
 
-    public Long versionId;
     public Long lastModifiedTime;
 
     public DeviceMasterDto() {
     }
 
-    public DeviceMasterDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Long deviceId, List<DeviceSlaveDto> slaves, Long versionId, Long lastModifiedTime) {
+    public DeviceMasterDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, List<Integer> tags, Long deviceId, List<DeviceSlaveDto> slaves, Long lastModifiedTime) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
         this.description = description;
         this.functions = functions;
-        this.avatarUrl = avatarUrl;
         this.tags = tags;
         this.deviceId = deviceId;
         this.slaves = slaves;
-        this.versionId = versionId;
         this.lastModifiedTime = lastModifiedTime;
     }
 
@@ -53,7 +49,6 @@ public class DeviceMasterDto implements ByteSerializable {
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -62,7 +57,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 out.writeInt(tag);
             }
         }
-        out.writeLong(versionId);
         out.writeLong(deviceId);
         if (functions == null) {
             out.writeShort(0);
@@ -89,7 +83,6 @@ public class DeviceMasterDto implements ByteSerializable {
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-        avatarUrl = MessageUtils.readString(in);
         int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
@@ -97,7 +90,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 tags.add(in.readInt());
             }
         }
-        versionId = in.readLong();
         deviceId = in.readLong();
         size = in.readShort();
         if (size > 0) {

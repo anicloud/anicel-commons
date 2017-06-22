@@ -21,7 +21,6 @@ public class DeviceSlaveDto implements ByteSerializable {
 
     public List<FunctionDto> functions;
 
-    public String avatarUrl;
     public List<Integer> tags;
 
     public Integer deviceId;
@@ -31,13 +30,12 @@ public class DeviceSlaveDto implements ByteSerializable {
 
     }
 
-    public DeviceSlaveDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Integer deviceId) {
+    public DeviceSlaveDto(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, List<Integer> tags, Integer deviceId) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
         this.description = description;
         this.functions = functions;
-        this.avatarUrl = avatarUrl;
         this.tags = tags;
         this.deviceId = deviceId;
         this.isactive = true;
@@ -49,7 +47,6 @@ public class DeviceSlaveDto implements ByteSerializable {
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -76,7 +73,6 @@ public class DeviceSlaveDto implements ByteSerializable {
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-        avatarUrl = MessageUtils.readString(in);
         int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
