@@ -21,27 +21,23 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
 
     public List<FunctionDto> functions;
 
-    public String avatarUrl;
     public List<Integer> tags;
 
     public Long deviceId;
 
-    public Long versionId;
     public Long lastModifiedTime;
 
     public UpdateMasterRequestContent() {
     }
 
-    public UpdateMasterRequestContent(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, String avatarUrl, List<Integer> tags, Long deviceId, Long versionId, Long lastModifiedTime) {
+    public UpdateMasterRequestContent(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, List<Integer> tags, Long deviceId, Long lastModifiedTime) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
         this.description = description;
         this.functions = functions;
-        this.avatarUrl = avatarUrl;
         this.tags = tags;
         this.deviceId = deviceId;
-        this.versionId = versionId;
         this.lastModifiedTime = lastModifiedTime;
     }
 
@@ -51,7 +47,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -60,7 +55,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 out.writeInt(tag);
             }
         }
-        out.writeLong(versionId);
         out.writeLong(deviceId);
         if (functions == null) {
             out.writeShort(0);
@@ -79,7 +73,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-        avatarUrl = MessageUtils.readString(in);
         int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
@@ -87,7 +80,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 tags.add(in.readInt());
             }
         }
-        versionId = in.readLong();
         deviceId = in.readLong();
         size = in.readShort();
         if (size > 0) {

@@ -24,7 +24,6 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
 
     public List<FunctionDto> functions;
 
-    public String avatarUrl;
     public List<Integer> tags;
 
 
@@ -39,7 +38,6 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -68,7 +66,6 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-        avatarUrl = MessageUtils.readString(in);
         int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
