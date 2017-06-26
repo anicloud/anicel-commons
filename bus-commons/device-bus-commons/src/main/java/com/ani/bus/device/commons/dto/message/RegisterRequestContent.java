@@ -23,26 +23,22 @@ public class RegisterRequestContent extends DeviceMessageContent {
 
     public String description;
 
-    public String avatarUrl;
 
     public List<Integer> tags;
 
-    public Long versionId;
 
     public Long deviceId;
 
     public RegisterRequestContent() {
     }
 
-    public RegisterRequestContent(Long deviceId, Integer physicalId, Long physicalAddress, String name, String description, String avatarUrl, List<Integer> tags, Long versionId) {
+    public RegisterRequestContent(Long deviceId, Integer physicalId, Long physicalAddress, String name, String description, List<Integer> tags) {
         this.deviceId = deviceId;
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
         this.description = description;
-        this.avatarUrl = avatarUrl;
         this.tags = tags;
-        this.versionId = versionId;
     }
 
     @Override
@@ -52,7 +48,6 @@ public class RegisterRequestContent extends DeviceMessageContent {
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
         MessageUtils.writeString(out, description);
-        MessageUtils.writeString(out, avatarUrl);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -61,7 +56,6 @@ public class RegisterRequestContent extends DeviceMessageContent {
                 out.writeInt(tag);
             }
         }
-        out.writeLong(versionId);
     }
 
     @Override
@@ -71,7 +65,6 @@ public class RegisterRequestContent extends DeviceMessageContent {
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
         description = MessageUtils.readString(in);
-        avatarUrl = MessageUtils.readString(in);
         int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();
@@ -79,6 +72,5 @@ public class RegisterRequestContent extends DeviceMessageContent {
                 tags.add(in.readInt());
             }
         }
-        versionId = in.readLong();
     }
 }
