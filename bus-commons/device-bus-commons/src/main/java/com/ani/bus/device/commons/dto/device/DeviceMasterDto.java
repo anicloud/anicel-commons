@@ -25,6 +25,7 @@ public class DeviceMasterDto implements ByteSerializable {
 
     public Long deviceId;
     public List<DeviceSlaveDto> slaves;
+    public transient Long lastModifiedTime;
 
     public DeviceMasterDto() {
     }
@@ -105,6 +106,7 @@ public class DeviceMasterDto implements ByteSerializable {
                 slaves.add(slave);
             }
         }
+        lastModifiedTime = System.currentTimeMillis();
     }
 
 }

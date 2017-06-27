@@ -25,6 +25,7 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
     public List<Integer> tags;
 
     public Long deviceId;
+    public transient Long lastModifiedTime;
 
     public UpdateMasterRequestContent() {
     }
@@ -87,6 +88,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 functions.add(functionDto);
             }
         }
+        lastModifiedTime = System.currentTimeMillis();
     }
-
 }
