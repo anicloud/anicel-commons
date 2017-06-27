@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-6-14.
+ * Last Modified by xuben on 17-6-27
  */
 public class UpdateMasterRequestContent extends DeviceMessageContent {
     public Integer physicalId;
@@ -25,12 +26,10 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
 
     public Long deviceId;
 
-    public Long lastModifiedTime;
-
     public UpdateMasterRequestContent() {
     }
 
-    public UpdateMasterRequestContent(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, List<Integer> tags, Long deviceId, Long lastModifiedTime) {
+    public UpdateMasterRequestContent(Integer physicalId, Long physicalAddress, String name, String description, List<FunctionDto> functions, List<Integer> tags, Long deviceId) {
         this.physicalId = physicalId;
         this.physicalAddress = physicalAddress;
         this.name = name;
@@ -38,7 +37,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
         this.functions = functions;
         this.tags = tags;
         this.deviceId = deviceId;
-        this.lastModifiedTime = lastModifiedTime;
     }
 
     @Override
@@ -64,7 +62,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 functionDto.write(out);
             }
         }
-        out.writeLong(lastModifiedTime);
     }
 
     @Override
@@ -90,7 +87,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 functions.add(functionDto);
             }
         }
-        lastModifiedTime = in.readLong();
     }
 
 }
