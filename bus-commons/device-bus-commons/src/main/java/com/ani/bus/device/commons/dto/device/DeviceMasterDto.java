@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by huangbin on 12/17/15
- * Modified by xuben on 05/16/17
+ * Modified by xuben on 06/27/17
  */
 public class DeviceMasterDto implements ByteSerializable {
     public Integer physicalId;
@@ -25,8 +25,7 @@ public class DeviceMasterDto implements ByteSerializable {
 
     public Long deviceId;
     public List<DeviceSlaveDto> slaves;
-
-    public Long lastModifiedTime;
+    public transient Long lastModifiedTime;
 
     public DeviceMasterDto() {
     }
@@ -40,7 +39,6 @@ public class DeviceMasterDto implements ByteSerializable {
         this.tags = tags;
         this.deviceId = deviceId;
         this.slaves = slaves;
-        this.lastModifiedTime = lastModifiedTime;
     }
 
     @Override
@@ -74,7 +72,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 slaveDto.write(out);
             }
         }
-        out.writeLong(lastModifiedTime);
     }
 
     @Override
@@ -109,7 +106,7 @@ public class DeviceMasterDto implements ByteSerializable {
                 slaves.add(slave);
             }
         }
-        lastModifiedTime = in.readLong();
+        lastModifiedTime = System.currentTimeMillis();
     }
 
 }
