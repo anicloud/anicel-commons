@@ -40,12 +40,12 @@ public abstract class Message implements Serializable {
 
     public static enum ResultCode {
         SUCCESS(1000),
-        DUPLICATE_KEY_ERROR(1001),
 
         AUTH_ERROR(2001),
         RULE_ERROR(2002),
         DATA_ERROR(2003),
         IO_ERROR(2004),
+        DUPLICATE_KEY_ERROR(2005),
 
         OBJECT_CALL_ERROR(3001),
         SERVICE_CALL_ERROR(3002);
@@ -65,7 +65,7 @@ public abstract class Message implements Serializable {
                 switch (code) {
                     case 1000:
                         return SUCCESS;
-                    case 1001:
+                    case 2005:
                         return DUPLICATE_KEY_ERROR;
                     case 2001:
                         return AUTH_ERROR;
