@@ -80,7 +80,7 @@ public abstract class Message implements Serializable {
                     case 3002:
                         return SERVICE_CALL_ERROR;
                     default:
-                        return null;
+                        return IO_ERROR;
                 }
             } else {
                 throw new IllegalArgumentException("Invalid code: " + code);
