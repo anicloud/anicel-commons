@@ -1,5 +1,6 @@
 package com.ani.bus.service.commons.dto.aniservice;
 
+import javax.rmi.CORBA.Stub;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -33,14 +34,14 @@ public class AniServiceDto implements Serializable {
     public Long accountId;
     public List<AniServiceEntranceDto> entranceList;
     public AniServiceInfoDto aniServiceInfo;
-
+    public List<AniServiceStubDto> aniServiceStubDtoList;
     public AniServiceDto() {
     }
 
     public AniServiceDto(String aniServiceId, String serviceName, String version,
                          String webServerRedirectUri, Long accountId,
                          List<AniServiceEntranceDto> entranceList,
-                         AniServiceInfoDto serviceInfo) {
+                         AniServiceInfoDto serviceInfo,List<AniServiceStubDto> aniServiceStubDtos) {
         this.aniServiceId = aniServiceId;
         this.serviceName = serviceName;
         this.version = version;
@@ -48,6 +49,7 @@ public class AniServiceDto implements Serializable {
         this.accountId = accountId;
         this.entranceList = entranceList;
         this.aniServiceInfo = serviceInfo;
+        this.aniServiceStubDtoList =aniServiceStubDtos;
     }
 
     public AniServiceDto(String aniServiceId, String serviceName,

@@ -54,7 +54,7 @@ public class AniServiceRegisterDto implements Serializable {
      * key is objstub group id, value is objstub id list
      */
     public Map<Long, List<Integer>> stubMap;
-    public String stubMapStr;
+
 
     public AniServiceRegisterDto() {
         this.stubMap = new HashMap<>();
@@ -74,7 +74,7 @@ public class AniServiceRegisterDto implements Serializable {
         this.aniServiceInfo = aniServiceInfo;
         this.stubMap = stubMap;
 
-        setStubMapStr();
+
     }
 
     public AniServiceRegisterDto(String serviceName, String version,
@@ -90,7 +90,7 @@ public class AniServiceRegisterDto implements Serializable {
         this.aniServiceInfo = aniServiceInfo;
         this.stubMap = stubMap;
 
-        setStubMapStr();
+
     }
 
     public String getAniServiceId() {
@@ -101,55 +101,7 @@ public class AniServiceRegisterDto implements Serializable {
         this.aniServiceId = aniServiceId;
     }
 
-    private void setStubMapStr() {
-        try {
-            if (this.stubMap != null) {
-                this.stubMapStr = objectMapper.writeValueAsString(this.stubMap);
-            }
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void setStubMap(Map<Long, List<Integer>> stubMap) {
-        if (this.stubMap == null) {
-            this.stubMap = new HashMap<>();
-        }
-        stubMap.putAll(stubMap);
-        setStubMapStr();
-    }
-
-    public void addStub(Long groupId, Integer stubId) {
-        if (this.stubMap == null) {
-            this.stubMap = new HashMap<>();
-        }
-        List<Integer> stubIdList = this.stubMap.get(groupId);
-        if (stubIdList == null) {
-            stubIdList = new ArrayList<>();
-        }
-        stubIdList.add(stubId);
-        this.stubMap.put(groupId, stubIdList);
-
-        setStubMapStr();
-    }
-
-    public void setAniServiceEntranceList(List<AniServiceEntranceDto> entranceList) {
-        if (this.entranceList == null) {
-            this.entranceList = new ArrayList<>();
-        }
-        this.entranceList.addAll(entranceList);
-    }
-
-    public void addAniServiceEntrance(AniServiceEntranceDto entranceDto) {
-        if (this.entranceList == null) {
-            this.entranceList = new ArrayList<>();
-        }
-        this.entranceList.add(entranceDto);
-    }
-
-    public String getStubMapStr() {
-        return stubMapStr;
-    }
 
     @Override
     public String toString() {
