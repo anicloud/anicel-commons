@@ -16,14 +16,12 @@ public class AniServiceObjInfoDto implements Serializable{
     public Long accountId;
     public String uniId;
     public List<StubInfoDto> stubInfoDtos;
-    public DataState dataState;
     public AniServiceObjInfoDto(){}
 
-    public AniServiceObjInfoDto(Long objectId, Long accountId, String uniId, List<StubInfoDto> stubInfoDtos, DataState dataState) {
+    public AniServiceObjInfoDto(Long objectId, Long accountId, String uniId, List<StubInfoDto> stubInfoDtos) {
         this.objectId = objectId;
         this.accountId = accountId;
         this.uniId = uniId;
         this.stubInfoDtos = stubInfoDtos;
-        this.dataState = dataState;
     }
 }
