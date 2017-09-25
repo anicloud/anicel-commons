@@ -1,7 +1,5 @@
 package com.ani.bus.service.commons.dto.aniservice;
 import com.ani.octopus.commons.object.enumeration.AniObjectState;
-import com.ani.octopus.commons.object.enumeration.DataState;
-import com.ani.octopus.commons.state.dto.StateTransDto;
 import com.ani.octopus.commons.stub.dto.StubInfoDto;
 
 import java.io.Serializable;
@@ -16,12 +14,14 @@ public class AniServiceObjInfoDto implements Serializable{
     public Long accountId;
     public String uniId;
     public List<StubInfoDto> stubInfoDtos;
+    public AniObjectState aniObjectState;
     public AniServiceObjInfoDto(){}
 
-    public AniServiceObjInfoDto(Long objectId, Long accountId, String uniId, List<StubInfoDto> stubInfoDtos) {
+    public AniServiceObjInfoDto(Long objectId, Long accountId, String uniId, List<StubInfoDto> stubInfoDtos,AniObjectState aniObjectState) {
         this.objectId = objectId;
         this.accountId = accountId;
         this.uniId = uniId;
         this.stubInfoDtos = stubInfoDtos;
+        this.aniObjectState=aniObjectState;
     }
 }

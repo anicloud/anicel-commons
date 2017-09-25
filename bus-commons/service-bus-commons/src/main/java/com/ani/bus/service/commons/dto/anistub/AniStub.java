@@ -16,7 +16,6 @@ public class AniStub extends StubInvokeDto implements Serializable {
     private static final long serialVersionUID = 3790604372796535245L;
     @NotNull
     public String keyId = generateKeyId();
-    public Long timeStamp;
     public Long targetObjectId;
     public Integer targetSlaveId;
     public Long accountId;
