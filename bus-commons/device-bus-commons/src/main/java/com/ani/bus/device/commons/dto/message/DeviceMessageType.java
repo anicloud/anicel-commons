@@ -19,19 +19,19 @@ public enum DeviceMessageType {
     UPDATE_MASTER_RESPONSE(12),
     UPDATE_SLAVE_REQUEST(13),
     UPDATE_SLAVE_RESPONSE(14),
-    STATE_OBJECT_REQUEST(15),
-    STATE_OBJECT_RESPONSE(16),
-    STATES_OBJECT_REQUEST(17),
-    STATES_OBJECT_RESPONSE(18),
-    STATEDTO_REQUEST(19),
-    STATEDTO_RESPONSE(20),
-    STATE_REQUEST(21),
-    STATE_RESPONSE(22),
-    ON_STATES_OBJECT_REQUEST(23),
-    ON_STATES_OBJECT_RESPONSE(24),
-    INVOKE_REQUEST(25),
-    INVOKE_RESPONSE(26),
-    INVOKE_SERVICE(27),
+    STATEDTO_REQUEST(15),
+    STATEDTO_RESPONSE(16),
+    STATE_REQUEST(17),
+    STATE_RESPONSE(18),
+    ON_STATES_OBJECT_REQUEST(19),
+    ON_STATES_OBJECT_RESPONSE(20),
+    INVOKE_REQUEST(21),
+    INVOKE_RESPONSE(22),
+    INVOKE_SERVICE(23),
+    STATE_OBJECT_REQUEST(24),
+    STATE_OBJECT_RESPONSE(25),
+    STATES_OBJECT_REQUEST(26),
+    STATES_OBJECT_RESPONSE(27),
     UNKNOWN(28);
 
     private Integer value;
@@ -75,31 +75,31 @@ public enum DeviceMessageType {
             case 14:
                 return UPDATE_SLAVE_RESPONSE;
             case 15:
-                return STATE_OBJECT_REQUEST;
-            case 16:
-                return STATE_OBJECT_RESPONSE;
-            case 17:
-                return STATES_OBJECT_REQUEST;
-            case 18:
-                return STATES_OBJECT_RESPONSE;
-            case 19:
                 return STATEDTO_REQUEST;
-            case 20:
+            case 16:
                 return STATEDTO_RESPONSE;
-            case 21:
+            case 17:
                 return STATE_REQUEST;
-            case 22:
+            case 18:
                 return STATE_RESPONSE;
-            case 23:
+            case 19:
                 return ON_STATES_OBJECT_REQUEST;
-            case 24:
+            case 20:
                 return ON_STATES_OBJECT_RESPONSE;
-            case 25:
+            case 21:
                 return INVOKE_REQUEST;
-            case 26:
+            case 22:
                 return INVOKE_RESPONSE;
-            case 27:
+            case 23:
                 return INVOKE_SERVICE;
+            case 24:
+                return STATE_OBJECT_REQUEST;
+            case 25:
+                return STATE_OBJECT_RESPONSE;
+            case 26:
+                return STATES_OBJECT_REQUEST;
+            case 27:
+                return STATES_OBJECT_RESPONSE;
             default:
                 return UNKNOWN;
         }
