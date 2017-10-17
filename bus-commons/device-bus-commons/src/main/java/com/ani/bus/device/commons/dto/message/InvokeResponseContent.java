@@ -26,7 +26,7 @@ public class InvokeResponseContent extends DeviceMessageContent {
     public void write(DataOutput out) {
         try {
             out.writeBoolean(result);
-            if (result)
+//            if (result)
                 instance.write(out);
         } catch (Exception e) {
             e.printStackTrace();
