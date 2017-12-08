@@ -37,7 +37,7 @@ public class DeviceMessage implements ByteSerializable {
 
     @Override
     public void read(DataInput in) throws IOException {
-        try {
+
             type = DeviceMessageType.getType((int) in.readShort());
             switch (type) {
                 case HEART_BEAT_REQUEST:
@@ -93,9 +93,7 @@ public class DeviceMessage implements ByteSerializable {
                     throw new IOException();
             }
             content.read(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
 }

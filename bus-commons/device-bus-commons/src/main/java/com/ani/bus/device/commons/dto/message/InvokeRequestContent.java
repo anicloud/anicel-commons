@@ -29,12 +29,12 @@ public class InvokeRequestContent extends DeviceMessageContent {
     }
 
     @Override
-    public void read(DataInput in)  {
+    public void read(DataInput in) throws IOException  {
         instance = new FunctionInstance();
-        try {
+      //  try {
             instance.read(in);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }

@@ -34,14 +34,12 @@ public class InvokeResponseContent extends DeviceMessageContent {
     }
 
     @Override
-    public void read(DataInput in) {
-        try {
+    public void read(DataInput in) throws IOException{
+
             result = in.readBoolean();
-//            if (!result) return;
+            if (!result) return;
             instance = new FunctionInstance();
             instance.read(in);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }
