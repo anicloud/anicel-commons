@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-6-13.
+ * Modified by xuben on 18-3-22
  */
 public class UpdateSingleRequestContent extends DeviceMessageContent {
 
@@ -37,7 +38,7 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
         out.writeInt(physicalId);
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
-        MessageUtils.writeString(out, description);
+//        MessageUtils.writeString(out, description);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -65,7 +66,8 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
         physicalId = in.readInt();
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
-        description = MessageUtils.readString(in);
+//        description = MessageUtils.readString(in);
+        description = "empty";
         int size = in.readShort();
         if (size > 0) {
             tags = new ArrayList<>();

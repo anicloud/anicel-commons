@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-6-14.
- * Last Modified by xuben on 17-6-27
+ * Last Modified by xuben on 18-3-22
  */
 public class UpdateMasterRequestContent extends DeviceMessageContent {
     public Integer physicalId;
@@ -45,7 +45,7 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
         out.writeInt(physicalId);
         out.writeLong(physicalAddress);
         MessageUtils.writeString(out, name);
-        MessageUtils.writeString(out, description);
+//        MessageUtils.writeString(out, description);
         if (tags == null) {
             out.writeShort(0);
         } else {
@@ -70,8 +70,9 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
         physicalId = in.readInt();
         physicalAddress = in.readLong();
         name = MessageUtils.readString(in);
-        description = MessageUtils.readString(in);
+//        description = MessageUtils.readString(in);
         int size = in.readShort();
+        description = "empty";
         if (size > 0) {
             tags = new ArrayList<>();
             for (int i = 0; i < size; i++) {
