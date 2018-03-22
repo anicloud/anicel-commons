@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-6-13.
+ * Modified by xuben on 03/23/18
  */
 public class StateDtoRequestContent extends DeviceMessageContent {
     public Integer slaveid;
@@ -23,7 +24,8 @@ public class StateDtoRequestContent extends DeviceMessageContent {
     public void write(DataOutput out) throws IOException {
         out.writeInt(slaveid);
         out.writeInt(smId);
-        MessageUtils.writeLong(out, stateGroupId);
+//        MessageUtils.writeLong(out, stateGroupId);
+        out.writeInt(stateGroupId.intValue());
         out.writeInt(stateId);
         if (properties == null) out.writeInt(0);
         else {
@@ -37,7 +39,8 @@ public class StateDtoRequestContent extends DeviceMessageContent {
     public void read(DataInput in) throws IOException {
         slaveid = in.readInt();
         smId = in.readInt();
-        stateGroupId = MessageUtils.readLong(in);
+//        stateGroupId = MessageUtils.readLong(in);
+        stateGroupId = (long)in.readInt();
         stateId = in.readInt();
         int size = in.readByte();
         properties = new ArrayList<>();

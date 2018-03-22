@@ -8,6 +8,7 @@ import java.io.IOException;
 
 /**
  * Created by huangbin on 12/18/15.
+ * Modified by xuben on 03/23/18
  */
 public class FunctionDto implements ByteSerializable {
     public Integer functionId;
@@ -24,13 +25,13 @@ public class FunctionDto implements ByteSerializable {
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeLong(groupId);
+        out.writeInt(groupId.intValue());
         out.writeInt(functionId);
     }
 
     @Override
     public void read(DataInput in) throws IOException {
-        groupId = in.readLong();
+        groupId = (long) in.readInt();
         functionId = in.readInt();
     }
 }

@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-3-24.
+ * Modified by xuben on 03/23/18
  */
 public class DeviceStateDBDto implements ByteSerializable {
     public Long stateGroupId;
@@ -30,7 +31,8 @@ public class DeviceStateDBDto implements ByteSerializable {
     @Override
     public void write(DataOutput out) {
         try {
-            MessageUtils.writeLong(out, stateGroupId);
+//            MessageUtils.writeLong(out, stateGroupId);
+            out.writeInt(stateGroupId.intValue());
             out.writeInt(stateId);
             if (properties == null) out.writeInt(0);
             else {
@@ -46,7 +48,8 @@ public class DeviceStateDBDto implements ByteSerializable {
     @Override
     public void read(DataInput in) {
         try {
-            stateGroupId = MessageUtils.readLong(in);
+//            stateGroupId = MessageUtils.readLong(in);
+            stateGroupId = (long)in.readInt();
             stateId = in.readInt();
             int size = in.readByte();
             properties = new ArrayList<>();
