@@ -10,13 +10,13 @@ import java.util.Collection;
 
 /**
  * Created by zsl on 17-3-24.
+ * Modified by xuben on 03/26/18
  */
 public class DeviceStateMachineNodeDBDto implements ByteSerializable {
     public DeviceStateDBDto state;
     public Collection<DeviceStateTransferStubInvokeTriggerDBDto> deviceStateTransferStubInvokeTriggerDBDtos;
 
     public DeviceStateMachineNodeDBDto() {
-
     }
 
     public DeviceStateMachineNodeDBDto(Long stateGroupId, Integer stateId) {
@@ -26,14 +26,15 @@ public class DeviceStateMachineNodeDBDto implements ByteSerializable {
     @Override
     public void write(DataOutput out) throws IOException {
         state.write(out);
-        if (deviceStateTransferStubInvokeTriggerDBDtos == null) {
-            out.writeInt(0);
-        } else {
-            out.writeInt(deviceStateTransferStubInvokeTriggerDBDtos.size());
-            for (DeviceStateTransferStubInvokeTriggerDBDto deviceStateTransferStubInvokeTriggerDBDto : deviceStateTransferStubInvokeTriggerDBDtos) {
-                deviceStateTransferStubInvokeTriggerDBDto.write(out);
-            }
-        }
+//        out.writeInt(0);
+//        if (deviceStateTransferStubInvokeTriggerDBDtos == null) {
+//            out.writeInt(0);
+//        } else {
+//            out.writeInt(deviceStateTransferStubInvokeTriggerDBDtos.size());
+//            for (DeviceStateTransferStubInvokeTriggerDBDto deviceStateTransferStubInvokeTriggerDBDto : deviceStateTransferStubInvokeTriggerDBDtos) {
+//                deviceStateTransferStubInvokeTriggerDBDto.write(out);
+//            }
+//        }
 
     }
 
@@ -41,14 +42,14 @@ public class DeviceStateMachineNodeDBDto implements ByteSerializable {
     public void read(DataInput in) throws IOException {
         state = new DeviceStateDBDto();
         state.read(in);
-        int size = in.readInt();
+//        int size = in.readInt();
         deviceStateTransferStubInvokeTriggerDBDtos = new ArrayList<>();
-        if (size > 0) {
-            for (int i = 0; i < size; i++) {
-                DeviceStateTransferStubInvokeTriggerDBDto deviceStateTransferStubInvokeTriggerDBDto = new DeviceStateTransferStubInvokeTriggerDBDto();
-                deviceStateTransferStubInvokeTriggerDBDto.read(in);
-                deviceStateTransferStubInvokeTriggerDBDtos.add(deviceStateTransferStubInvokeTriggerDBDto);
-            }
-        }
+//        if (size > 0) {
+//            for (int i = 0; i < size; i++) {
+//                DeviceStateTransferStubInvokeTriggerDBDto deviceStateTransferStubInvokeTriggerDBDto = new DeviceStateTransferStubInvokeTriggerDBDto();
+//                deviceStateTransferStubInvokeTriggerDBDto.read(in);
+//                deviceStateTransferStubInvokeTriggerDBDtos.add(deviceStateTransferStubInvokeTriggerDBDto);
+//            }
+//        }
     }
 }
