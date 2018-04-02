@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by huangbin on 10/23/15
- * Modified by xuben on 03/22/18
+ * Modified by xuben on 04/02/18
  */
 public class RegisterRequestContent extends DeviceMessageContent {
 
@@ -46,16 +46,16 @@ public class RegisterRequestContent extends DeviceMessageContent {
         out.writeLong(deviceId);
         out.writeInt(physicalId);
         out.writeLong(physicalAddress);
-        MessageUtils.writeString(out, name);
+//        MessageUtils.writeString(out, name);
 //        MessageUtils.writeString(out, description);
-        if (tags == null) {
-            out.writeShort(0);
-        } else {
-            out.writeShort(tags.size());
-            for (Integer tag : tags) {
-                out.writeInt(tag);
-            }
-        }
+//        if (tags == null) {
+//            out.writeShort(0);
+//        } else {
+//            out.writeShort(tags.size());
+//            for (Integer tag : tags) {
+//                out.writeInt(tag);
+//            }
+//        }
     }
 
     @Override
@@ -63,15 +63,15 @@ public class RegisterRequestContent extends DeviceMessageContent {
         deviceId = in.readLong();
         physicalId = in.readInt();
         physicalAddress = in.readLong();
-        name = MessageUtils.readString(in);
+//        name = MessageUtils.readString(in);
 //        description = MessageUtils.readString(in);
         description = "empty";
-        int size = in.readShort();
-        if (size > 0) {
-            tags = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                tags.add(in.readInt());
-            }
-        }
+//        int size = in.readShort();
+//        if (size > 0) {
+//            tags = new ArrayList<>();
+//            for (int i = 0; i < size; i++) {
+//                tags.add(in.readInt());
+//            }
+//        }
     }
 }

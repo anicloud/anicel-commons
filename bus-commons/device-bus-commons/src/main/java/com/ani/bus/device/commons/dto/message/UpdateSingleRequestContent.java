@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-6-13.
- * Modified by xuben on 18-3-22
+ * Modified by xuben on 18-4-02
  */
 public class UpdateSingleRequestContent extends DeviceMessageContent {
 
@@ -47,7 +47,6 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
                 out.writeInt(tag);
             }
         }
-        out.writeBoolean(isactive);
         if (functions == null) {
             out.writeShort(0);
         } else {
@@ -56,6 +55,7 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
                 functionDto.write(out);
             }
         }
+        out.writeBoolean(isactive);
     }
 
     @Override
@@ -75,8 +75,6 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
                 tags.add(in.readInt());
             }
         }
-//        masterId = in.readLong();
-        isactive = in.readBoolean();
 
         size = in.readShort();
         if (size > 0) {
@@ -87,5 +85,8 @@ public class UpdateSingleRequestContent extends DeviceMessageContent {
                 functions.add(functionDto);
             }
         }
+
+//        masterId = in.readLong();
+        isactive = in.readBoolean();
     }
 }

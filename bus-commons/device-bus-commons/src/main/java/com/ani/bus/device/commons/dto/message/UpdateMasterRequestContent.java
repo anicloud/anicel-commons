@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by zsl on 17-6-14.
- * Last Modified by xuben on 18-3-22
+ * Last Modified by xuben on 18-4-02
  */
 public class UpdateMasterRequestContent extends DeviceMessageContent {
     public Integer physicalId;
@@ -54,7 +54,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 out.writeInt(tag);
             }
         }
-        out.writeLong(deviceId);
         if (functions == null) {
             out.writeShort(0);
         } else {
@@ -63,6 +62,7 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 functionDto.write(out);
             }
         }
+        out.writeLong(deviceId);
     }
 
     @Override
@@ -79,7 +79,6 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 tags.add(in.readInt());
             }
         }
-        deviceId = in.readLong();
         size = in.readShort();
         if (size > 0) {
             functions = new ArrayList<>();
@@ -89,6 +88,7 @@ public class UpdateMasterRequestContent extends DeviceMessageContent {
                 functions.add(functionDto);
             }
         }
+        deviceId = in.readLong();
         lastModifiedTime = System.currentTimeMillis();
     }
 }

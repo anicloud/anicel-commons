@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by huangbin on 12/17/15
- * Modified by xuben on 03/22/18
+ * Modified by xuben on 04/02/18
  */
 public class DeviceMasterDto implements ByteSerializable {
     public Integer physicalId;
@@ -55,7 +55,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 out.writeInt(tag);
             }
         }
-        out.writeLong(deviceId);
         if (functions == null) {
             out.writeShort(0);
         } else {
@@ -64,6 +63,8 @@ public class DeviceMasterDto implements ByteSerializable {
                 functionDto.write(out);
             }
         }
+
+        out.writeLong(deviceId);
         if (slaves == null) {
             out.writeShort(0);
         } else {
@@ -88,7 +89,6 @@ public class DeviceMasterDto implements ByteSerializable {
                 tags.add(in.readInt());
             }
         }
-        deviceId = in.readLong();
         size = in.readShort();
         if (size > 0) {
             functions = new ArrayList<>();
@@ -98,6 +98,7 @@ public class DeviceMasterDto implements ByteSerializable {
                 functions.add(functionDto);
             }
         }
+        deviceId = in.readLong();
         size = in.readShort();
         if (size > 0) {
             slaves = new ArrayList<>();

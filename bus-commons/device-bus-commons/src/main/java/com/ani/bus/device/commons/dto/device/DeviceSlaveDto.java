@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by huangbin on 12/18/15
- * Last Modified by xuben on 03/22/18
+ * Last Modified by xuben on 04/02/18
  */
 public class DeviceSlaveDto implements ByteSerializable {
     public Integer physicalId;
@@ -55,8 +55,6 @@ public class DeviceSlaveDto implements ByteSerializable {
                 out.writeInt(tag);
             }
         }
-        out.writeInt(deviceId);
-        out.writeBoolean(isactive);
         if (functions == null) {
             out.writeShort(0);
         } else {
@@ -65,6 +63,9 @@ public class DeviceSlaveDto implements ByteSerializable {
                 functionDto.write(out);
             }
         }
+
+        out.writeInt(deviceId);
+        out.writeBoolean(isactive);
     }
 
     @Override
@@ -81,9 +82,6 @@ public class DeviceSlaveDto implements ByteSerializable {
                 tags.add(in.readInt());
             }
         }
-        deviceId = in.readInt();
-        isactive = in.readBoolean();
-
         size = in.readShort();
         if (size > 0) {
             functions = new ArrayList<>();
@@ -93,5 +91,8 @@ public class DeviceSlaveDto implements ByteSerializable {
                 functions.add(functionDto);
             }
         }
+
+        deviceId = in.readInt();
+        isactive = in.readBoolean();
     }
 }
